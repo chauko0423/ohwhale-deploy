@@ -49,7 +49,9 @@ powershell -NoProfile -File install/verify.ps1 -Stage 2 -Json
 
 ## 3. 填账号、密钥和设备
 
-也可打开 `account-setup` 文件夹，双击 `1-Edit-local-config.cmd`：它创建缺少的配置并用记事本打开 `.env` 和 `config.json`。按同目录的填写说明保存后，运行 `2-Apply-account-config.cmd`，检查必填项并导入 AstrBot 配置与人设。该入口已通过隔离环境测试，实际账号在线验证仍需后续完成。已有配置不会被第一步覆盖；第二步拒绝覆盖手工修改的 AstrBot 配置。
+推荐打开 `account-setup` 文件夹，双击 `1-Edit-local-config.cmd`。中文窗口集中填写主人 QQ、DeepSeek 密钥、百炼密钥和面板密码，每项都有用途说明。点击“保存并完成配置”即可检查必填项并导入 AstrBot 配置与人设，不必再运行第二个脚本。此前填写过的内容会自动带入，密钥默认隐藏；窗口打开后若配置文件被其他程序修改，将停止保存并提示重开。已经建立的 AstrBot 账号配置需在面板调整，窗口不会静默覆盖。此步骤不调用付费 API、不发送 QQ 消息，实际账号在线验证仍需后续完成。
+
+以下为手动配置方式；`.env` 模板有逐项中文注释，`config.json` 顶部的 `master.qq` 是主人 QQ。JSON 不支持注释，字段说明见 `account-setup/填写说明.txt`。
 
 ```powershell
 powershell -NoProfile -File install/30_config.ps1

@@ -2,12 +2,12 @@
   "release": "0.1.0a1",
   "status": "local-preview-candidate",
   "publicly_published": false,
-  "source_syntax_files": 46,
+  "source_syntax_files": 48,
   "source_scan": {
     "ok": true,
     "scope": "offline-source-only",
-    "files": 516,
-    "source_bytes": 715253,
+    "files": 519,
+    "source_bytes": 731976,
     "stickers": 362,
     "moods": 12,
     "problems": []
@@ -19,7 +19,8 @@
     "device_installer": 1,
     "tls_download": 3,
     "optional_language_loading": 3,
-    "total": 107,
+    "account_form": 5,
+    "total": 112,
     "failed": 0
   },
   "known_secret_value_matches": 0,

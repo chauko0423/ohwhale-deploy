@@ -1,16 +1,22 @@
-1. 双击 1-Edit-local-config.cmd，会打开两个本地配置文件。
+首次配置：只需打开一个窗口
 
-.env：在等号后填写 DEEPSEEK_API_KEY、DASHSCOPE_API_KEY。
-ASTRBOT_DASHBOARD_PASSWORD 是你为本项目设置的新面板密码，至少 8 位，包含大写、小写字母和数字。
-ONEBOT_ACCESS_TOKEN 可暂时留空；如果填写，稍后需在 QQ 客户端配置同一个值。
-不要将密钥发到聊天、截图或公开仓库。
+1. 双击 1-Edit-local-config.cmd，会打开“哦鲸鲸 · 首次配置”中文窗口。
+2. 从上到下填写四项，每项下方都有说明：
+   主人 QQ：你用来与机器人聊天的 QQ 号，不是机器人登录账号。
+   DeepSeek 密钥：DeepSeek 平台的 API Key，用于聊天回复。
+   百炼密钥：百炼控制台的 DashScope API Key，用于通话识别与画面理解。
+   面板密码：自己新设一个，至少 8 位，包含大写、小写字母和数字。
+3. 点击“保存并完成配置”。出现“配置完成”后回复此提示即可。
 
-config.json：顶部 master 下的 qq 填你的主人 QQ 号，即用来与机器人聊天的那个 QQ，不是机器人登录账号。
-保留双引号，例如 "qq": "你的主人QQ号"。其他字段先保持原样。
+之前在本机填过的内容会自动带入，密钥默认隐藏。
+提示缺失或格式错误时，按提示修改后再保存。
+此步骤不会调用付费 API 或发送 QQ 消息；接下来仍需 QQ 登录和通话测试。
 
-2. 两个文件都按 Ctrl+S 保存，关闭编辑窗口，再双击 2-Apply-account-config.cmd。
-它检查配置是否填写，建立 AstrBot 配置并导入默认人设，不发送 API 请求或 QQ 消息。
-成功提示 Local profile prepared；如果出现 BLOCKED，保留窗口。
+手动配置（可选）
+配置保存于 OhWhale 根目录的 .env 和 config.json。
+.env 的等号后填写密钥和密码；config.json 顶部 master.qq 保存主人 QQ。
+JSON 不支持注释，请保留引号和逗号。其他字段通常无需修改。
+ONEBOT_ACCESS_TOKEN 初次可留空；若填写，QQ 客户端需使用同一值。
+2-Apply-account-config.cmd 保留给手动修改配置后的检查；使用中文窗口时不必再运行。
 
-3. 仅回复“配置完成”或报错信息。不要上传 .env、config.json、AstrBot 配置文件或账号数据。
-后续仍需 QQ 登录、音频设备和实际通话测试。
+不要上传 .env、config.json、AstrBot 配置文件或账号数据；只需告知成功或错误提示。

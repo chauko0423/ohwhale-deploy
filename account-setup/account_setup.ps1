@@ -4,12 +4,8 @@ Set-Location -LiteralPath $ProjectRoot
 if ($Action -eq 'Prepare') {
     & $ProjectPython -m ohwhale.deploy configure
     if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-    Write-Host 'Edit .env: DeepSeek key, DashScope key, and your new dashboard password.'
-    Write-Host 'Edit config.json: master.qq is YOUR owner QQ, not the robot account.'
-    Write-Host 'Save both files, close the editors, then run 2-Apply-account-config.cmd.'
     if (-not $NoEditor) {
-        Start-Process -FilePath 'notepad.exe' -ArgumentList ('"' + (Join-Path $ProjectRoot '.env') + '"')
-        Start-Process -FilePath 'notepad.exe' -ArgumentList ('"' + (Join-Path $ProjectRoot 'config.json') + '"')
+        & (Join-Path $PSScriptRoot 'account_wizard.ps1')
     }
     exit 0
 }
