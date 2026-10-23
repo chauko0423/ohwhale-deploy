@@ -1,0 +1,17 @@
+OhWhale original scripts and plugins: Copyright 2026 四季, MIT.
+
+Third-party dependencies retain their own licenses. This repository does not
+redistribute the AstrBot, GPT-SoVITS, QQ, LLBot or VB-CABLE runtime binaries.
+
+AstrBot: https://github.com/AstrBotDevs/AstrBot, AGPL-3.0.
+GPT-SoVITS source: https://github.com/RVC-Boss/GPT-SoVITS, MIT, Copyright RVC-Boss.
+The upstream source license is not a substitute for individual model/data/asset terms.
+CameraEmulator shared-memory protocol: Copyright 2026 Jean-Noël Haas
+(FinalAnalytics), MIT; supplied upstream license in third-party/CameraEmulator-LICENSE.
+LLBot distribution: https://luckylillia.com/ ; follow the terms of the selected release.
+VB-CABLE: https://vb-audio.com/Cable/ ; install from the vendor.
+FFmpeg: https://ffmpeg.org/ ; binary license depends on build configuration.
+Python dependencies are installed independently; see requirements.txt and the
+license metadata of the exact installed distributions.
+
+Asset provenance and verification status: assets/ASSETS.md.

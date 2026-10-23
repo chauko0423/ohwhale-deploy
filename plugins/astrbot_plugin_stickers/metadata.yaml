@@ -1,0 +1,6 @@
+name: astrbot_plugin_stickers
+display_name: 表情包
+desc: 让鲸鲸在合适的时候发自己的表情包（按情绪挑图，有冷却与每日上限）
+version: 1.0.0
+author: 小满
+repo: local

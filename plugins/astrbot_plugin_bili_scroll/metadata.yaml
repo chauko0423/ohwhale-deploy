@@ -1,0 +1,4 @@
+name: astrbot_plugin_bili_scroll
+desc: 让小满逛B站：搜最新视频、看详情、读字幕/评论、点赞、发评论；带扫码登录与风控限流。
+author: 小满
+version: 0.2.0

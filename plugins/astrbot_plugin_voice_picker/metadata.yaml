@@ -1,0 +1,4 @@
+name: astrbot_plugin_voice_picker
+desc: 按内容决定发语音还是发文字：短句和情绪浓的句子发语音，长段落发文字，自然混排。
+author: 大肥鱼
+version: 0.1.0

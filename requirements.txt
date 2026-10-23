@@ -1,0 +1,15 @@
+# Versions observed in the source installation; install into a separate venv.
+astrbot==4.29.1
+httpx==0.28.1
+numpy==2.5.4
+soundcard==0.4.6
+sounddevice==0.5.6
+soundfile==0.14.0
+dashscope==1.27.8
+Pillow==13.0.0
+pywinauto==0.6.9
+psutil==7.1.3
+comtypes==1.4.17
+qrcode==8.2
+PyYAML==6.0.3
+pycaw==20260927

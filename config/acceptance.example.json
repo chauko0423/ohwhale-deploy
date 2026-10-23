@@ -1,0 +1,22 @@
+{
+  "recorded_at": "",
+  "machine": "",
+  "fresh_machine": false,
+  "qq_logged_in": false,
+  "qq_text_reply": false,
+  "persona_imported": false,
+  "functional": {
+    "private_chat": false, "group_mention": false, "cross_day_memory": false,
+    "stickers": false, "voice_message": false,
+    "auto_answer": false, "hear_voice": false, "sentence_merge": false,
+    "streaming_reply": false, "short_phone_reply": false, "interrupt": false, "default_voice": false,
+    "video_avatar": false, "lip_sync": false, "avatar_fps": false,
+    "scheduled_browse": false, "search_subtitles": false, "watch_video_audio": false,
+    "triple_share": false, "rate_limit": false, "dm_reply": false,
+    "call_recovery": false, "recorder_recovery": false, "mic_guard": false, "audio_doctor": false
+  },
+  "metrics": {"answer_first_audio_s": null, "asr_cost_s": null, "tts_first_chunk_s": null,
+    "interrupt_false_positive": null, "avatar_fps": null, "reply_len_avg": null},
+  "doctor_all_pass": false,
+  "experience": {"interrupted": false, "teased": false, "casual_chat": false}
+}

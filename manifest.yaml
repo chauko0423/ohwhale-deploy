@@ -1,0 +1,30 @@
+schema: 1
+project: ohwhale-deploy
+version: 0.1.0a1
+status: preview-candidate
+verified_fresh_install: false
+platform:
+  full_stack: Windows 11 x64 (target; fresh installation not verified)
+  python: '>=3.12'
+  gpu_runtime: GPT-SoVITS v2Pro; match PyTorch to the user's CUDA hardware
+services:
+  astrbot: {version: 4.29.1, dashboard_port: 6185, license: AGPL-3.0}
+  llbot: {observed_version: 8.3.2, onebot_reverse_ws_port: 6199, webui_port: 3080, install: manual}
+  qq: {observed_version: 9.9.35.52892, login: user-scan}
+  tts: {port: 9880, version: v2Pro, gpt: upstream-s1v3, sovits: default-finetuned}
+  avatar: {udp_port: 9999, virtual_camera: CameraEmulator, install: manual}
+required_secrets: [DEEPSEEK_API_KEY, DASHSCOPE_API_KEY, ASTRBOT_DASHBOARD_PASSWORD]
+required_config: [master.qq, paths.tts_python, paths.llbot_exe, audio.playback_hint, audio.capture_hint]
+optional_features: [bilibili, avatar, mic_guard, cloud-cloned-voice]
+download_catalog: config/downloads.json
+default_voice_weights_in_git: false
+checks:
+  source: python scripts/release_check.py
+  offline_tests: python -m unittest discover -s tests -v
+  install: install/verify.ps1 -Stage 2 -Json
+  audio: install/verify.ps1 -Stage 5 -Json
+  acceptance_record: install/verify.ps1 -Stage 6 -Json
+acceptance:
+  functional_items: 25
+  automatic_interaction_test: false
+  human_experience_review_required: true

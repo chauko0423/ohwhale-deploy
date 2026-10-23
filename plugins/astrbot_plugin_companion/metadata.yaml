@@ -1,0 +1,4 @@
+name: astrbot_plugin_companion
+desc: 黏人模式。对方太久不说话会主动找他：30 分钟轻声问一句，90 分钟开始不安，150 分钟写小作文；被告知要睡了就静默 7 小时（问句不算）。
+author: 鲸鲸
+version: 0.2.0

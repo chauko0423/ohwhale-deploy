@@ -1,0 +1,2284 @@
+{
+  "files": [
+    {
+      "path": "assets/avatar/layers/back_hair.png",
+      "bytes": 309272,
+      "sha256": "84de40676476d9276c881bd657a7e4d5a1c92967bcdce5b8b55399b5cf93e2bc",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/avatar/layers/earwear.png",
+      "bytes": 38717,
+      "sha256": "d9f28dcb9e1c863142bce7efad0f09d663eeb25a873cdd5b200a6f960be19b16",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/avatar/layers/eyebrow.png",
+      "bytes": 8096,
+      "sha256": "f348c2c07194e4e5d40824970867c205af61ea5ca474484744ae0a9c27a1e453",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/avatar/layers/eyelash.png",
+      "bytes": 20141,
+      "sha256": "c4da4e1fde218e43d6054fad47b0fb338bd4554f4f7ad828f8357258abe2f34e",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/avatar/layers/eyewhite.png",
+      "bytes": 57813,
+      "sha256": "586004704c0ada57417e833218b837ad96181460b5dbd29567eee3626bf1bbb7",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/avatar/layers/face.png",
+      "bytes": 71397,
+      "sha256": "3cdfa6b2db6d1b782776ac4f83c8f8c899d1b7f78a660b111be11fa08dfd4f86",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/avatar/layers/footwear.png",
+      "bytes": 30082,
+      "sha256": "1659b6ef99a725d6fa76e4283dd7f0eac4ac53d8a060831510bd66d551533a50",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/avatar/layers/front_hair.png",
+      "bytes": 158124,
+      "sha256": "433b73fa796a908ab18809c1d2c4b9351a1fd78090b0de4860e3e77c17d585cd",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/avatar/layers/handwear.png",
+      "bytes": 48754,
+      "sha256": "08b76925878f4aed7d9f37bd751be5e403f3f09966dd7caf00f66822268da833",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/avatar/layers/headwear.png",
+      "bytes": 92063,
+      "sha256": "7c14e1b4300d53606b4bc49f87cbffc738bb74e0e38d541104c8eb16250f31a6",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/avatar/layers/irides.png",
+      "bytes": 22503,
+      "sha256": "900602dee7dbc21a0f89aa790e2d9a89a58a1917c1eaf5880ea6d7186c616df8",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/avatar/layers/mouth.png",
+      "bytes": 4832,
+      "sha256": "ba9aaca044dd4468dc423a9497c067ae81b5878fb78c361431441acde55dd03f",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/avatar/layers/neck.png",
+      "bytes": 21376,
+      "sha256": "44d4ad625b8a35a394c80fb2de9470b84318196a735dff38ab862cd9fcfd81f9",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/avatar/layers/topwear.png",
+      "bytes": 140551,
+      "sha256": "be251fc1c3295a97ed061150321e94f195aaa4a04e8798a041c8b61c1d41d1cf",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/avatar/scene_base.jpg",
+      "bytes": 362447,
+      "sha256": "a3aca149e998e3944c892023f3216acb849f211b55b05516847e42d6d50c5089",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/avatar/scene_base_v2.jpg",
+      "bytes": 340727,
+      "sha256": "e855fc0eeb30971353f494616685c56904d95fdf7992f2daacbebc79c6de864b",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/avatar/scene_final_1280.jpg",
+      "bytes": 353717,
+      "sha256": "3f0d5bad77e7f0500a953d472ddd0bcf6169601f04056b0173b6ddbd3a5d6eed",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/03223e092a498d68.jpg",
+      "bytes": 32759,
+      "sha256": "ff6995c848c97ce8a3c42d8204bf830620cb5b4a417cb72a0464a783b524cd69",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/2b7eb420a1b10d20.jpg",
+      "bytes": 52920,
+      "sha256": "753250e2767792a0dfe193bbe34132dc867e7469bc04d1da6ddd39562479ceb0",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/48bb2751a42ed20c.jpg",
+      "bytes": 56018,
+      "sha256": "cd9e9b2243c64f68104790bf351ec4576793530cc256efff550200ac3d9c57cd",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/5039f9fc53821008.jpg",
+      "bytes": 39135,
+      "sha256": "d69a79a9998d76415050d28e26bf18919c92f84c855acc4a494d22a4731679a0",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/51ba78349e53bff2.jpg",
+      "bytes": 44560,
+      "sha256": "4d1f85f807c3b189173cd642687cdb5a0591da2dc25268b81bcf082bf46eaa9e",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/5bb8a6f59ee76fa6.jpg",
+      "bytes": 54340,
+      "sha256": "3acbf8e2ff6dc12a0b5ab659f06fa2005372b16979a8155bf09a9598759f63f3",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/70b541b7dfaa14ce.jpg",
+      "bytes": 29501,
+      "sha256": "d38ac42589828478a7af249971d169bd650f3e4e256e4cecc8c720298ffe6d78",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/85a40e09af4f0c98.jpg",
+      "bytes": 43062,
+      "sha256": "d810adfb0339c1547db5a09b983e840acc0d7d18d37bec5aef32fc71d7efa36b",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/91c66d4f37ec6277.jpg",
+      "bytes": 33304,
+      "sha256": "a9eb514c88cdc370ab9c8ecd9aa9f9363175625a93677e89c804d067663c0ca3",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/9e1239a7fe8655ac.jpg",
+      "bytes": 46645,
+      "sha256": "3a9f728aaf1d097e8d2759d71ce6516ad1c855928561b1795a3c7bbe17130278",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/a34db4c83cb52516.jpg",
+      "bytes": 48321,
+      "sha256": "dd10cb6caf502a08056683cd6241272ee451a477e98bf4949c55f0bbcf6e9bd2",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/aae4191eb0f86438.jpg",
+      "bytes": 35638,
+      "sha256": "70ea861219669d3a88d797e5170837e03347ac8be7c952042ddd85b091c63a43",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/b195891d494c0285.jpg",
+      "bytes": 43674,
+      "sha256": "8e755c31abebeb58730680e6a992f0c090cc769932e72c993c9109f913095f0f",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/bb736b477fcd2ad0.jpg",
+      "bytes": 42133,
+      "sha256": "79d31067fd9c6087356156e7d1dcb47d56908db7492142f6c488a87faed150d4",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/bc99819ef775715e.jpg",
+      "bytes": 40627,
+      "sha256": "0fa90aef8a620e1835e7b5502fcfba15fa38b578b896cb09482b2a9ed8413f9f",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/c108e3aea5616ec5.jpg",
+      "bytes": 40782,
+      "sha256": "dde90cab4f07f87eab8bc38e65d16c5986c35dbb103ee33f730b11a270e2e8d5",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/c3a5f696dae595da.jpg",
+      "bytes": 14038,
+      "sha256": "e11a6b4f6b4997d087db1eb3bde871a34ff0df4abb4dbb0f601c70d0c2cb52f1",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/ccd2e9292ada548a.jpg",
+      "bytes": 55306,
+      "sha256": "42976a71bff69084cb059db8aa11b29c314e7a35069ca247b27f1d1c7ee89bca",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/cea666e5cedf0e9a.jpg",
+      "bytes": 42795,
+      "sha256": "168429575aafc61a8fc4688d9d635e1caa64a6f784df7a811ecea95376fd7414",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/d3861b714a5eec11.jpg",
+      "bytes": 48407,
+      "sha256": "e18706432b45bfdc9983cc6362fb3a002d0b2bc63e0365cd4ee548cfcf3d92e2",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/d4ac8a55c4d1c1f3.jpg",
+      "bytes": 43200,
+      "sha256": "06c82644c66c3001ed33e85ac36373f1c7e79b0e83d81cc3aad8bdfbb1a44978",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/d953488c7e08821c.jpg",
+      "bytes": 42923,
+      "sha256": "5934d0487f777b9a607a622c3f099fd0652061ee8ed79f8524be98502e969124",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/e270ae365194e58c.jpg",
+      "bytes": 62854,
+      "sha256": "1e8c3dc6162978ef9d966d41f53a5b1d662dcee470c395c16dc98c0d3dc0d3bd",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/e3a3a12b53712298.jpg",
+      "bytes": 16324,
+      "sha256": "08464f570ff63d3742d8efdf9c08b72b7a04ad7140f94a909b17f25a5e0b039d",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/e4f8bc43f8de87ca.jpg",
+      "bytes": 40123,
+      "sha256": "4269f9f2d1af646bbe5b088a9b8d9070b9fb23dcd9790c367d8974787388d453",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/f18c2697939ab510.jpg",
+      "bytes": 42745,
+      "sha256": "ccf1422cf90273501d4a6c7996dfa81a8ce4be89ec603faeea092955dd944ce7",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/困累/fb95eaaf2f704118.jpg",
+      "bytes": 67262,
+      "sha256": "ac0ecb45260ebacc93e34ecd28ff305a54bfaf216e6e62a7f3e46ef7886f5203",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/032baf52edfc09a2.jpg",
+      "bytes": 37321,
+      "sha256": "fe74fff87294f2a7d4d03099b324a7e1dc4fcee76e1d574caf406509c017bce8",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/13b800afa15c7377.jpg",
+      "bytes": 59506,
+      "sha256": "ab773be30083b61038da0c4f8102bd36a1e70905050a702925b7a454c97a01d6",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/1f2c1f71566f07b7.jpg",
+      "bytes": 38393,
+      "sha256": "c5e81355844b77e778c5cf17a8aad0658417d47097a3b6a73bb5944eeff88611",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/2020685622bbea74.jpg",
+      "bytes": 55094,
+      "sha256": "5c6b0b741910e9f8175b5afcdc11f29440de1b354a94db48a4dce5cba093da14",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/2081f6e042f3d75b.jpg",
+      "bytes": 30724,
+      "sha256": "63356cbb07d634e972088b001af656efb24b90eb11ad31870e761e7f3812e969",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/27eb58f08a09cf0b.jpg",
+      "bytes": 43684,
+      "sha256": "3a1b2f7b8738ba7f8b4315abc3c8c932c9b2014575b8c6ee28fc80664c263bb8",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/3db03ecc6133f8fc.jpg",
+      "bytes": 81549,
+      "sha256": "ed6c0677e4b69ee19402ac3724912f369eb192e8a98dae595c6e7bb88fc2eeaf",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/45f061a596c0d5ee.jpg",
+      "bytes": 49850,
+      "sha256": "e9f050082886ce1df0b1758e7e609c7733ad5591a624c05723e8da378450d8fb",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/4b4b3efb08cff0a5.jpg",
+      "bytes": 46232,
+      "sha256": "feb4b1725f50b53dcad052a79998631366a1c6c5f29cfb7040cc24dc24ac9798",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/4c5e717676668f94.jpg",
+      "bytes": 48350,
+      "sha256": "67ee32d882fe03f1cd8f89b607526f778d1e6fd3b6a83884054bedfd77e9fd28",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/520416dfdd9043c6.jpg",
+      "bytes": 39997,
+      "sha256": "d8a35f1580f64a5edca2a21579300a598ed3a9df268de24be5e3efc14789288d",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/576ece594bff8a71.jpg",
+      "bytes": 68930,
+      "sha256": "4b39fbbc4f8f1e8e9753d6314cb3ea87fb3f0c579289a08c8cdeacb47e7fa54e",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/67ca03f1c9d9fa3c.jpg",
+      "bytes": 30671,
+      "sha256": "44d399be5f5421b28b0a1d837dd90f9ab2a9cbe09a6530982d6c58b2314f1838",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/70ec54839e1f955e.jpg",
+      "bytes": 37085,
+      "sha256": "ead85bf6092fd6802426f342326ac7673c27b190696934aaff60b500de79e7e0",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/72d9bfcc57d30494.jpg",
+      "bytes": 36035,
+      "sha256": "7db696d3ec43558d4ea92f622cd321a3249fd8a907f42c62ec6be9303b1166c2",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/742545128217da8d.jpg",
+      "bytes": 47261,
+      "sha256": "55989da9c8d257305bd52ba91bf80392fbfb925fa9cbcfff2c0a90d827e936b8",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/7bee3f68d79d8749.jpg",
+      "bytes": 55771,
+      "sha256": "6900fa723a8b3ec4c2952fe8b8169da24a429015ae123636e6045c15e1eaa166",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/86ca4e4514bfd420.jpg",
+      "bytes": 36372,
+      "sha256": "984de810cd02cff4b1f7dcb943270d6b952801b8cb0aa60320b7fd8bd2f04cac",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/874668ad88996485.jpg",
+      "bytes": 69243,
+      "sha256": "a1adec5928ad8d52529a24e94d060d90f49a06f3ecae0b3d5d893b4cc9b8de7a",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/8775df3911be15f6.jpg",
+      "bytes": 54946,
+      "sha256": "a62c3b0ebda59e1728c07d8339b881006283c3a87b7cb66964da63bc2b64d646",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/87ead95ad030c647.jpg",
+      "bytes": 58765,
+      "sha256": "08f93cfd1a4f1576aca1968d7ff36530e74e08b4468cb009466065382deec2c2",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/8de37aa7e43cb147.jpg",
+      "bytes": 48757,
+      "sha256": "e29d19b24a52378b06d12de655aea1f3dd453be31fd6ab1bb252ab0df68a12c2",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/8f87937efc78d81d.jpg",
+      "bytes": 69428,
+      "sha256": "eefe932972038f3265770f368408526bbafe18b2f662a09b3a58fc6c496b4b08",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/96c9f01a9265d513.jpg",
+      "bytes": 52018,
+      "sha256": "51d16e2d9bf8133df958d14a3c88a5b961424bf5a5fae24d7bf03226a5344b54",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/a031109a30a69ad8.jpg",
+      "bytes": 79377,
+      "sha256": "bad0ff386dc2dbba80f1224cb1121ab412f0b05dd9a7659c030568804ab8b43e",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/b552091db72694b8.jpg",
+      "bytes": 69970,
+      "sha256": "66336d8433e2c378ee8c0fe46abc5adf48a92fe9565f2791922f88d46aa83f07",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/ba97681116d8ac2f.jpg",
+      "bytes": 75883,
+      "sha256": "9b5242d7454ae98ed80296b07063b37af91f2462e61b8c69151c87a01838f48a",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/cb297be538623a43.jpg",
+      "bytes": 67607,
+      "sha256": "18c1882b775aa1468bcd2a974595ea14695419d4dee9f5a7c6284417b7153563",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/d09ac84a405fe717.jpg",
+      "bytes": 59613,
+      "sha256": "9027ee3bf60aa5d038bfa6eefeef744593d1cd7a85d3806027c1f6951aba2ca7",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/d32b67f4a7bc4400.jpg",
+      "bytes": 55433,
+      "sha256": "3b4a7cffcdc39863fb7f023df849fced05b6ed19d0a973739eabffcb158e15e0",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/ed33bf16a12c8556.jpg",
+      "bytes": 36135,
+      "sha256": "c6cc0fd527126da83e0a2233711096bbad252b941f5516b174c35930610eecc8",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/f9ad0568c7147335.jpg",
+      "bytes": 74774,
+      "sha256": "7a522fdf6aea579fffc0a26331b8841ef4934c8598334cc148d127bc4587ee28",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/委屈/fb2fd80027c99479.jpg",
+      "bytes": 46537,
+      "sha256": "1623515832946517ac39298a44cb8a42012cbef1ef884c1f3ba676348b6de0a1",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/嫌弃/3a170f385601917b.jpg",
+      "bytes": 51170,
+      "sha256": "7873e849e5f7343d40885cd947a6562de78304f0a9fcc1dcd6c683b14458175d",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/嫌弃/3adf7d97dd14e858.jpg",
+      "bytes": 53415,
+      "sha256": "3e321f4d546add73b28ac562b2a26a43427062362dd9b343595e369c834de0ce",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/嫌弃/40675040ddd643a0.jpg",
+      "bytes": 55414,
+      "sha256": "6c899cd8580ad3e269eb708d40bc00ffce481350b660474664c3da94c172ad84",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/嫌弃/5b73381572471ab0.jpg",
+      "bytes": 74002,
+      "sha256": "49a99d946a42983cce5f844a0e7db314aee807ac39190c61b6c2030d2f173637",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/嫌弃/639a1633dcee9163.jpg",
+      "bytes": 32912,
+      "sha256": "0459ef122d0ac6489bbaae48429f7b369a894fbaa91c7f1fe1056cb4c6a06164",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/嫌弃/881a28fe1075040b.jpg",
+      "bytes": 53204,
+      "sha256": "dcf79fb284d89a01983414125f3a96ecff2c2aa7ca1e02c0ef82ae351ead6019",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/嫌弃/9f89aa30f9d989e5.jpg",
+      "bytes": 47293,
+      "sha256": "cfcb1263f42564a8d71d87b1fb7b982232f68c3986723bb85a76c7847daec09c",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/嫌弃/a4bb3b2563be76d1.jpg",
+      "bytes": 60451,
+      "sha256": "50228f8f3e1825e671ee923fa372d5e6207300ada1016924e20f6616fbf350f6",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/嫌弃/a88da3a663efc9e1.jpg",
+      "bytes": 70598,
+      "sha256": "51d838c1bf9349c6b1c1df355fc7fe12c44465a08bbbe6d5517df232fa85b212",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/嫌弃/ee77e12f23af4698.jpg",
+      "bytes": 48272,
+      "sha256": "eb270f9c49ffa2ae98796b16c14b312e19c3afa4be42b4808b142670ff7024c0",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/嫌弃/fd0fea073d3a8901.jpg",
+      "bytes": 60855,
+      "sha256": "143c4aa61665160c0b3dbf2a88bf69833617401aad28f395d15f50823efa7537",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/安慰/04bda05d4085055f.jpg",
+      "bytes": 45243,
+      "sha256": "cf2fd7b969da81b25ad60b6dbe5d5b2eb9b4a0b29f3971633a16eebb5042de6e",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/安慰/45a5d6bf72074763.jpg",
+      "bytes": 77233,
+      "sha256": "b522fcbc779f48c437966619a3163577f4d52e1c636f298304d1e19cd03190e2",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/安慰/510c1c149d6cbea7.jpg",
+      "bytes": 56569,
+      "sha256": "0af083317d321a58ce4b5b58cb01fb7d167320a2b8a9a9276da3d26d7d49886b",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/安慰/52b4acd6b98255bd.jpg",
+      "bytes": 42883,
+      "sha256": "cde77d69ab5c282ecd2320455c44c6113f62219ab6e08b2e064e3aa5477c0e2b",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/安慰/9f9ae0b3934b7b45.jpg",
+      "bytes": 70604,
+      "sha256": "ed6683b9363578ee0f76b6b693ee1913165ba20acf41454771aed99737b0a0d2",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/安慰/b18e9255495f2ea8.jpg",
+      "bytes": 52557,
+      "sha256": "4f5ac113f19b6fe65b9306ab0b6abfd53e2c1fbbb0114e722f57fcf88ba9ee68",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/1fc8e4b50d16aab0.jpg",
+      "bytes": 37400,
+      "sha256": "2cd9793a373f026c8da9100e51b31fb60dde5ddd584c98f47ff076f3357741cf",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/24370a76a55ce046.jpg",
+      "bytes": 66488,
+      "sha256": "291176dcefa79cec0e8e95ef62c054bd943b9ad5cc747b36fd44d3f8c564ce27",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/24ee168b4a9c813b.jpg",
+      "bytes": 42686,
+      "sha256": "2f02a65603ff29aa4e17050fd16c8536318f4e3c74bebd5bfc288baa951a7472",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/25c802673e026c70.jpg",
+      "bytes": 42407,
+      "sha256": "91531f9b22f17578e6d1da701348c57e4d349d6323a4f83c9b5f1fc140537979",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/269b49227e18ff31.jpg",
+      "bytes": 34655,
+      "sha256": "25f63ca4c710e782b1d2c9c03dcbe3364fc5b82c0da3792e280ce7b9e3b915cc",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/2746d30cdd319904.jpg",
+      "bytes": 82334,
+      "sha256": "9571de10c274078f12e558d50ca6061d407d562582c747e7fdea9ba8cfbe0ace",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/2933bfaa3e43410a.jpg",
+      "bytes": 46532,
+      "sha256": "114af53950a7620d7e027e3e3b92133a3068cc25fe214428c41d450d88ad6806",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/3aa0dc4279bf1679.jpg",
+      "bytes": 43676,
+      "sha256": "19ccc70eb30e3fbf8eae8bcc3d02511f6a3b7720a80951410a3f949b45aa2a54",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/6747b33f08deb823.jpg",
+      "bytes": 40892,
+      "sha256": "f4a3f084c28b10e7c6b99b1ee083b005628b0b5da6af3129a50e894f442d1d0b",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/6de3d2556cc992e1.jpg",
+      "bytes": 48088,
+      "sha256": "b2fc83e519074184a645d08ee25fc561f9fb18981cb0d9dbdc0c6533246c91db",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/84d9daecfe5ae4a8.jpg",
+      "bytes": 37038,
+      "sha256": "ba92b871c4a5e0f8a8fc9a43c52b3609574faf0589f3becf868a8fecb05484da",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/87e52056d7f09c9f.jpg",
+      "bytes": 47415,
+      "sha256": "490607581f3c01cb0b3d9bb870bf616a3eddafdeb2ebb2a9b2ad570927663cd0",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/8ea8fd1bc7c44865.jpg",
+      "bytes": 41233,
+      "sha256": "b026bb671ac909e10cc82a1c0c8fc3f4f14481efa70a28f63c62e8983cd36708",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/9bc83c4c40b3e936.jpg",
+      "bytes": 51521,
+      "sha256": "0a7007df850849ec32f386914edac3298f865e1a07b5930881b8c9dd4bca0ae0",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/bdda67486196bc33.jpg",
+      "bytes": 53352,
+      "sha256": "850a400b249addf527eb96955ed198581dbaad61678e917bf85e6ddbd4287ac0",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/c10314d9faec5457.jpg",
+      "bytes": 69365,
+      "sha256": "9f2b3b69ace8a8578183171ea64c3836bc504d222cee1d2d46c4762ac202a739",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/c46b1d17c74fc980.jpg",
+      "bytes": 26937,
+      "sha256": "51d8de940546780cec08ed90e6c74f35ae8f16aaf6de8265d72b98cc44608d75",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/de66ff3705647541.jpg",
+      "bytes": 46116,
+      "sha256": "6c5f2b7722348bbb5cfc01b1ada89be3d837c0725955ce27397792e9055b70ac",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/eaccfdacaa6af086.jpg",
+      "bytes": 63253,
+      "sha256": "dcda679d36868b3db93002cc7a41d8f03a2290991a20b47036716bafd1e1c9c0",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/f98c0ec6de90de72.jpg",
+      "bytes": 38407,
+      "sha256": "f1aa9a7460279e5f78fd80f0b4e06b1d56313758b2e7fde810ac5a223cc7bb0b",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/害羞/fe8559b17c737b96.jpg",
+      "bytes": 41011,
+      "sha256": "b9f4e8e0259c3fb6510f90e03f7df583eaf3cd4d9e160930945b9d2b4b25d6a4",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/0064e00e08189cff.jpg",
+      "bytes": 56262,
+      "sha256": "ef670b50496a1e87460ca0dfd0201abd14a024a197731441874b4e72c0baf31d",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/079d72b2529b2f1d.jpg",
+      "bytes": 64033,
+      "sha256": "c9b317effeb68881ed45fc16bb753b310d9f487e000c0d08ddfba39f50b99531",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/0bf8c5521b7a5353.jpg",
+      "bytes": 52029,
+      "sha256": "6393b08c1704039ceb150559aaafeb95af45a3497b6577517bda32b55641ca2f",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/0f72c1c15146ef2a.jpg",
+      "bytes": 49619,
+      "sha256": "6b93ebd7d947a3f96a6991ca7068567a9c2a9780c829326284f6c2ec536ccceb",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/1ec046b55a6e8698.jpg",
+      "bytes": 51491,
+      "sha256": "3543782f4b7f182355e1e3658fc3b5e894ff701d93ba93d8ccf596e54cf219c4",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/22f8f9407f0b60c2.jpg",
+      "bytes": 53088,
+      "sha256": "a718a47464f20371146a1c0e6e5ee56faac2aa8d1f84228e904c08bfdc068827",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/23dd1d952d957388.jpg",
+      "bytes": 46340,
+      "sha256": "c91fe6a22d1a303443357b75e028f3e44d9b42aa12efb8735023c531778fe4b9",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/274d2914adf07faa.jpg",
+      "bytes": 37247,
+      "sha256": "56814b13590660669065be13964a5cf981917f39a5c7f335eef5bac57f2e5d78",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/284fc16a5b850b65.jpg",
+      "bytes": 45172,
+      "sha256": "b39f334bee77ab6ab0923ddc91a06302b766accb9ed40e6223a44bff9afb3834",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/390c01a6b964d811.jpg",
+      "bytes": 60573,
+      "sha256": "c3399bcd1e6613ec5258caf34a3f6a8b74fb895127cebda8a20927e6e8755b03",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/3a7f6c0becceb0e8.jpg",
+      "bytes": 37674,
+      "sha256": "b2e2a59b8dcdf16b01e026ca1c0e4b20205a93fff323286d46129ece8b940056",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/456b8a1965fe8154.jpg",
+      "bytes": 21072,
+      "sha256": "5e2f41f1a7de52cedb784bec255c9812c32d57a1050deac7dca99b9a7c7d8597",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/461ff37b5075d5d8.jpg",
+      "bytes": 36929,
+      "sha256": "12a8bccacb818d430d31b139eaac670df985b2e77195145da0110650cf9e2f70",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/5096e0afcc2114bb.jpg",
+      "bytes": 47551,
+      "sha256": "d9867b051f3fa8ddf48ea36d296b8be0f02b151c87bc22be056d2ed5ac9086a3",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/51feb3e1dbe6fb10.jpg",
+      "bytes": 37324,
+      "sha256": "938df9337164e5241b7d4eb59ccfc684d202fac236575cdb3c61d6ee21601f83",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/59391da7427b5b2a.jpg",
+      "bytes": 46309,
+      "sha256": "fd2e753266bd2d987c520fbf9c6cca585b904c6ebde3ac74c22a1c3a5a7be9ed",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/59b8d7bae084287f.jpg",
+      "bytes": 32656,
+      "sha256": "e9b4aef1fc2173c5cf3db0d7aef1ee563c959c577dfd96fce67aae6800dc78a2",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/5a9c3e8f866d4130.jpg",
+      "bytes": 39923,
+      "sha256": "314cbc1cabbabb9240830f390fe8d7fd01b2c9de0042161f97fae0efc3693d11",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/5c3b918f3ba0f66e.jpg",
+      "bytes": 32276,
+      "sha256": "e966b0b39bab98d21a61ce3799d558caa4400bad6cd2b55bb6586d6e505270be",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/606981420ab7f859.jpg",
+      "bytes": 47783,
+      "sha256": "41242ffb0da4b1a9d27ecf6277c117427354c4cde4d7c7fad00318cb3b016d4e",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/6190c2772bd08104.jpg",
+      "bytes": 40450,
+      "sha256": "59f8bd45fd1811445a1c5374d20e8d9ecee8bd24e2b52870d32ca36eb0f863cb",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/669f2290317560b2.jpg",
+      "bytes": 65720,
+      "sha256": "d9b691d0c83068d21c693796e9071f8aafd9d5d60071c364ea6ddee5684358e8",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/69d94906e9ca8ac5.jpg",
+      "bytes": 45784,
+      "sha256": "d01df70f890490d16f97cfef8e823efa10d01d9543a2b506f05b7fb390e96490",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/6ab4093b6a9797fb.jpg",
+      "bytes": 63748,
+      "sha256": "df1b8f6b75989032e41947f70d539eb673524d3479b723dbcef706fc8f9283cf",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/708d66cb79dd84c4.jpg",
+      "bytes": 47295,
+      "sha256": "b980269e72efb1589c13d5668a03ef17d0589b740f90aeac4cf1f669d640cf3a",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/71702dfefc3594ca.jpg",
+      "bytes": 46994,
+      "sha256": "03fe844b57e1183d3e828034f2f4cb4518ce9d089d7ba930eaeae5b532493f43",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/76420e6aa77363b1.jpg",
+      "bytes": 65959,
+      "sha256": "0be952889df18c8981ca061a2e998cdcaee06766ca3aef18f09e30aac5f0f4e1",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/77c36f2dedfb3f7b.jpg",
+      "bytes": 27797,
+      "sha256": "e402d8ba23a3804c1f7f382995a86e6b30e1a19536089dbf7f058db072914917",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/78db327c063356d5.jpg",
+      "bytes": 53602,
+      "sha256": "afe4a0ced0b81175074b2c4ac1fb8a50ddd885ea326a28c52407c44b630d353f",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/7c0ee8d113d34082.jpg",
+      "bytes": 70817,
+      "sha256": "9ee9d7b21579044e753ec28954604627a6c7e5abca67c8c2bbd59329253b443f",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/7f4122844d836f6e.jpg",
+      "bytes": 50061,
+      "sha256": "5a8026ac422b023f012b2136ef1b9e21728548e54b58a54307b2d3d11a77c297",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/80c4d55cedcfd544.jpg",
+      "bytes": 47057,
+      "sha256": "5c5cb3407b6a5975794b1ccda5818ff8ce6c7ff5af0680f7c0dcf32a8063cb5c",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/84f4ac5f5187a6ba.jpg",
+      "bytes": 31729,
+      "sha256": "9415edcbe0fc89fb7aa33d5bf443a6cedb1ae89d0812eb24c97917b884e316ac",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/8831f497bc88e151.jpg",
+      "bytes": 39987,
+      "sha256": "19fba65d2603b28c176c45c2f2935749b8c6858f81348ba000305e648b694e03",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/897b6cb0be9568f8.jpg",
+      "bytes": 50159,
+      "sha256": "5730086158762537a1401b7cf2522ec0199b2067ac28fef217a97a28f0ccd842",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/90be2f1d45cab301.jpg",
+      "bytes": 54560,
+      "sha256": "7308604d8d51949d1cd994a5681dfac7b29b8964db38e1f7bd1b22f711b709c1",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/99f08f6e4105b1aa.jpg",
+      "bytes": 49723,
+      "sha256": "89e31eb0526a57484d6b38ad7f7883712e406ecaeb249f3d678df423ad2e58f9",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/9bb47a6404a64a81.jpg",
+      "bytes": 29976,
+      "sha256": "5e5b366af64ff1d813730006c07ab0307f7ab7f796dc06529fbfd959d5de0eb3",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/9cb5d24a476e1544.jpg",
+      "bytes": 74746,
+      "sha256": "1c518bc19d738a54e7bd3ad7834e0c9869fbcd21404110bf74b1f947fcfe8494",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/9d12390d16b11179.jpg",
+      "bytes": 55648,
+      "sha256": "9d3a99598202b9d5314792c53954fdf163f69b74bd6cffeabc9a759ba34f3373",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/9edca7a2a513a109.jpg",
+      "bytes": 65268,
+      "sha256": "ba6d056774f4ce9ba608091a278d8664c8537b2750efb69f041780ea929235ef",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/a1661f8d092adcc6.jpg",
+      "bytes": 27718,
+      "sha256": "f8afc532bb3ff8641c8224c3b1b0ea7d4ebf3ec09932bf63e78adc81072b53b7",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/a694e634b41e12a4.jpg",
+      "bytes": 57811,
+      "sha256": "dae759c047e7fcfabc4345e9e745488a74a3e8c1ae499a91c443fa8f3d4bc2be",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/a7587d78f82ad73a.jpg",
+      "bytes": 48366,
+      "sha256": "943d287b33442d16914dae0ab7b12e63e7f37a7dc19b548428d41d5a7f8a8595",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/ac81dff26079b4c9.jpg",
+      "bytes": 48027,
+      "sha256": "456e2800453cfac2c05650b66b5d6d1cb0df5c2e58de4b1e30261ed71b7c5299",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/b9a427f58b8cce31.jpg",
+      "bytes": 47404,
+      "sha256": "927186ef8338d88209e06977460a6a0a09bd365654a89319df88a952082872ec",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/bb32326d002db0c6.jpg",
+      "bytes": 58294,
+      "sha256": "440f43ea3c05eecd2f2c46e2dfb10a2acc16ccf1c31accb080fd72d7af60fb4a",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/c12baaf16ffdfaac.jpg",
+      "bytes": 67858,
+      "sha256": "e4c06be8777a42527c23f005554f315e380da1de456c9295a36a1e35ec44e074",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/c202c5ece24bfb99.jpg",
+      "bytes": 48944,
+      "sha256": "425682adf25b30f327e57f4246caf30ae5013086de6f8c6f6f9a71e06b73ed2b",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/c353b0163b3567b1.jpg",
+      "bytes": 97713,
+      "sha256": "61a77b041309fe370b97c3374dcf279364074e5aa9bb4d91381211f471f00225",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/cd6eb6b209b9bed4.jpg",
+      "bytes": 55587,
+      "sha256": "0e09d501b98cd62ccca54335e22d93b051066b298d98a81eea85d5ad9f9173b7",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/cd7ab2ce91dcdc58.jpg",
+      "bytes": 42471,
+      "sha256": "abdc1304be0c7269195c3923fa0e14d008178b78bb2d38ecc87ce9ff7a02e05d",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/cee6670358812bcf.jpg",
+      "bytes": 35694,
+      "sha256": "105da3006bfd277036e76f033bf036c138c7aef97f1030e18a9ac2e686b400df",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/d040b7a633e4d3cf.jpg",
+      "bytes": 82121,
+      "sha256": "38822dd9ccb4dcc306760a38bfe8b68c199155567011994dc8fd8c79516a4cc8",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/d17a54ab75284fc9.jpg",
+      "bytes": 54888,
+      "sha256": "1635e9ab4ed2150a5c99d921faf7dddac8babdfa71ce1d763240f84a170a6f76",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/d439733803169925.jpg",
+      "bytes": 49335,
+      "sha256": "ec64e4bbb4b931c0f883fa2fcb6962d2f54fb03a69e2db0e018016d2edd2b42d",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/d771ecac0695a383.jpg",
+      "bytes": 49418,
+      "sha256": "efaf13797967d70348b4a56f2248e9eb9858d2a955635e645208d6165cb52661",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/e346d4e50e8e0c4e.jpg",
+      "bytes": 49056,
+      "sha256": "b537181db45a40e1cf6a41ecdf621c5bc43ccab3a8a3a76ea5895c9a7cb50b68",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/e463e3f1e7cace25.jpg",
+      "bytes": 51509,
+      "sha256": "0ed0e78d0d5f06805d803da05e7abafef16cd6db2a6fde69b3d7f20fff9dd461",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/e48a012ff45501eb.jpg",
+      "bytes": 33219,
+      "sha256": "2c5b2a1d6b9d97adf1358102764e713f166d3b632193d5d9080b88002baa677c",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/f12e2c971478fbc4.jpg",
+      "bytes": 45567,
+      "sha256": "1f6e6eb3eedfd5fa8a4dab9eb193dc2da95aaf0b43e1a370e7a8d79057bd1fb8",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/f268eb9e0e2649f2.jpg",
+      "bytes": 54648,
+      "sha256": "32110939a07802392b36492bd956decebb7176c4fa4797c82a76474737d9c5ac",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/f29a4a5de3882867.jpg",
+      "bytes": 57037,
+      "sha256": "7a2032105380aa2f8fd2376cfc24a70951587cff78c61ee80c7fdc293f4cdaf5",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/f3899cc2a75832ba.jpg",
+      "bytes": 39257,
+      "sha256": "7df10da8453c1cb49b4459ba16d420baf728531c30751d7f355a22188f06155f",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/f5b60b1b3b8fbc47.jpg",
+      "bytes": 30963,
+      "sha256": "46b519f43dc84e77bb6ee70a15d6088a5cc3f8bede1453f60948333e955c67ec",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/f76e1d7159c6a8df.jpg",
+      "bytes": 49314,
+      "sha256": "fd008dc06941f3ac15baa53bf2cbbd2b0b23a194ac97a5e16166548c98b1c02a",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/f9d809da5272c718.jpg",
+      "bytes": 54113,
+      "sha256": "87b6db76a60ac9dd5c1224147ff8f0ebef267f81270ee5419e4d46b34558d369",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/fc86a3cf2a48b12e.jpg",
+      "bytes": 40446,
+      "sha256": "3e0c25c599e824fd1f08e811d433d02a8c8b3d3e2737b90359d9503e34338626",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/ffefc04c5c10e052.jpg",
+      "bytes": 39786,
+      "sha256": "77d77609f60ac8129d2aec4955953c08a5fd8c74a426ca9e265678bd64fda7c6",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/开心/fff7356d519d5216.jpg",
+      "bytes": 69789,
+      "sha256": "f8c316be5ce4ae4a81a47796679910eccbcd74bd976126c5bc40bc2a2b6816fb",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/08125a78ebf471b5.jpg",
+      "bytes": 42824,
+      "sha256": "42c5d933eb664742db928fea5ba729af387fcc874936f5148494471e44d7b0ab",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/0c2ed96d8c786bde.jpg",
+      "bytes": 66849,
+      "sha256": "1c2dc7966dd4fa37b80fb26591a56bf79da2ab15154b845f2eaf7cd7cd72dcc8",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/0cb4178968c713eb.jpg",
+      "bytes": 58507,
+      "sha256": "5a5e5dd493ff1d67d6d3cc7f835408147c3d608c528d780c59cfb214890e59ba",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/0d16a4312d22f18e.jpg",
+      "bytes": 51191,
+      "sha256": "a399047b6235ed33685b91054c8dd0109a45056f30f47eaec2b0eaadbfba3682",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/0d2a37dd081e8eff.jpg",
+      "bytes": 48086,
+      "sha256": "ff0607816f891f8cc82190bbe29576451e801177119e9d79dd45076607c93ab8",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/109cc2411f4cd06c.jpg",
+      "bytes": 61392,
+      "sha256": "c2b8423627093298d6404f20147171f0e6245620d0b8c6fa80a9942441127b70",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/1f99d7693c2037c2.jpg",
+      "bytes": 45178,
+      "sha256": "f0f0472ded78c14f761c20188cd3ee28448e36ab3d07976b2a614b483ce815dd",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/1fd059c2f2db5264.jpg",
+      "bytes": 89362,
+      "sha256": "3fc10adf62b85ee88b82be933b836db5495653434e877904aec87f107119b8e5",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/20652b3db1f32582.jpg",
+      "bytes": 76065,
+      "sha256": "1ca59f43da4e236cb136b81c9a083dc4edce84e6b37f5a9cb6e18f18fcad7de2",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/2572e4b0a42b953e.jpg",
+      "bytes": 41641,
+      "sha256": "63f843d43c971202e423ea62babb5896df98643eca77fec7c5aec3de8aa6d613",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/26c4e8a730dac4ba.jpg",
+      "bytes": 57511,
+      "sha256": "c5f3a3eac514a551bf71ac964e8a14846123b94207902162bcaa2a1ad943f67f",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/26da29b2df4cfd99.jpg",
+      "bytes": 53391,
+      "sha256": "8cf3cd2296e391bda0d860fb06d68eb250a5f8f4a9b03aca259f3680a2b441ef",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/2a62c304c05f5f33.jpg",
+      "bytes": 77333,
+      "sha256": "6dac602faa66dee3f254a3b6887677d13fde2e838ecc4000535e65b71b839ef9",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/2fc74a3ea417a03f.jpg",
+      "bytes": 41584,
+      "sha256": "2b15e1dc021d4b18f787785df9f8cc744bb0b84a1e94be585d9419a63e9c5f37",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/312134c1a9945a9f.jpg",
+      "bytes": 65084,
+      "sha256": "4484beee26833c6c399a305060130a2ca27be617aced1fdd2d9fb986a585d7bc",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/32328207ab4bc2b0.jpg",
+      "bytes": 34310,
+      "sha256": "875b1267b4ea9ff38b4ee7b2f0e956461f5ef4a7c2933dddd4cf2fe29cea5bc0",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/3d185d1a5506d9fc.jpg",
+      "bytes": 51963,
+      "sha256": "3b3268e5808ca0a7213ca4c08ace1fd7dd5621e5ed9de421de6de23cae512a8f",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/400c361ff80054fe.jpg",
+      "bytes": 57438,
+      "sha256": "8b2019d60dd4ad90e3b87c994b0688cae5fb8d2934a6cb7bb8001d931ba0518d",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/4d176b28e310bc11.jpg",
+      "bytes": 56363,
+      "sha256": "20a11db77793b5c63ad3e9cf75f1a891186c4cbbc6f9dbfb44de04a6791f2d42",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/52b41b97cd6a2fd3.jpg",
+      "bytes": 55582,
+      "sha256": "ac854f5148a52d56555241e8c78cecbac6564902dc9d73b5f8c1211ca9c24fa2",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/5455fabc8b39d969.jpg",
+      "bytes": 14977,
+      "sha256": "8f143e37f49f7cc9cec59327f784a135f96a9701c1972014ea3eb7b4a94edf35",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/5cfc7a88f7103e75.jpg",
+      "bytes": 37545,
+      "sha256": "d39c3a310ad33f0fdc4960dcf75e9b927847309400c1f8bd9735cb2a18ec1ad8",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/5d6773ee27f01309.jpg",
+      "bytes": 68798,
+      "sha256": "3b20e92a0854629bec3b3e250c888f89643e683a364200f001ac5d6610fe7cef",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/62936b5d139a5daa.jpg",
+      "bytes": 64877,
+      "sha256": "a6ee6eda45dd454cfd715b7506437e590b26d76dbe04dbc01789dd45e3e23fcd",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/6410fb02c182981c.jpg",
+      "bytes": 38295,
+      "sha256": "3aa56a78955cb5d9744b352b0841aed18ba1f3a29cf5c787cded70ff7f5538db",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/6fa10ff0f64d8732.jpg",
+      "bytes": 34280,
+      "sha256": "11bab1c210ee40f46d0cdf6503b874d6e6ac6b4a9781d43542d3893ce38f9da3",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/70f7ab02b5623f91.jpg",
+      "bytes": 60271,
+      "sha256": "13f15a95e250390e97051b917bdc211a2d6ec53f7ae96403e9cc0f0dc2f983c6",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/770c840ad8d30a12.jpg",
+      "bytes": 35982,
+      "sha256": "42de2b6cba4b0abf33a109fb9de9602cd94eeb5516d5e23e9389b843c7ef7a87",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/84c93b1f9ddaf5b2.jpg",
+      "bytes": 45810,
+      "sha256": "9f1a265fec6066b1fbe562a1402329165d4a0a7d86e82aee2058c73292045596",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/85be28d15a416da8.jpg",
+      "bytes": 76737,
+      "sha256": "e59422f20f600e0aa5e9fafd27fbad2978e49b232670c457ffbd881b7bda078e",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/860377e69c8902f6.jpg",
+      "bytes": 43235,
+      "sha256": "6d7ccd560f6fe9607d356e404cd9767d0ec561c0e61d0f8a6e9dbca107ec82b9",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/86470fb31cf2dcf8.jpg",
+      "bytes": 56237,
+      "sha256": "8a837e515dce8b94d4cf61d1c9b62fe0ea712c9483b00a01c3727b8b90c857e9",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/8939389ba8d9a60a.jpg",
+      "bytes": 73991,
+      "sha256": "2ca4a88c04e34a7eb7b4ff0ba513933d68b752e068dcbec24df93153cc8cb125",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/8a7ea8bc6fa0b664.jpg",
+      "bytes": 68597,
+      "sha256": "3c8ea2cde8bdeee15667425321c9b9dd9fb5279288c9d152bca44f2cfa830b46",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/8ed0ffa48b4a15ae.jpg",
+      "bytes": 53903,
+      "sha256": "81d0b886a986e4b5d2ceb538772f5ee78c48379243a54dfb1e3c38650f71a294",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/9b12a3e118a131e2.jpg",
+      "bytes": 62491,
+      "sha256": "3f0a7c316aeb9f2c67be14c422568b2e8c258228d7eae74be9774cfad3844824",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/9beb421f1b85424b.jpg",
+      "bytes": 50745,
+      "sha256": "d2d8f5554cff32cddba5e0745b2a128f2b134ce6d7ab676861711fe5b82b5241",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/9f955a6308add814.jpg",
+      "bytes": 42678,
+      "sha256": "fc4705ed740c3d1bc953bad747839d01636847389889c008db9da95f483fe0f4",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/a01a2c6d46e34a49.jpg",
+      "bytes": 66869,
+      "sha256": "531755e30826e4084766af9fbf671868fdda34f004d7d6f2bc6521aaca9b8498",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/a169dd2889cd2686.jpg",
+      "bytes": 79135,
+      "sha256": "cf48b88992a31ecc47ac8e0325f73210fd8000decec2da48605f3d8f554abb81",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/a39bbaa7c1e05fb5.jpg",
+      "bytes": 43706,
+      "sha256": "21c13d9ea478ac4e933f4d42e7b0e2af9b9b8a4ddd040dee4532d88329bbd192",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/a50dc5e67c0876ed.jpg",
+      "bytes": 54588,
+      "sha256": "f3ac0ef3c5dd553b24157061fc3138d76a231334d1d822747788fff969c7152e",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/a8d3e259b0890575.jpg",
+      "bytes": 40386,
+      "sha256": "c560f51ac8230ffe2151fb37a924f9dd0fb982ae56f869fc423c5a9c1c9feb31",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/b0b94b0c9cfa531b.jpg",
+      "bytes": 53571,
+      "sha256": "bab75cd17d6bd862d0e3782facd09363f4352d6d630a40b587d74e406b877bd1",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/b1355ec5afd879b6.jpg",
+      "bytes": 83120,
+      "sha256": "6a89e9ccd51ee8b3e160df610142ffd5435ef53721a3a5242b5e6d2b5dc45dd0",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/b365cefc87adb850.jpg",
+      "bytes": 38344,
+      "sha256": "1b10d0ee025e8e8fac711cf59e37a31243e97f277339f9caf4f1b7388d99363f",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/ba4583ed6d276b4a.jpg",
+      "bytes": 42717,
+      "sha256": "5e48b45631dea71059ed98539f592fdb67a29fce79d50cf74cd7e41d7a88df88",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/bd4103e76b832162.jpg",
+      "bytes": 82998,
+      "sha256": "a6f701532d547e94fa6d34f615ce967b059d8b54293efe94879ca13e2b24895c",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/c50fe935f333ebbc.jpg",
+      "bytes": 78051,
+      "sha256": "86074b7fd636a779394ce121a93510f7eb1e80b53cfe792deb19d1d8d0b800f1",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/c80dd86c89c42ab6.jpg",
+      "bytes": 47933,
+      "sha256": "08531ab07e47ff8bcdae5f5661449e5fd3447ce0b0fe599054e3512afbc2dc3b",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/d339038f0370a9b7.jpg",
+      "bytes": 67046,
+      "sha256": "de5a4d2ab64bdbd0446dcb0513798b688dc381097771f1f51cb0fce2eaa0a6f9",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/d5620f3abc1bad00.jpg",
+      "bytes": 68164,
+      "sha256": "a49b230c148e1ee98016be74eab4071d76980d64e8832988f26c299c08a7aa71",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/d956798c2aa45e12.jpg",
+      "bytes": 73709,
+      "sha256": "1eb87871d7d37a62e02cd2bb5a49f67d95797f231b7bb67c44ea63af4af04c63",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/db422044d5f000ac.jpg",
+      "bytes": 62383,
+      "sha256": "52088b00ba5460cc5ab7e63d5a07fafc9455071328f7abfb0f72681ee9b4d211",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/ddaa4d18e4959358.jpg",
+      "bytes": 43829,
+      "sha256": "6487b9cc940806b5e1467ff1202b06b4c1df7c697d14a1ea0b00383074ab24a6",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/dfaf95e066fb40e4.jpg",
+      "bytes": 50285,
+      "sha256": "1b01a372dd6f256aaab29ea1d2fc5bcc627ae4406cc5bf9ef413947c2b3a6c62",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/e71d4cce1496bf56.jpg",
+      "bytes": 40451,
+      "sha256": "01bb052e2c82e1288a680adcc9ade6623d910a437e1fb442b4683d717c8b3179",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/e74518cfca3c0ceb.jpg",
+      "bytes": 44547,
+      "sha256": "e66e5665a560fd65deda8106f8f75972885dea7daa697f2d5d1935522d92af70",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/efeb5b0fcd23378d.jpg",
+      "bytes": 51331,
+      "sha256": "86f72aaaa3c110bb910a541d343e55e4b7b3e3a7a4d2dfb7de5616e767a0ce33",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/f0f49206372a2920.jpg",
+      "bytes": 46417,
+      "sha256": "5007f58ff72be30144da928ad628e0f530fce04b6eefbf48b675384524dd7f86",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/fcb401a1f1cafb47.jpg",
+      "bytes": 31914,
+      "sha256": "33f0e79fd307a9e532967506ce23a78f154b4998bc2666005a44aec23b167666",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/fdd456b3c3dd4756.jpg",
+      "bytes": 76009,
+      "sha256": "0b2c5df31f8040f5a201c6a0296a526e6f731ca133662c65e108eef29a4cad0f",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/得意/ff1fefadcf360ccf.jpg",
+      "bytes": 73977,
+      "sha256": "0d9ebcd427f614df8974ba56b1e3adb4e2ca41b3ee770d47f5b81a20edda68cc",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/09db800b2f815814.jpg",
+      "bytes": 42225,
+      "sha256": "64e9da4732834b7b0de582e599907b95a330ebd3cb31d8918ffc09ea6fdd0d75",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/0a31d71acd03b4cc.jpg",
+      "bytes": 47017,
+      "sha256": "219f2df6e39f37936b3459b939f1b5056785c7361de974d9b163c9212b365ead",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/186a5f00fc278321.jpg",
+      "bytes": 84269,
+      "sha256": "7e8d1647ea7af889872e7b8a6710ba820aa2b154677c2cb2a5cc8b6820552e43",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/28abe4e1cb064c95.jpg",
+      "bytes": 48977,
+      "sha256": "c3ffccd7c215a2c7d226b4fd5175b54ffab4ccf66a8d728f47984118bf69ef80",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/2d8566fa0484ddfe.jpg",
+      "bytes": 58841,
+      "sha256": "081d5adbe051f60e1aa4601e3ec5af4ae2aae1295dee1b37cb24d3a406c486aa",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/37ecb43645f9d1e4.jpg",
+      "bytes": 38419,
+      "sha256": "0df521eb89b5d5be4da07a683a7b762ff4ba7cd002b0d46f53f809c33adf6972",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/4a26c7efa242ed33.jpg",
+      "bytes": 50516,
+      "sha256": "76a50108a347eb2f30d219d6f919d0c674450d82201197eb1421fcf8c27e6d11",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/4cb5a1360eca8df5.jpg",
+      "bytes": 36858,
+      "sha256": "66dbd10f1e1b7a81c1ec389036be680d7e6c06f9c768185f0bfcf99421ced266",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/4e2c76cb48bd5cd0.jpg",
+      "bytes": 44538,
+      "sha256": "28a9eedd70bf2647cc4252fa294ef5109e48477b31019159fb9b5a815f1e7ac8",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/557a9f2380e44fcf.jpg",
+      "bytes": 61789,
+      "sha256": "88eaa7f39e34b2a57a1bd10ca62faa85c280cd21dfc00b9e9fb8cd6230e8aaed",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/578d23c564c41908.jpg",
+      "bytes": 91239,
+      "sha256": "bb4ab76ac7cc87009d1c2a728c571888025703eab6595fc94f250e680d7df6cb",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/7164d6669e2720f7.jpg",
+      "bytes": 51969,
+      "sha256": "023053e663e08c04d910563c3b3073e00395caa194783e65e50a126da8981057",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/73c931eee765da08.jpg",
+      "bytes": 58230,
+      "sha256": "ce3e43a50c64fe04a29ff383c216764601d0062a98bb7d592e1414be78edfd47",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/7c1afcb364fcd533.jpg",
+      "bytes": 56052,
+      "sha256": "eb41c371e0ffe34d17bf35ad1aef1a4253fe9434c2c48f07e77a7f9f920de93d",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/8bf5c2b77f6484de.jpg",
+      "bytes": 35088,
+      "sha256": "77a171ba4cdaff59cf59b78dddf98d24c92a0658b1956c2a689474593dbeac69",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/9ae7809e6b5a5bd6.jpg",
+      "bytes": 32869,
+      "sha256": "6987e04892c3779baa947d0c3fccd16646b3416a6d4d3029b57570a163b27478",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/9b9a4acefd450e7a.jpg",
+      "bytes": 60846,
+      "sha256": "c9de9c58dc68926b21fe589405c2112f5ec103d70ceda99255ff559eaf12b26d",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/9ecd7f886c634578.jpg",
+      "bytes": 75928,
+      "sha256": "8d4bce0eaeb4786138779050c350b916c081c11a69620909040ce02abe0a45ba",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/a123e739ddceb9b9.jpg",
+      "bytes": 25237,
+      "sha256": "fff66e94bc62f6fc6e06e0f37055bad074222031ef66c1666c846b2d23fa9a22",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/ab472f9558115b65.jpg",
+      "bytes": 55733,
+      "sha256": "85e5dbf5cfb4184c338b79801f88a81e9189189d2e0b740602dc041bddeef347",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/b618ac487d4177f0.jpg",
+      "bytes": 67731,
+      "sha256": "969065157bc64680ac3f4bbe89062dca3604c0379c5da78b80df96ec9d96bdb8",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/bbbf4f8d73223de9.jpg",
+      "bytes": 59006,
+      "sha256": "af5d6dd201f5affd14988cbd22a3be861388f3086fb1e50c990aa83ea24450da",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/d2bd2fb1e9d0637e.jpg",
+      "bytes": 68020,
+      "sha256": "05f4f3c144c5f5bc323c780b37413df8c13702494dc3bb14fe2193de371b9c46",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/d3bc104a01106e7c.jpg",
+      "bytes": 59478,
+      "sha256": "e6db50d09a93e480c2d1ebaa657f15f432fb3d79eb86dbb86332e721ad4ebdf9",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/d915af693a2a1a71.jpg",
+      "bytes": 72440,
+      "sha256": "4cb11f7af201a8064ad06cc9836ed6278632c8944dbe231098460da3d2d722e0",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/db407a4d15dbe1e3.jpg",
+      "bytes": 42888,
+      "sha256": "70df319aaf1570fa779606d6690f1f9132607f37afa0477370b96a02916e4965",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/e3c7b81f2c0a3a4d.jpg",
+      "bytes": 35071,
+      "sha256": "75514770f6eeb32fbee22fc92a39ff17ee50d055d052688d58cf1f502d448b11",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/惊讶/e459edf6f3412850.jpg",
+      "bytes": 38627,
+      "sha256": "1022e9a3bee5a342628676d0e91ebda2208a66b08fdf690455ebfce94793de47",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/撒娇/09680996ac0eee3b.jpg",
+      "bytes": 49183,
+      "sha256": "0cce832ca8d6dca41245d85081cc0a319a5f41f74d17c2815157cbf6c3ae2063",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/撒娇/1a02a9307df14fad.jpg",
+      "bytes": 51750,
+      "sha256": "543ed2f637e7e880e1abfc24c545669a98d11c8439624d79948b9daddb26a87c",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/撒娇/61f696b7eb36fc71.jpg",
+      "bytes": 46467,
+      "sha256": "ac3fb2bf15d766eb2c118bf1d3f02ecd68a7077cc1119a8ea3fe3448015da66b",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/撒娇/70026f520a2cea52.jpg",
+      "bytes": 73718,
+      "sha256": "300fea995a003ac96c57d696b5af25a65f9c7b1128196386b66cb7a481fc2e41",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/撒娇/7296e4e19340c2d8.jpg",
+      "bytes": 45473,
+      "sha256": "513badd65d8e95c8f718eeaddd0e24410ed2d46540a8b849ca62abafee2ef729",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/撒娇/736d0a4911b8ea12.jpg",
+      "bytes": 48201,
+      "sha256": "f8a0b61c67ab3002147cfc9b1c5b40db9f06dc62c92a203e977cc25fbe520d1c",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/撒娇/7dee3a2b99179faf.jpg",
+      "bytes": 39050,
+      "sha256": "8008d221cbfa7684bc2eb9df0949e9b63de5d41d8098d7e41ce7879b43c4c324",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/撒娇/8ed34d9cf0ca06a3.jpg",
+      "bytes": 46919,
+      "sha256": "62481fa8a66db7776f2744bb5b8bb5e3296112fe0d8ca86cd3b5593250f7f7a9",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/撒娇/af2f367af4aa8b55.jpg",
+      "bytes": 73987,
+      "sha256": "5f82e011b857e2cf13aa7b41f59bff57adba5bcbf73a26e9f6afb326a1a6fa31",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/撒娇/b39116ac52571e4f.jpg",
+      "bytes": 52518,
+      "sha256": "42ca0d45116d975fc716bb0201b5d843ef2146e0f7159c5d1d509a274955a51d",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/撒娇/bea54ee7c061af42.jpg",
+      "bytes": 62179,
+      "sha256": "f7fa02af2d5c85c14b9fc57ea2f61c85964361bce16d31ffaa003b561caad64f",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/撒娇/d93560b657251f7e.jpg",
+      "bytes": 42711,
+      "sha256": "0482f98679076a71d858906e439d6608b19dff644be63affd19cd8a3e2118fa4",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/撒娇/e1b795c5f77b654d.jpg",
+      "bytes": 52644,
+      "sha256": "400f555d5c9ad2c722cd9dfdb9c6a190cb2c1d41a7c5e9e1273c38762e392e08",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/撒娇/f93c0ff41afb9bb9.jpg",
+      "bytes": 43832,
+      "sha256": "debb38066421cf10ed7dca1c96cd8f4c3cf7d06fd06e4fdd24219b463ff80744",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/0b88de25398177b2.jpg",
+      "bytes": 44724,
+      "sha256": "00df13496d666f0ba492956c1c54da6ce15a78964a4165bcd5d22485c244014c",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/0cef61d9a3c391e8.jpg",
+      "bytes": 85736,
+      "sha256": "b8b126f7a5f02b9b37ac9c7628672f57c2bf0e70016919dfa753e879de64290d",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/0eebeb530225d4b7.jpg",
+      "bytes": 38674,
+      "sha256": "00460a98a77370b696f7114a003c75b1575a91c1ea4313b1851c2084b33d0ff0",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/0fece6f73ec15c82.jpg",
+      "bytes": 75539,
+      "sha256": "577f2dae7f37b26449b04f83e448719655dc1c5e69a1a5a96261188c7ff735fc",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/24d2932440950d54.jpg",
+      "bytes": 28081,
+      "sha256": "bf5717557fa68df514e983da630b980339266269ba86d341112060e06718ad63",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/263b819c628a87e6.jpg",
+      "bytes": 48381,
+      "sha256": "3ce1a4d74451ba85cd8a66b858e7be679d6ebdf17a246eccaeb4fb2f964d1bb7",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/29761ee4b3b2b6e1.jpg",
+      "bytes": 22588,
+      "sha256": "97500ace08f7ccd7516b42a15a0d6af305bf3d2d9731c49d3387930280dc30d5",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/2b16e51335a99208.jpg",
+      "bytes": 41446,
+      "sha256": "6bc533fe978bc6f7bc58c05fdf497f251626203a0b1811cd05777e4eb192366e",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/2eb228d50595547f.jpg",
+      "bytes": 32932,
+      "sha256": "161456f4f134d85aaf67d5770af6ebf0c839621bdbc7482050d94f22d7c391cf",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/301905ba71d38d96.jpg",
+      "bytes": 42674,
+      "sha256": "85a50b546169bb39d10f1df0a3c678af65e38897317ed1ba701d3f50766634ff",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/3475844101dd62b5.jpg",
+      "bytes": 16998,
+      "sha256": "17821403ea86e01818c1ee3280ede9623c9025dd36e8892be7662d55eb1b159f",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/36756f4db4795bf9.jpg",
+      "bytes": 63535,
+      "sha256": "7a7bcbcc6df280b8b067304b2c8f0c94e9fa4cef211ae53173b08583c6b46c11",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/3a5695588e26295f.jpg",
+      "bytes": 47449,
+      "sha256": "0c5346c2529138dd2ef93c0ff6cc391c0b525c11fce722ca6e6beb20e833d570",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/4b7132598c63f6a9.jpg",
+      "bytes": 31659,
+      "sha256": "c43276fa3eeecbbe4245071a642894bcb631de1c70b5fe56dc3bd83298d63074",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/4dcd2eaa35fab451.jpg",
+      "bytes": 60555,
+      "sha256": "d4c46ec5f8e0504b3961c2b90e5f13a0d8fbeac9f59d9e563fd2b411245ec878",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/526473bdcd14dcf8.jpg",
+      "bytes": 67114,
+      "sha256": "c5696011243c1282c60fdf0b978e0caf65c58efd165a4c964c8d08ab1e32dfe6",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/543213bd686d8390.jpg",
+      "bytes": 29678,
+      "sha256": "28e5dfe5c6623e606a008013b0c4edf4a19a43c75c0808758514a05e7c1e0050",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/55f0cb7fa3091e66.jpg",
+      "bytes": 38438,
+      "sha256": "ca3d5aac5b56dccad1052fbdb50cb47c99798c8d17efe8bc0ab3f3f0d053a244",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/5911befb192528eb.jpg",
+      "bytes": 52615,
+      "sha256": "bc0b0b31dcec8989712e3d4b4df6f56720058458c5f9c6b229eeada89e9ac288",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/618b2321db695878.jpg",
+      "bytes": 71648,
+      "sha256": "f1b3ceda6d7f16c8ea6b3468d94576c6c86bad50277d772ce38e7d53f05bf194",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/6885f0f285ff949a.jpg",
+      "bytes": 9895,
+      "sha256": "61d3e131aeb31b6a164b3468c79337e8b7a47a5f7d4be2ee410537afe0ee2d2b",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/6a1f956a28a4587d.jpg",
+      "bytes": 43730,
+      "sha256": "7f2ab913129530eb3d647fb7ae91cb8b201500914e3a464859bd35952f31fc43",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/6fd14a0447fdb5fa.jpg",
+      "bytes": 51038,
+      "sha256": "0119155a48fcfce38dffe6cf10c07c23f54b0823c5a7e155eb9063826df5949d",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/7337e03979942e9e.jpg",
+      "bytes": 70473,
+      "sha256": "5019c72d01dd579a7f47a1301100b9fd2877759861717103998d7c23c2ed9048",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/775244a23f40f757.jpg",
+      "bytes": 8334,
+      "sha256": "157422095ac2c0cc6aeb9c681351b15d62613ff58c80b7404b7cf19d97f48e25",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/863143aa04036a7b.jpg",
+      "bytes": 53733,
+      "sha256": "4fea04bda9c708b93caba26c496e50aac40895a8770ec9f1bfffed44dfa3b55b",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/886c25503513e98e.jpg",
+      "bytes": 39734,
+      "sha256": "52e2fb8243eccbb678b3708703f4aa86fc8590f6d666a077f6b7740975aa89f1",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/8a57b4793bfdd3b3.jpg",
+      "bytes": 11142,
+      "sha256": "a7790c5c11465d1dbe8f9e44ab62d24e8bb0b9a7903e96c1cffa49314ab32f5e",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/9a5737a57ea67298.jpg",
+      "bytes": 6974,
+      "sha256": "8e9ae12d4fc85b560a2098bd0f6e145ee079f69e70f4db65579e9194c377bbe6",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/a005c6fa2a138179.jpg",
+      "bytes": 17929,
+      "sha256": "387bac05dded69ff53b0051287c4009e23ca7fd87493ac81a84148f1507177f6",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/a02ec7f615a6db95.jpg",
+      "bytes": 34092,
+      "sha256": "0e32e0b52a2eae287e7e99ebdbe58445540e6129cd3fe8345f86b9c2ef736728",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/a2b41710dd59ffc8.jpg",
+      "bytes": 49590,
+      "sha256": "67b84ad3bb7028130db800b67705dc3ca43affd178101da567562a3d8ed5be10",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/a92ef8ac204a542f.jpg",
+      "bytes": 40294,
+      "sha256": "98044a3f4e2a9797a92f39af84c99d36145b1a4e98db83d6af44aa9126b965ac",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/a9bb65b37e590abe.jpg",
+      "bytes": 54321,
+      "sha256": "5f014bf08076b1eea1c8198627dc79a5acd05ef673001029c771175eab831e04",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/af1b994f5aceaccb.jpg",
+      "bytes": 38532,
+      "sha256": "c7f5c2eab10fc6f175d84a500bc37aa96dd525e4f125ad114c7edbb79a2bd997",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/af97a2c141bbcafd.jpg",
+      "bytes": 47120,
+      "sha256": "cdc43dd1937b8de99f37467862ca50b5ae5c726a615b9cc92133a025a61d01c7",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/b1a32515716a1636.jpg",
+      "bytes": 47118,
+      "sha256": "ef72c59576e390a5ca5f30c4ae8cfc239ba9416a9f667602ff628226ea962dce",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/b4a11edd02c359e1.jpg",
+      "bytes": 75972,
+      "sha256": "c5a595bc41c9d375e29a764d38eafd2100d2e95fb67b75b0281f0867e2c50fe0",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/ba539c5f48e4ac6b.jpg",
+      "bytes": 46279,
+      "sha256": "6bde9f86d229091e90639f6ef6d707d5ae5f227b2e67c8e9f5895a313ca598d4",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/c45aeb69bf1a89de.jpg",
+      "bytes": 42134,
+      "sha256": "b692d326ae560fc1c76c30c8a9c566ad27dc7def05e74ca30871cc2b23b2cb96",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/cb76a8d80572675a.jpg",
+      "bytes": 42768,
+      "sha256": "c7effa01178df70cdb96682564dc56c852962dabcac71c2e3c494081f8bf52eb",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/e71a5979c52f82c8.jpg",
+      "bytes": 62633,
+      "sha256": "76f3b298c290396aee7282139bdf877b9b943258274824593d4e7d13e814a94d",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/ec677446dd0c8f83.jpg",
+      "bytes": 38676,
+      "sha256": "cccee576ec023421cdbf5db54b7defe6c7777ee978e873aec57f8bd421cdb5c9",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/f66e708ddb30ba24.jpg",
+      "bytes": 35057,
+      "sha256": "46cfa7dbc7cf410cbff7170486c9351141223b0133320a2ad827737ddb346035",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/无语/f8cc929584a9a0e4.jpg",
+      "bytes": 67622,
+      "sha256": "1b9386517ecdea787adf0352da34c3890d7f0a7303433258f03097c105436bfe",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/030d26e6b81eba5f.jpg",
+      "bytes": 44903,
+      "sha256": "796f1a549749acbbcb620a37e552d32f70900ce37135a75988d84acd46e270d0",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/113aff6f403a1952.jpg",
+      "bytes": 72225,
+      "sha256": "51dff7317b034fac4174303fe4a2c263df82ce8c9398e37a292ebe0fd7b3fde6",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/1b89c8398003f5f4.jpg",
+      "bytes": 78878,
+      "sha256": "6d1edb05cc51db7db1a1e39ad12230eae34dc7ec702f99ed8b80d789e5634ae5",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/1d934caa02dc4cec.jpg",
+      "bytes": 73969,
+      "sha256": "8de233a2112371f74908dda624f00044f32e85267a43bdad1862ffba778c5eee",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/2cc46faf41881353.jpg",
+      "bytes": 67546,
+      "sha256": "ef4dbd9d72aa49071798b923d219e45f2d5c4987f526570b21c80bf1bc93b80b",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/2e7c4626af4ce427.jpg",
+      "bytes": 53017,
+      "sha256": "54c30232ad628bcf12eea1658db3efd506bdf414f4e4d8124539f0d6032ffebb",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/35e68c4718c99c41.jpg",
+      "bytes": 71966,
+      "sha256": "fa56dc47b513523df2f7fb6308af9c40c34ffa557a8dffd27f3294bbb9357b1e",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/364219a07f9022b8.jpg",
+      "bytes": 57901,
+      "sha256": "e10ed13d68c4616bafa4108a97ae6687fdad33cab23a87929863b02b14280b53",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/493c0c14f5139dee.jpg",
+      "bytes": 74010,
+      "sha256": "309685d0251e4bd9ec403367a1d0e66edde366d02d12540af5f52e2e5b390f3e",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/69284e41c409ec71.jpg",
+      "bytes": 48105,
+      "sha256": "73bc748fe9a0a22c60118f3db3667efc2dfbef0e5b19a978faa9717d35db927d",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/773768d59dac6f7f.jpg",
+      "bytes": 71112,
+      "sha256": "e40ad6ba37928ba2310f7a38684e4499bef2d2030ccc526163e5d2794101af45",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/779dc4ca4750751c.jpg",
+      "bytes": 10183,
+      "sha256": "e498b549e5679978f297621dc2ebd62dabd271137d88d3d84b53635e1966536e",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/8569612d497c58e0.jpg",
+      "bytes": 38104,
+      "sha256": "2d6095008ebfdb4fe94edd51cfe49889c314ca55f7e7cd27fb55c1c8d4553d71",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/947d8136827af2d0.jpg",
+      "bytes": 39132,
+      "sha256": "d6e019d308615f0028e6aa833f187da2f12f908e21ea3b02a452bd68a3b3fb01",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/981fcef35e0f05c7.jpg",
+      "bytes": 53302,
+      "sha256": "ebc7628cd23dab99487005271acb74f7961df4b82deffb9d0965c72841295bf5",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/991f5925138ff3d8.jpg",
+      "bytes": 53244,
+      "sha256": "cd77e82aa86ca5f8b47db2a054d034b7e0a6110e7c9e262b8ddea3a94b7dd5c2",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/993532635c665fe9.jpg",
+      "bytes": 47822,
+      "sha256": "883cdb855634f9fdb4ca2faf1c4e2040b4737b8eee03a88df5d594f60f901d9f",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/a834f1b616a5fd42.jpg",
+      "bytes": 48919,
+      "sha256": "a5b4200c8c6989c71cb4db5c565db4d4f5137cc8cfffcf3182467c527913db48",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/ae9ad00c4238b3b4.jpg",
+      "bytes": 37603,
+      "sha256": "82054e5bb119cdabf689e490ce743ef195d688e3ea451bdc08fbb3a3166a1a87",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/b50e8175f59f3a37.jpg",
+      "bytes": 44078,
+      "sha256": "7aee2ccc121b783904af350cd3948a1472986023cc861c608bff0bcfef7e7288",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/b52b7007902d3c30.jpg",
+      "bytes": 39156,
+      "sha256": "9fcaa5b4532a08ac6209031f8f6d7e819f4fc4dd49990542972bbb98355c6866",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/b6bc07c1034203a3.jpg",
+      "bytes": 68461,
+      "sha256": "1f2cbc251977c812eaceeceb48077a9a8bd765246d361e7095bf59c0ec3ea94d",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/b81f464d1a21b70d.jpg",
+      "bytes": 46430,
+      "sha256": "a3286407106fbd8f173a626cbcef11217d7591185d53c800a4915b4a7411d7ac",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/b863d07aa7b441de.jpg",
+      "bytes": 56405,
+      "sha256": "fea4aaacccf637e51e5d16853ed3219d300c309bbf4eec3e08b4172c2c2541dc",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/bf5a19a6b85f7c20.jpg",
+      "bytes": 38892,
+      "sha256": "5ffe90eea84f5e3148eaea4d3833b80b406567f6d6348da653fd27b05e72ac6e",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/cffad88d9aa6e60a.jpg",
+      "bytes": 60031,
+      "sha256": "4ac565d8a3ca64ade52e55d1771ed35700af8cad9f3e1e169eaec6869f0281ac",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/e064f0a53fe525e9.jpg",
+      "bytes": 51455,
+      "sha256": "53c7978a1fc806455aa5cad065c412b757e1676eb57cb4d6ca8f4ecab2bc0a7c",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/e62536248cc081c3.jpg",
+      "bytes": 50620,
+      "sha256": "2f8cefade20d14c65b74a76b477bc62f0b5b3ef09f065ac198bbac8251e37c76",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/e658ebb73bc75d5c.jpg",
+      "bytes": 43978,
+      "sha256": "6ae485c8e08129eb51eaf660925f3b6817b6a3bc05226060d5a03f99396a7692",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/ecd0673eb889c82c.jpg",
+      "bytes": 62587,
+      "sha256": "c018d85c360770b5358ba423d49ae7a534abc56e9fdb5cd29942a07e20dcc58e",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/生气/f8a16335bb89437f.jpg",
+      "bytes": 10640,
+      "sha256": "0e34a28860b58421b654b3fbe5cc36638068f63e78bb056d04d99ea195a642b7",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/饿想吃/1275e0645617ea43.jpg",
+      "bytes": 12593,
+      "sha256": "0fd5fc4b749c1aceb2dff5b622ba9790fac023fa41b4303c5b854fe482c4d4f6",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/饿想吃/1daaa57251cdbf5e.jpg",
+      "bytes": 44873,
+      "sha256": "ca831a9164c7ab7353e4ec1ba71d16da8e0a77e84de91bbc37d3760ef3e43c91",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/饿想吃/32969a3c273ec5a8.jpg",
+      "bytes": 21177,
+      "sha256": "572801d4e9e19ebde19a390f94459152abb34a0057cac1e873f1791d37619e9d",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/饿想吃/4464c7d5a351feb2.jpg",
+      "bytes": 36156,
+      "sha256": "f01e407ac5142d4c01daceddc7c65861dd21d137ed42a31c0f6bc023fb89a3a6",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/饿想吃/5b81beff001b0818.jpg",
+      "bytes": 56214,
+      "sha256": "fd1bd25b7023718b52a9f6147bf217a2f1ab3d5b0039419fb216ac3da6f6cf4e",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/饿想吃/6c4eb56ae1f25908.jpg",
+      "bytes": 44441,
+      "sha256": "eb3e7a7dde8b2a1d98b123a2b97d65a78f085851c0fa96a63f44cad5b90a43a1",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/饿想吃/6d1f7e2244ac1756.jpg",
+      "bytes": 43528,
+      "sha256": "78269db5e5b2a2a1b161f9784fdfd5cc8da9f8b3bcd615342d4ac6b84922b4d4",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/饿想吃/76d5172a9d5998e3.jpg",
+      "bytes": 77486,
+      "sha256": "1665c05d5be1f72519499b994516f555a644c1488b8a3d0a8ee51e782feddec1",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/饿想吃/841764c5f281834f.jpg",
+      "bytes": 63094,
+      "sha256": "a0cee5813947d82e96c0bcdf34cff31eb27d2c9d748cff4fbc109000e5a466e9",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/饿想吃/944f785c82537d69.jpg",
+      "bytes": 60202,
+      "sha256": "832197a4e814a5a00015c0e6903bf581a920dd51fc8de0d1d05d0b76cd2b154a",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/饿想吃/b158d4cce17ccad9.jpg",
+      "bytes": 54217,
+      "sha256": "4b2ed528d4e7c43af41a992f7226e718014c1142292db4c28d82a6f8422e6fca",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/饿想吃/d6a281f347e8c74d.jpg",
+      "bytes": 45868,
+      "sha256": "b5979d345366bde22d6fd9bc82be9ff301691349533f670267336e4fd9e45dce",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/stickers/饿想吃/fcb0a6e90f2d0c27.jpg",
+      "bytes": 30538,
+      "sha256": "050f301253a4ca4823f8ebd8d8f9f777ab8304d67c46f78d11be364d40313321",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    },
+    {
+      "path": "assets/voice/default.wav",
+      "bytes": 608078,
+      "sha256": "982e4ca2d121183abb75a371dd8875cea317e77d0ffa7d161578c65b9e90aa1a",
+      "provenance_status": "maintainer-provided; upstream attribution details tracked in ASSETS.md"
+    }
+  ]
+}

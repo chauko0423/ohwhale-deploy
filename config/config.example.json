@@ -1,0 +1,91 @@
+{
+  "master": {
+    "qq": "",
+    "session": "",
+    "bili_uid": 0,
+    "bili_name": ""
+  },
+  "paths": {
+    "data": "data",
+    "logs": "logs",
+    "scripts": "scripts",
+    "astrbot": "runtime/AstrBot",
+    "astrbot_config": "runtime/AstrBot/data/cmd_config.json",
+    "astrbot_db": "runtime/AstrBot/data/data_v4.db",
+    "python": ".venv/Scripts/python.exe",
+    "probe_python": ".venv/Scripts/python.exe",
+    "video_python": ".venv-video/Scripts/python.exe",
+    "llbot_exe": "runtime/LL/LuckyLillia.exe",
+    "gpt_sovits": "runtime/GPT-SoVITS",
+    "tts_python": ".venv-tts/Scripts/python.exe",
+    "tts_config": "config/tts.local.yaml",
+    "gpt_weights": "runtime/GPT-SoVITS/GPT_SoVITS/pretrained_models/s1v3.ckpt",
+    "sovits_weights": "models/sovits/dafeiyu_e14_s280.pth",
+    "pretrained_dir": "runtime/GPT-SoVITS/GPT_SoVITS/pretrained_models",
+    "voice_ref": "assets/voice/default.wav",
+    "persona": "persona/default.md",
+    "stickers": "assets/stickers",
+    "sticker_index": "assets/stickers/index.json",
+    "sticker_source": "data/sticker-source",
+    "sticker_work": "cache/sticker-index",
+    "avatar": "assets/avatar",
+    "avatar_image": "assets/avatar/scene_final_1280.jpg",
+    "video_cache": "cache/video",
+    "ffmpeg": "runtime/ffmpeg/bin/ffmpeg.exe",
+    "ffprobe": "runtime/ffmpeg/bin/ffprobe.exe"
+  },
+  "services": {
+    "astrbot_url": "http://127.0.0.1:6185",
+    "dashboard_username": "astrbot",
+    "tts_url": "http://127.0.0.1:9880/tts",
+    "onebot_port": 6199,
+    "avatar_udp_port": 9999,
+    "avatar_web_port": 8899
+  },
+  "llm": {
+    "chat": {
+      "base_url": "https://api.deepseek.com/v1",
+      "model": "deepseek-flash",
+      "key_env": "DEEPSEEK_API_KEY"
+    },
+    "vision": {
+      "base_url": "https://api.deepseek.com/v1",
+      "model": "deepseek-flash",
+      "key_env": "DEEPSEEK_API_KEY"
+    },
+    "screen": {
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "model": "qwen3-vl-plus",
+      "key_env": "DASHSCOPE_API_KEY"
+    }
+  },
+  "audio": {
+    "playback_hint": "VB-Audio Virtual Cable",
+    "capture_hint": "CABLE Output",
+    "listen_hints": [],
+    "use_astrbot_bridge": false,
+    "asr_model": "paraformer-realtime-v2",
+    "tts_raw_rate": 32000
+  },
+  "voice": {
+    "prompt_text": "转移话题是没有用的，转移话题到最后还是会回到这个话题上。都要照顾好。",
+    "prompt_lang": "zh",
+    "text_lang": "zh",
+    "local_provider_id": "gpt_sovits",
+    "cloud_provider_id": ""
+  },
+  "features": {
+    "phone": true,
+    "avatar": false,
+    "bilibili": false,
+    "mic_guard": false
+  },
+  "bilibili": {
+    "max_like_per_day": 10,
+    "max_reply_per_day": 6,
+    "max_dm_per_day": 8
+  },
+  "watchdog": {
+    "restart_qq": false
+  }
+}

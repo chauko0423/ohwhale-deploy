@@ -1,0 +1,15 @@
+name: Offline checks
+on: [push, pull_request]
+jobs:
+  source:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e . httpx Pillow psutil
+      - run: python -m unittest discover -s tests -v
+      - run: python scripts/test_bili_patch.py
+      - run: python plugins/astrbot_plugin_qq_power/test_qq_power.py
+      - run: python scripts/release_check.py
