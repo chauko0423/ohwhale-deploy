@@ -9,6 +9,8 @@
 
 测试包须包含 `models/sovits/dafeiyu_e14_s280.pth`；源码包用户先解压随附模型包。日志在 `data/device-setup.log`，进度和结果在 `data/device-setup.json`，语音测量在 `data/tts-smoke.json`。同目录的 WAV 文件供人工试听。失败后重新运行会复用已完成的下载和依赖，不需要删除安装目录。
 
+如果 PyPI 下载很慢，可停止当前安装后运行 `Run-device-test-mirror.cmd`。它仅为本次进程使用[清华 PyPI 镜像](https://mirror.tuna.tsinghua.edu.cn/help/pypi/)，不修改系统 pip 设置；PyTorch CUDA 仍使用官方专用源，模型仍使用锁定清单中的来源。不要同时运行两个安装器。
+
 这一步不登录 QQ、不配置密钥、不安装音频或摄像头驱动。`ok=true` 只表示依赖和 TTS 检查完成；真实通话、音频回程、形象及完整功能验收仍按下文进行。
 
 ## 1. 准备环境
@@ -31,7 +33,7 @@ powershell -NoProfile -File install/10_deps.ps1 -Video
 - 源码和修补清单在 `config/runtimes.json`；修补说明在 `third-party/gpt-sovits-overrides/README.md`。不会覆盖未知的已有源码修改。
 - 运行 `install/16_qq_client.ps1`，从上游 v8.3.2 Release 下载、校验并解压 LuckyLillia Desktop 到 `runtime/LL`。还需安装官方 QQ，并在 LuckyLillia 选择有头模式；该模式提供实际电话窗口。源环境使用 QQ 9.9.35.52892，其他组合未验证。不要复制别人登录过的客户端目录。
 - 视频抽帧运行 `install/17_video_tools.ps1`，下载并校验 Gyan 的 FFmpeg 9.0.2 构建，完整保留随包许可。默认安装到 `runtime/ffmpeg`，位置由 `paths.ffmpeg`、`paths.ffprobe` 指定。
-- 动态形象还需要 CameraEmulator。当前自动安装尚未实现，见发布状态文档。
+- 动态形象还需要 CameraEmulator。独立摄像头候选 ZIP 提供 `Install-camera.cmd`，校验后注册媒体源并创建当前用户摄像头；完整安装仍待第二台设备实测，见 `install/camera/README.md`。
 
 模型包中的 `models/sovits/dafeiyu_e14_s280.pth` 放入仓库同名目录。
 其 SHA256 见 `config/downloads.json`。当前候选尚未发布模型 Release URL，默认权重需要先从随附模型包解压。
