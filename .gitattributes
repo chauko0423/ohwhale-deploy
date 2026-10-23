@@ -5,6 +5,9 @@
 *.yaml text eol=lf
 *.ps1 text eol=crlf
 *.bat text eol=crlf
+*.cmd text eol=crlf
 *.jpg binary
 *.png binary
 *.wav binary
+# These source overrides are byte-hashed by the installer; preserve exact bytes.
+third-party/gpt-sovits-overrides/** -text
