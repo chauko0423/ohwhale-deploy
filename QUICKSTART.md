@@ -49,6 +49,8 @@ powershell -NoProfile -File install/verify.ps1 -Stage 2 -Json
 
 ## 3. 填账号、密钥和设备
 
+也可打开 `account-setup` 文件夹，双击 `1-Edit-local-config.cmd`：它创建缺少的配置并用记事本打开 `.env` 和 `config.json`。按同目录的填写说明保存后，运行 `2-Apply-account-config.cmd`，检查必填项并导入 AstrBot 配置与人设。该入口已通过隔离环境测试，实际账号在线验证仍需后续完成。已有配置不会被第一步覆盖；第二步拒绝覆盖手工修改的 AstrBot 配置。
+
 ```powershell
 powershell -NoProfile -File install/30_config.ps1
 ```

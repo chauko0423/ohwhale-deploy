@@ -1,0 +1,16 @@
+1. 双击 1-Edit-local-config.cmd，会打开两个本地配置文件。
+
+.env：在等号后填写 DEEPSEEK_API_KEY、DASHSCOPE_API_KEY。
+ASTRBOT_DASHBOARD_PASSWORD 是你为本项目设置的新面板密码，至少 8 位，包含大写、小写字母和数字。
+ONEBOT_ACCESS_TOKEN 可暂时留空；如果填写，稍后需在 QQ 客户端配置同一个值。
+不要将密钥发到聊天、截图或公开仓库。
+
+config.json：顶部 master 下的 qq 填你的主人 QQ 号，即用来与机器人聊天的那个 QQ，不是机器人登录账号。
+保留双引号，例如 "qq": "你的主人QQ号"。其他字段先保持原样。
+
+2. 两个文件都按 Ctrl+S 保存，关闭编辑窗口，再双击 2-Apply-account-config.cmd。
+它检查配置是否填写，建立 AstrBot 配置并导入默认人设，不发送 API 请求或 QQ 消息。
+成功提示 Local profile prepared；如果出现 BLOCKED，保留窗口。
+
+3. 仅回复“配置完成”或报错信息。不要上传 .env、config.json、AstrBot 配置文件或账号数据。
+后续仍需 QQ 登录、音频设备和实际通话测试。

@@ -3,7 +3,7 @@
   "scope": "second-machine-rtx2060-chinese-tts-only",
   "ok": true,
   "full_acceptance_passed": false,
-  "listening_review": false,
+  "listening_review": true,
   "qq_call_latency_measured": false,
   "streaming_trials": [
     {
@@ -71,5 +71,11 @@
       "duration_s": 6.04203125
     }
   ],
-  "multilingual_optional_component_verified": false
+  "multilingual_optional_component_verified": false,
+  "listening_review_evidence": {
+    "source": "user confirmation in this conversation",
+    "date": "2026-10-24",
+    "result": "正常，音色符合预期",
+    "scope": "CHUAKO Chinese TTS sample only"
+  }
 }
