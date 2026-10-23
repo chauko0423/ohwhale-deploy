@@ -12,8 +12,19 @@ function Run-Step([string]$Name, [string]$Script) {
     $Report.current_step=$Name
     Save-Status
     Write-Host "=== $Name ==="
-    & powershell.exe -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot $Script)
-    if ($LASTEXITCODE -ne 0) { throw "Step failed: $Name (exit $LASTEXITCODE)" }
+    # Child native output can bypass Start-Transcript on Windows PowerShell 5.1.
+    # Route both streams through the host so pip failures survive in the log.
+    # Continue is scoped to this native pipeline; its exit code remains decisive.
+    $PreviousErrorAction = $ErrorActionPreference
+    try {
+        $ErrorActionPreference = 'Continue'
+        & powershell.exe -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot $Script) 2>&1 |
+            ForEach-Object { Write-Host $_ }
+        $StepExitCode = $LASTEXITCODE
+    } finally {
+        $ErrorActionPreference = $PreviousErrorAction
+    }
+    if ($StepExitCode -ne 0) { throw "Step failed: $Name (exit $StepExitCode)" }
     $Report.completed_steps += $Name
     Save-Status
 }
@@ -23,6 +34,8 @@ try {
     Set-Location -LiteralPath $ProjectRoot
     $env:PIP_CACHE_DIR=Join-Path $ProjectRoot 'cache/pip'
     $env:PIP_DISABLE_PIP_VERSION_CHECK='1'
+    if (-not $env:PIP_DEFAULT_TIMEOUT) { $env:PIP_DEFAULT_TIMEOUT='120' }
+    if (-not $env:PIP_RETRIES) { $env:PIP_RETRIES='10' }
     Run-Step 'hardware-report' '00_machine.ps1'
     $Machine = Get-Content -LiteralPath (Join-Path $Data 'machine-preflight.json') -Raw -Encoding UTF8 | ConvertFrom-Json
     if ($Machine.install_disk_free_gib -lt 25) { throw 'At least 25 GiB free space is required.' }
