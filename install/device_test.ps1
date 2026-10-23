@@ -24,7 +24,7 @@ try {
     $env:PIP_CACHE_DIR=Join-Path $ProjectRoot 'cache/pip'
     $env:PIP_DISABLE_PIP_VERSION_CHECK='1'
     Run-Step 'hardware-report' '00_machine.ps1'
-    $Machine = Get-Content -LiteralPath (Join-Path $Data 'machine-preflight.json') -Raw | ConvertFrom-Json
+    $Machine = Get-Content -LiteralPath (Join-Path $Data 'machine-preflight.json') -Raw -Encoding UTF8 | ConvertFrom-Json
     if ($Machine.install_disk_free_gib -lt 25) { throw 'At least 25 GiB free space is required.' }
     Run-Step 'project-python' '05_python.ps1'
     Run-Step 'main-dependencies' '10_deps.ps1'
