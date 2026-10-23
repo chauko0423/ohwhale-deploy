@@ -6,8 +6,8 @@
   "source_scan": {
     "ok": true,
     "scope": "offline-source-only",
-    "files": 500,
-    "source_bytes": 680166,
+    "files": 502,
+    "source_bytes": 684679,
     "stickers": 362,
     "moods": 12,
     "problems": []
@@ -15,8 +15,8 @@
   "offline_tests": {
     "qq_plugin": 73,
     "bilibili_plugin": 6,
-    "configuration_download_lifecycle": 17,
-    "total": 96,
+    "configuration_download_lifecycle": 19,
+    "total": 98,
     "failed": 0
   },
   "known_secret_value_matches": 0,

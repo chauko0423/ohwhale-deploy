@@ -1,0 +1,10 @@
+{
+  "id": "ffmpeg-9.0.2-essentials-windows-x64",
+  "destination": "cache/sources/ffmpeg-9.0.2-essentials_build.zip",
+  "size": 114768076,
+  "sha256": "60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba",
+  "urls": ["https://github.com/GyanD/codexffmpeg/releases/download/9.0.2/ffmpeg-9.0.2-essentials_build.zip"],
+  "archive_prefix": "ffmpeg-9.0.2-essentials_build/",
+  "source": "https://www.gyan.dev/ffmpeg/builds/",
+  "note": "Independent FFmpeg build; validate frame extraction and audio conversion, retain all bundled licenses."
+}

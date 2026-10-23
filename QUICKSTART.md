@@ -30,7 +30,7 @@ powershell -NoProfile -File install/10_deps.ps1 -Video
 - 运行 `powershell -NoProfile -File install/15_tts.ps1`：下载锁定的 GPT-SoVITS 源码，校验并应用六个现用推理修补，建立 `.venv-tts`，安装 PyTorch 2.9.1 CUDA 12.8 及中文推理依赖。需要兼容的 NVIDIA 驱动；脚本最后检查 CUDA 是否可用。该步骤仍在换机验收中。
 - 源码和修补清单在 `config/runtimes.json`；修补说明在 `third-party/gpt-sovits-overrides/README.md`。不会覆盖未知的已有源码修改。
 - 运行 `install/16_qq_client.ps1`，从上游 v8.3.2 Release 下载、校验并解压 LuckyLillia Desktop 到 `runtime/LL`。还需安装官方 QQ，并在 LuckyLillia 选择有头模式；该模式提供实际电话窗口。源环境使用 QQ 9.9.35.52892，其他组合未验证。不要复制别人登录过的客户端目录。
-- 视频抽帧需要 FFmpeg 与 FFprobe，位置由 `paths.ffmpeg`、`paths.ffprobe` 指定。
+- 视频抽帧运行 `install/17_video_tools.ps1`，下载并校验 Gyan 的 FFmpeg 9.0.2 构建，完整保留随包许可。默认安装到 `runtime/ffmpeg`，位置由 `paths.ffmpeg`、`paths.ffprobe` 指定。
 - 动态形象还需要 CameraEmulator。当前自动安装尚未实现，见发布状态文档。
 
 模型包中的 `models/sovits/dafeiyu_e14_s280.pth` 放入仓库同名目录。
@@ -41,7 +41,7 @@ powershell -NoProfile -File install/20_download.ps1
 powershell -NoProfile -File install/verify.ps1 -Stage 2 -Json
 ```
 
-`20_download.ps1` 只安装清单中的模型。QQ、VB-CABLE、CameraEmulator 和 FFmpeg 尚需另外准备。
+`20_download.ps1` 只安装清单中的模型。QQ 客户端和 FFmpeg 使用各自安装脚本；VB-CABLE、CameraEmulator 尚需另外安装。
 已存在且哈希正确的文件直接跳过；失败文件只保留 `.part`，不会冒充完成。
 清单使用当前生效组合：上游 `s1v3.ckpt` + 微调 SoVITS，避免误用旧 GPT 训练快照改变音色。
 

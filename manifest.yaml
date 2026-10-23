@@ -19,6 +19,9 @@ optional_features: [bilibili, avatar, mic_guard, cloud-cloned-voice]
 download_catalog: config/downloads.json
 source_catalog: config/runtimes.json
 client_catalog: config/client-downloads.json
+video_catalog: config/video-runtime.json
+python_catalog: config/python-runtime.json
+device_test: Run-device-test.cmd
 default_voice_weights_in_git: false
 checks:
   source: python scripts/release_check.py

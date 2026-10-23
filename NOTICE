@@ -19,6 +19,9 @@ registration and QQ video on the second device remain unverified.
 LLBot distribution: https://luckylillia.com/ ; follow the terms of the selected release.
 VB-CABLE: https://vb-audio.com/Cable/ ; install from the vendor.
 FFmpeg: https://ffmpeg.org/ ; binary license depends on build configuration.
+The optional video-tools installer downloads Gyan's 9.0.2 essentials build,
+verifies the archive and retains its LICENSE and documentation. This archive
+is not included in the source repository: https://www.gyan.dev/ffmpeg/builds/
 Python dependencies are installed independently; see requirements.txt and the
 license metadata of the exact installed distributions.
 

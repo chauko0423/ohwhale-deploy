@@ -102,12 +102,47 @@ def install_ll_client():
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument("component",choices=["tts-source","ll-client"],nargs="?",default="tts-source")
+    parser.add_argument("component",choices=["tts-source","ll-client","ffmpeg"],nargs="?",default="tts-source")
     args=parser.parse_args()
-    try:report=install_tts_source() if args.component=="tts-source" else install_ll_client()
+    try:
+        report={"tts-source":install_tts_source,"ll-client":install_ll_client,"ffmpeg":install_ffmpeg}[args.component]()
     except Exception as exc:report={"ok":False,"status":"BLOCKED","detail":str(exc)}
     print(json.dumps(report,ensure_ascii=False,indent=2))
     return 0 if report["ok"] else 1
+
+
+def install_ffmpeg():
+    entry=json.loads((root()/"config/video-runtime.json").read_text("utf-8"))
+    target=root()/"runtime/ffmpeg"
+    if not target.resolve().is_relative_to((root()/"runtime").resolve()):
+        raise ValueError("FFmpeg must stay inside the runtime directory")
+    fetch(entry,root())
+    writes=[]
+    with zipfile.ZipFile(destination(entry,root())) as z:
+        prefix=entry["archive_prefix"]
+        for required in ("bin/ffmpeg.exe","bin/ffprobe.exe","LICENSE"):
+            if prefix+required not in z.namelist():
+                raise ValueError(f"FFmpeg archive is missing {required}")
+        for info in z.infolist():
+            if info.is_dir():continue
+            if not info.filename.startswith(prefix):raise ValueError("Unexpected FFmpeg archive root")
+            relative=info.filename[len(prefix):]
+            out=(target/relative).resolve()
+            if not out.is_relative_to(target.resolve()) or ".." in PurePosixPath(relative).parts or "\\" in relative or stat.S_ISLNK(info.external_attr>>16):
+                raise ValueError("Unsafe FFmpeg archive path")
+            data=z.read(info)
+            if out.exists():
+                if digest(out.read_bytes())!=digest(data):
+                    raise ValueError("Existing FFmpeg differs; no files changed")
+                continue
+            writes.append((out,data))
+    record=Path(path("data"))/"processes.json"
+    if writes and record.exists() and json.loads(record.read_text("utf-8")):
+        raise ValueError("Stop this installation before changing FFmpeg")
+    for out,data in writes:
+        out.parent.mkdir(parents=True,exist_ok=True)
+        with out.open("xb") as stream:stream.write(data)
+    return {"ok":True,"status":"video-tools-unpacked","version":"9.0.2","files_written":len(writes)}
 
 
 if __name__=="__main__":raise SystemExit(main())
