@@ -2,12 +2,12 @@
   "release": "0.1.0a1",
   "status": "local-preview-candidate",
   "publicly_published": false,
-  "source_syntax_files": 45,
+  "source_syntax_files": 46,
   "source_scan": {
     "ok": true,
     "scope": "offline-source-only",
-    "files": 510,
-    "source_bytes": 702975,
+    "files": 511,
+    "source_bytes": 708550,
     "stickers": 362,
     "moods": 12,
     "problems": []
@@ -15,17 +15,22 @@
   "offline_tests": {
     "qq_plugin": 73,
     "bilibili_plugin": 6,
-    "configuration_download_lifecycle": 19,
+    "configuration_download_lifecycle": 21,
     "device_installer": 1,
     "tls_download": 3,
-    "total": 102,
+    "optional_language_loading": 3,
+    "total": 107,
     "failed": 0
   },
   "known_secret_value_matches": 0,
   "source_files_hash_checked": 420,
-  "source_files_changed": 0,
+  "source_files_changed": 1,
+  "source_integrity_status": "changed_since_baseline_review_required",
+  "source_changes_since_baseline": [
+    "scripts/avatar_live.py"
+  ],
   "upstream_model_files_remote_hash_verified": 8,
-  "fresh_machine_install": "main_dependencies_passed_tts_source_certificate_fix_retry_pending",
+  "fresh_machine_install": "dependencies_cuda_models_passed_tts_native_import_denied_lazy_import_retry_pending",
   "real_call_and_QQ_Bilibili_delivery": "not_run",
   "performance_and_experience_parity": "not_verified",
   "powershell_syntax_errors": 0
