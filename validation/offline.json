@@ -6,8 +6,8 @@
   "source_scan": {
     "ok": true,
     "scope": "offline-source-only",
-    "files": 496,
-    "source_bytes": 665496,
+    "files": 500,
+    "source_bytes": 680166,
     "stickers": 362,
     "moods": 12,
     "problems": []
