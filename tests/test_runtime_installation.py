@@ -55,6 +55,37 @@ class RuntimeInstallationTests(unittest.TestCase):
             install_tts_source()
         self.assertFalse((self.base/"runtime/GPT-SoVITS/api_v2.py").exists())
 
+    def override_fixture(self, existing):
+        self.archive({"source/api_v2.py":"upstream API"})
+        manifest=self.base/"config/runtimes.json"
+        spec=json.loads(manifest.read_text())
+        spec["gpt_sovits"]["overrides"]=[{
+            "path":"api_v2.py",
+            "original_sha256":hashlib.sha256(b"upstream API").hexdigest(),
+            "patched_sha256":hashlib.sha256(b"new patch").hexdigest(),
+            "previous_patched_sha256":[hashlib.sha256(b"reviewed old patch").hexdigest()]}]
+        manifest.write_text(json.dumps(spec))
+        override=self.base/"third-party/gpt-sovits-overrides"
+        override.mkdir(parents=True)
+        (override/"api_v2.py").write_bytes(b"new patch")
+        runtime=self.base/"runtime/GPT-SoVITS"
+        runtime.mkdir(parents=True)
+        target=runtime/"api_v2.py"
+        target.write_bytes(existing)
+        return target
+
+    def test_reviewed_previous_patch_upgrades_and_is_idempotent(self):
+        target=self.override_fixture(b"reviewed old patch")
+        self.assertEqual(install_tts_source()["files_written"],1)
+        self.assertEqual(target.read_bytes(),b"new patch")
+        self.assertEqual(install_tts_source()["files_written"],0)
+
+    def test_unknown_patch_is_still_refused(self):
+        target=self.override_fixture(b"user edited patch")
+        with self.assertRaisesRegex(ValueError,"Existing TTS source differs"):
+            install_tts_source()
+        self.assertEqual(target.read_bytes(),b"user edited patch")
+
     def video_archive(self, extra=None):
         archive=self.base/"fixture-video.zip"
         names={"ffmpeg/bin/ffmpeg.exe":"fixture", "ffmpeg/bin/ffprobe.exe":"fixture", "ffmpeg/LICENSE":"license"}

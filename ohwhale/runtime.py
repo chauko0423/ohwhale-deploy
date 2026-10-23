@@ -39,6 +39,7 @@ def install_tts_source():
     if "api_v2.py" not in files:
         raise ValueError("Pinned archive has no API entry point")
     originals={name:digest(data) for name,data in files.items()}
+    previous_patches={}
     for patch in item["overrides"]:
         name=patch["path"]
         if originals.get(name)!=patch["original_sha256"]:
@@ -50,13 +51,14 @@ def install_tts_source():
         if digest(data)!=patch["patched_sha256"]:
             raise ValueError(f"Override checksum failed for {name}")
         files[name]=data
+        previous_patches[name]=patch.get("previous_patched_sha256",[])
     writes=[]
     for name,data in files.items():
         out=target/name
         if out.exists():
             actual=digest(out.read_bytes())
             if actual==digest(data):continue
-            if actual!=originals[name]:
+            if actual!=originals[name] and actual not in previous_patches.get(name,[]):
                 raise ValueError(f"Existing TTS source differs; no files changed: {name}")
         writes.append((out,data))
     record=Path(path("data"))/"processes.json"

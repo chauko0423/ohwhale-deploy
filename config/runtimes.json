@@ -26,7 +26,8 @@
       {
         "path": "GPT_SoVITS/text/LangSegmenter/langsegmenter.py",
         "original_sha256": "ff9bf21502c6fa8e6ea7d97abf1621981cd9c456795190d4c6f576c25a62b54f",
-        "patched_sha256": "667797453ad43f5f28043244378fd027eb9b1d2ec6f53d601c963c6ad47588ec"
+        "patched_sha256": "7296dd46d917913b0657fade63b7e3c4ac0b9756e55522cc91b4214f9ebf731d",
+        "previous_patched_sha256": ["667797453ad43f5f28043244378fd027eb9b1d2ec6f53d601c963c6ad47588ec"]
       },
       {
         "path": "GPT_SoVITS/text/chinese.py",

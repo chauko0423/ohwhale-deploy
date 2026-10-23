@@ -5,21 +5,32 @@ import re
 import jieba
 jieba.setLogLevel(logging.CRITICAL)
 
-# 更改fast_langdetect大模型位置
+from functools import lru_cache
 from pathlib import Path
-import fast_langdetect
-try:
-    fast_langdetect.infer._default_detector = fast_langdetect.infer.LangDetector(
-        fast_langdetect.infer.LangDetectConfig(
-            cache_dir=Path(__file__).parent.parent.parent / "pretrained_models" / "fast_langdetect"
+
+
+@lru_cache(maxsize=1)
+def multilingual_splitter():
+    # The existing Chinese fast path does not use this optional native module.
+    # Load it only for text that actually needs multilingual segmentation.
+    try:
+        import fast_langdetect
+        from split_lang import LangSplitter
+    except (ImportError, OSError) as exc:
+        raise RuntimeError(
+            "Multilingual segmentation is unavailable: fasttext/split-lang could "
+            "not load. The Chinese fast path remains available. "
+            "Keep system application-control protections enabled."
+        ) from exc
+    try:
+        fast_langdetect.infer._default_detector = fast_langdetect.infer.LangDetector(
+            fast_langdetect.infer.LangDetectConfig(
+                cache_dir=Path(__file__).parent.parent.parent / "pretrained_models" / "fast_langdetect"
+            )
         )
-    )
-except Exception:
-    pass  # 模型未下载时不阻断，中文走下面的快速分支
-
-
-
-from split_lang import LangSplitter
+    except Exception:
+        pass  # Preserve upstream lazy model initialization behavior.
+    return LangSplitter
 
 
 def full_en(text):
@@ -99,7 +110,7 @@ class LangSegmenter():
         # 纯中文直接返回，跳过 fast_langdetect（模型本地不存在）
         if not re.search(r'[A-Za-z]', text):
             return [{'lang': default_lang or 'zh', 'text': text}]
-        lang_splitter = LangSplitter(lang_map=LangSegmenter.DEFAULT_LANG_MAP)
+        lang_splitter = multilingual_splitter()(lang_map=LangSegmenter.DEFAULT_LANG_MAP)
         lang_splitter.merge_across_digit = False
         substr = lang_splitter.split_by_lang(text=text)
 
