@@ -19,8 +19,8 @@
     "device_installer": 1,
     "tls_download": 3,
     "optional_language_loading": 3,
-    "account_form": 5,
-    "total": 112,
+    "account_form": 7,
+    "total": 114,
     "failed": 0
   },
   "known_secret_value_matches": 0,
@@ -34,5 +34,11 @@
   "fresh_machine_install": "dependencies_cuda_models_and_chinese_tts_passed_full_acceptance_pending",
   "real_call_and_QQ_Bilibili_delivery": "not_run",
   "performance_and_experience_parity": "not_verified",
-  "powershell_syntax_errors": 0
+  "powershell_syntax_errors": 0,
+  "latest_incremental_validation": {
+    "scope": "account form only",
+    "tests": 7,
+    "passed": 7,
+    "real_powershell_gbk_console": true
+  }
 }

@@ -1,6 +1,9 @@
 import importlib.util
 import json
 import os
+import shutil
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -91,6 +94,42 @@ class AccountFormTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, '已经建立'):
             form.save_form(request)
         self.assertEqual(self.files(), before)
+
+    @unittest.skipUnless(os.name == 'nt' and shutil.which('powershell.exe'), 'Windows PowerShell required')
+    def test_chinese_validation_survives_gbk_console(self):
+        # Exercise the real PowerShell native pipeline, not just json.loads.
+        request = self.request()
+        request['ASTRBOT_DASHBOARD_PASSWORD'] = 'lowercase123'
+        (self.root/'request.json').write_text(json.dumps(request), encoding='ascii')
+        runner = self.root/'check.ps1'
+        runner.write_text('''$ErrorActionPreference='Stop'
+$OutputEncoding=New-Object Text.UTF8Encoding($false)
+[Console]::OutputEncoding=[Text.Encoding]::GetEncoding(936)
+$Raw=Get-Content -LiteralPath (Join-Path $PSScriptRoot 'request.json') -Raw -Encoding UTF8
+$Reply=($Raw | & $env:FORM_TEST_PYTHON $env:FORM_TEST_HELPER save | Out-String)
+if ($Reply -match '[^\\x00-\\x7f]') { throw 'Protocol output was not ASCII' }
+$Result=$Reply | ConvertFrom-Json
+if ($Result.ok -or -not $Result.detail.Contains([string][char]0x5927+[char]0x5199)) { throw 'Chinese validation was lost' }
+Write-Output 'validation-preserved'
+''', encoding='utf-8-sig')
+        env = os.environ.copy()
+        env.update(FORM_TEST_PYTHON=sys.executable, FORM_TEST_HELPER=str(ROOT/'account-setup/account_form.py'),
+                   PYTHONPATH=str(ROOT), PYTHONIOENCODING='utf-8')
+        result = subprocess.run(['powershell.exe','-NoProfile','-ExecutionPolicy','Bypass','-File',str(runner)],
+                                env=env,capture_output=True,timeout=30)
+        self.assertEqual(result.returncode, 0, result.stderr.decode('utf-8',errors='replace'))
+        self.assertIn(b'validation-preserved', result.stdout)
+
+    def test_protocol_preserves_non_ascii_saved_values(self):
+        request = self.request()
+        request['ASTRBOT_DASHBOARD_PASSWORD'] = 'ChinesePass123中文'
+        form.save_form(request)
+        env = os.environ.copy()
+        env.update(PYTHONPATH=str(ROOT),PYTHONIOENCODING='utf-8')
+        result = subprocess.run([sys.executable,str(ROOT/'account-setup/account_form.py'),'read'],
+                                env=env,capture_output=True,check=True)
+        self.assertTrue(result.stdout.isascii())
+        self.assertEqual(json.loads(result.stdout)['ASTRBOT_DASHBOARD_PASSWORD'], request['ASTRBOT_DASHBOARD_PASSWORD'])
 
 
 if __name__ == '__main__':

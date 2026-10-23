@@ -110,7 +110,10 @@ def main():
         report = {'ok': False, 'detail': detail}
     except Exception:
         report = {'ok': False, 'detail': '无法读写本地配置。请确认文件未被占用、安装目录可写。'}
-    print(json.dumps(report, ensure_ascii=False))
+    # PowerShell 5.1 decodes native stdout using the console code page (often
+    # GBK), independently of $OutputEncoding. ASCII JSON escapes preserve both
+    # Chinese validation messages and saved non-ASCII values on every code page.
+    print(json.dumps(report, ensure_ascii=True))
     return 0 if report['ok'] else 1
 
 
