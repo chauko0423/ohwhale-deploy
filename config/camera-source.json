@@ -1,0 +1,18 @@
+{
+  "upstream": "https://github.com/jnhaas/CameraEmulator",
+  "commit": "5dba4de320da0202995a51bb2f858394c9be5935",
+  "archive": {
+    "id": "camera-emulator-source",
+    "destination": "cache/sources/camera-5dba4de320da0202995a51bb2f858394c9be5935.zip",
+    "urls": [
+      "https://codeload.github.com/jnhaas/CameraEmulator/zip/5dba4de320da0202995a51bb2f858394c9be5935"
+    ],
+    "size": 121356,
+    "sha256": "a4efae1e68aed3ec8a18f3233482d5deb66fc423a39ef47ebc8e0ba458e7f2eb"
+  },
+  "override": {
+    "path": "src/source/MediaStream.cpp",
+    "original_sha256": "e8975d0d427ed75ee803566e697426ec7a03a3932c32d97c889de4a8524ac7e1",
+    "patched_sha256": "bb1aaee2867176880b4f1c968c119e4e0c8b21e83f960e37806883d66ee08a5e"
+  }
+}

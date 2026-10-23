@@ -11,3 +11,4 @@
 *.wav binary
 # These source overrides are byte-hashed by the installer; preserve exact bytes.
 third-party/gpt-sovits-overrides/** -text
+third-party/camera-emulator-overrides/** -text
