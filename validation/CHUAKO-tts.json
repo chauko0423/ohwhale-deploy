@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "scope": "second-machine-rtx2060-chinese-tts-only",
+  "ok": true,
+  "full_acceptance_passed": false,
+  "listening_review": false,
+  "qq_call_latency_measured": false,
+  "streaming_trials": [
+    {
+      "audio_duration_s": 4.647,
+      "sample_rate": 32000,
+      "peak": 22784,
+      "trial": 1,
+      "first_pcm_s": 0.531,
+      "total_s": 2.531,
+      "chunks": 8
+    },
+    {
+      "audio_duration_s": 4.406,
+      "sample_rate": 32000,
+      "peak": 20304,
+      "trial": 2,
+      "first_pcm_s": 0.375,
+      "total_s": 2.094,
+      "chunks": 8
+    },
+    {
+      "audio_duration_s": 6.042,
+      "sample_rate": 32000,
+      "peak": 20256,
+      "trial": 3,
+      "first_pcm_s": 0.407,
+      "total_s": 2.61,
+      "chunks": 11
+    }
+  ],
+  "hardware": {
+    "torch": "2.9.1+cu128",
+    "cuda": true,
+    "gpu": "NVIDIA GeForce RTX 2060",
+    "vram_bytes": 6442123264
+  },
+  "startup_s": 19.219,
+  "cold_nonstreaming": {
+    "audio_duration_s": 8.06,
+    "sample_rate": 32000,
+    "peak": 23968,
+    "total_s": 7.187
+  },
+  "second_machine": true,
+  "finished_at": "2026-10-23T20:17:13.6785743Z",
+  "audio_files_verified": [
+    {
+      "file": "tts-smoke.wav",
+      "sha256": "f9fcaf7a80517b0173b369320edee1771bb75be1f3baad0a30ddd7794ce28f52",
+      "duration_s": 8.06
+    },
+    {
+      "file": "tts-stream-1.wav",
+      "sha256": "8e25b728f9047bc06f3dfc452d6d7eb44d789d1892b9ebbdc3ad18388f0aa8dd",
+      "duration_s": 4.64690625
+    },
+    {
+      "file": "tts-stream-2.wav",
+      "sha256": "f8c0eedd229098e8f1abc443101956880bf06b2724d5b8046c2309905aa51a3e",
+      "duration_s": 4.40625
+    },
+    {
+      "file": "tts-stream-3.wav",
+      "sha256": "70931a6a31cc771034ce20cbf298dc0f552928b86824dd10d5c8eddf2ac2f1e6",
+      "duration_s": 6.04203125
+    }
+  ],
+  "multilingual_optional_component_verified": false
+}

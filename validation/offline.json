@@ -30,7 +30,7 @@
     "scripts/avatar_live.py"
   ],
   "upstream_model_files_remote_hash_verified": 8,
-  "fresh_machine_install": "dependencies_cuda_models_passed_tts_native_import_denied_lazy_import_retry_pending",
+  "fresh_machine_install": "dependencies_cuda_models_and_chinese_tts_passed_full_acceptance_pending",
   "real_call_and_QQ_Bilibili_delivery": "not_run",
   "performance_and_experience_parity": "not_verified",
   "powershell_syntax_errors": 0

@@ -29,7 +29,7 @@ powershell -NoProfile -File install/10_deps.ps1 -Video
 
 ## 2. 安装第三方运行环境与模型
 
-- 运行 `powershell -NoProfile -File install/15_tts.ps1`：下载锁定的 GPT-SoVITS 源码，校验并应用六个现用推理修补，建立 `.venv-tts`，安装 PyTorch 2.9.1 CUDA 12.8 及中文推理依赖。需要兼容的 NVIDIA 驱动；脚本最后检查 CUDA 是否可用。该步骤仍在换机验收中。
+- 运行 `powershell -NoProfile -File install/15_tts.ps1`：下载锁定的 GPT-SoVITS 源码，校验并应用六个现用推理修补，建立 `.venv-tts`，安装 PyTorch 2.9.1 CUDA 12.8 及中文推理依赖。需要兼容的 NVIDIA 驱动；脚本最后检查 CUDA 是否可用。已在第二台 RTX 2060 6 GB 设备完成依赖、CUDA 及中文合成检查；完整功能仍待验收。
 - 源码和修补清单在 `config/runtimes.json`；修补说明在 `third-party/gpt-sovits-overrides/README.md`。不会覆盖未知的已有源码修改。
 - 运行 `install/16_qq_client.ps1`，从上游 v8.3.2 Release 下载、校验并解压 LuckyLillia Desktop 到 `runtime/LL`。还需安装官方 QQ，并在 LuckyLillia 选择有头模式；该模式提供实际电话窗口。源环境使用 QQ 9.9.35.52892，其他组合未验证。不要复制别人登录过的客户端目录。
 - 视频抽帧运行 `install/17_video_tools.ps1`，下载并校验 Gyan 的 FFmpeg 9.0.2 构建，完整保留随包许可。默认安装到 `runtime/ffmpeg`，位置由 `paths.ffmpeg`、`paths.ffprobe` 指定。
