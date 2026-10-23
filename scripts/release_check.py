@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SKIP = {".git", "__pycache__", "data", "logs", "cache", "runtime", "models", ".venv", ".venv-video", ".venv-tts"}
-TEXT = {".py", ".md", ".json", ".yaml", ".yml", ".ps1", ".bat", ".toml", ".txt", ".example"}
+TEXT = {".py", ".md", ".json", ".yaml", ".yml", ".ps1", ".bat", ".cmd", ".toml", ".txt", ".example"}
 
 
 def inspect(root=ROOT):

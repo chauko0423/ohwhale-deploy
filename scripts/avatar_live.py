@@ -48,8 +48,8 @@ UDP_PORT = int(setting("services.avatar_udp_port"))
 
 LAYERS = os.path.join(config_path("avatar"), "layers")
 BASE_BG = config_path("avatar_image")
-OUT_BASE = project_path("assets/avatar/scene_base_v2.jpg")
-OUT_ANCHOR = project_path("assets/avatar/mouth_anchor_v2.json")
+OUT_BASE = state_path("avatar/scene_base_v2.jpg")
+OUT_ANCHOR = state_path("avatar/mouth_anchor_v2.json")
 
 k32 = ctypes.WinDLL("kernel32", use_last_error=True)
 k32.OpenFileMappingW.restype = wintypes.HANDLE

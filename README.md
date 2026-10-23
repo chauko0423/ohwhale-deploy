@@ -17,7 +17,7 @@
 
 | 项目 | 用途 |
 |---|---|
-| Windows x64、Python 3.12+ | 脚本环境；当前源环境为 Windows 11 |
+| Windows x64、Python 3.12 x64 | 脚本环境；当前源环境为 Windows 11 |
 | DeepSeek API Key | 聊天及视频图像理解；账号按服务商规则计费 |
 | DashScope API Key | 流式语音识别、电话截图理解；云端克隆音色需要单独配置 |
 | QQ 账号 | 使用者自己扫码；建议与日常账号分开 |

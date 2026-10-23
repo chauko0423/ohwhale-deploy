@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "gpt_sovits": {
+    "commit": "b4570b876f5c086819ba84e3215472733c6a7b70",
+    "upstream": "https://github.com/RVC-Boss/GPT-SoVITS",
+    "archive": {
+      "id": "gpt-sovits-source",
+      "destination": "cache/sources/gpt-sovits-b4570b876f5c086819ba84e3215472733c6a7b70.zip",
+      "size": 6899760,
+      "sha256": "ffdf9273348a58000cbed695aeaa4fd99f668451ef02cab5a59fe70a14bb8713",
+      "urls": [
+        "https://codeload.github.com/RVC-Boss/GPT-SoVITS/zip/b4570b876f5c086819ba84e3215472733c6a7b70"
+      ]
+    },
+    "overrides": [
+      {
+        "path": "api_v2.py",
+        "original_sha256": "19c50d1b16e744b4fb511233a03dcc8949eead4527714d958638c079fd949d8e",
+        "patched_sha256": "581c07a021a40cca5789755becc14ab1b662d703964ba8845a40e80f5debb9e5"
+      },
+      {
+        "path": "GPT_SoVITS/TTS_infer_pack/TTS.py",
+        "original_sha256": "6a80acef239829a5af42916bb1f38598d9fd3ffc49d939601d3153a1f1484fd0",
+        "patched_sha256": "9bfcccb905ca99b2ad1b72f16af3c8efd9b7b942745a0dcfe72eb8fea338c899"
+      },
+      {
+        "path": "GPT_SoVITS/text/LangSegmenter/langsegmenter.py",
+        "original_sha256": "ff9bf21502c6fa8e6ea7d97abf1621981cd9c456795190d4c6f576c25a62b54f",
+        "patched_sha256": "667797453ad43f5f28043244378fd027eb9b1d2ec6f53d601c963c6ad47588ec"
+      },
+      {
+        "path": "GPT_SoVITS/text/chinese.py",
+        "original_sha256": "9ceae1540e10a32ec8d874b10d0b07912b208c81db492938604c4540771703da",
+        "patched_sha256": "50e0075942fa3fdbe0ceb6bc675395f76a9f97fd29c24b3ea5279a760fd743dd"
+      },
+      {
+        "path": "GPT_SoVITS/text/chinese2.py",
+        "original_sha256": "a33a7fced1496c034522e46be2702c49f71f93cf4bc8e2bd216fab5d3fc08ae5",
+        "patched_sha256": "543a5b87f069544f9f0d9b12d29f772aa7941882ebc5b206729b79cff4c6fffd"
+      },
+      {
+        "path": "GPT_SoVITS/text/tone_sandhi.py",
+        "original_sha256": "b651a9cf7a94b66401101876616a85479bb2fb266aa41f85423b9371bbe4137d",
+        "patched_sha256": "796868feb0ccd3c72263d214a1473e6a06a4484e0878ca28f594b47594628d75"
+      }
+    ]
+  }
+}

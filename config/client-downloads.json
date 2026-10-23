@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "id": "luckylillia-desktop",
+      "destination": "cache/sources/LuckyLillia-Desktop-win-x64.zip",
+      "size": 65767668,
+      "sha256": "38fde3cc61d76fc9bfcfabcc7b0b362a5c938016d8b57a1665d4173492d3981f",
+      "urls": [
+        "https://github.com/LLOneBot/LuckyLilliaBot/releases/download/v8.3.2/LuckyLillia-Desktop-win-x64.zip"
+      ],
+      "release": "https://github.com/LLOneBot/LuckyLilliaBot/releases/tag/v8.3.2",
+      "tag": "v8.3.2"
+    }
+  ]
+}

@@ -7,6 +7,8 @@ if (-not (Test-Path -LiteralPath (Join-Path $ProjectRoot '.venv\Scripts\python.e
 $ProjectPython = Join-Path $ProjectRoot '.venv\Scripts\python.exe'
 & $ProjectPython -m pip install -r (Join-Path $ProjectRoot 'requirements.txt') -e $ProjectRoot
 if ($LASTEXITCODE -ne 0) { throw 'BLOCKED: stage1 dependency installation failed' }
+& $ProjectPython -m pip check
+if ($LASTEXITCODE -ne 0) { throw 'BLOCKED: stage1 dependency conflicts detected' }
 if ($Video) {
     & $ProjectPython -m venv (Join-Path $ProjectRoot '.venv-video')
     if ($LASTEXITCODE -ne 0) { throw 'BLOCKED: stage1 video venv creation failed' }

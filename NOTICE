@@ -5,9 +5,14 @@ redistribute the AstrBot, GPT-SoVITS, QQ, LLBot or VB-CABLE runtime binaries.
 
 AstrBot: https://github.com/AstrBotDevs/AstrBot, AGPL-3.0.
 GPT-SoVITS source: https://github.com/RVC-Boss/GPT-SoVITS, MIT, Copyright RVC-Boss.
+Six modified source files are redistributed under their upstream MIT license in
+third-party/gpt-sovits-overrides; see its README and LICENSE for version and changes.
 The upstream source license is not a substitute for individual model/data/asset terms.
 CameraEmulator shared-memory protocol: Copyright 2026 Jean-Noël Haas
 (FinalAnalytics), MIT; supplied upstream license in third-party/CameraEmulator-LICENSE.
+Upstream: https://github.com/jnhaas/CameraEmulator . The source installation also
+changes the offered video formats to 1280x720 and 1920x1080; upstream installer
+equivalence has not yet been validated.
 LLBot distribution: https://luckylillia.com/ ; follow the terms of the selected release.
 VB-CABLE: https://vb-audio.com/Cable/ ; install from the vendor.
 FFmpeg: https://ffmpeg.org/ ; binary license depends on build configuration.
@@ -15,3 +20,9 @@ Python dependencies are installed independently; see requirements.txt and the
 license metadata of the exact installed distributions.
 
 Asset provenance and verification status: assets/ASSETS.md.
+Project-local Python bootstrap uses CPython 3.12.15 packaged by Astral's
+python-build-standalone (20261001), with the archive SHA256 pinned in
+config/python-runtime.json. Its bundled Python and third-party licenses stay
+inside the extracted distribution. Source and build information:
+https://github.com/astral-sh/python-build-standalone/releases/tag/20261001
+

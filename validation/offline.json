@@ -2,12 +2,12 @@
   "release": "0.1.0a1",
   "status": "local-preview-candidate",
   "publicly_published": false,
-  "source_syntax_files": 38,
+  "source_syntax_files": 43,
   "source_scan": {
     "ok": true,
     "scope": "offline-source-only",
-    "files": 466,
-    "source_bytes": 437380,
+    "files": 496,
+    "source_bytes": 665496,
     "stickers": 362,
     "moods": 12,
     "problems": []
@@ -15,15 +15,15 @@
   "offline_tests": {
     "qq_plugin": 73,
     "bilibili_plugin": 6,
-    "configuration_download_lifecycle": 13,
-    "total": 92,
+    "configuration_download_lifecycle": 17,
+    "total": 96,
     "failed": 0
   },
   "known_secret_value_matches": 0,
   "source_files_hash_checked": 420,
   "source_files_changed": 0,
   "upstream_model_files_remote_hash_verified": 8,
-  "fresh_machine_install": "not_run",
+  "fresh_machine_install": "preflight_received_install_pending",
   "real_call_and_QQ_Bilibili_delivery": "not_run",
   "performance_and_experience_parity": "not_verified",
   "powershell_syntax_errors": 0

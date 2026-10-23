@@ -33,9 +33,9 @@ def verify(stage):
         checks.append({"name": name, "ok": bool(ok), "detail": detail})
     if stage == 0:
         check("os", platform.system() == "Windows" and platform.machine().endswith("64"), "Windows x64 required")
-        check("python", sys.version_info >= (3, 12), platform.python_version())
+        check("python", sys.version_info[:2] == (3, 12), platform.python_version() + "; Python 3.12 required by pinned wheels")
         free = shutil.disk_usage(root()).free
-        check("disk", free >= 10 * 1024 ** 3, f"{free // 1024 ** 3} GiB free")
+        check("disk", free >= 25 * 1024 ** 3, f"{free // 1024 ** 3} GiB free; reserve 25 GiB for separate environments and download cache")
     elif stage == 1:
         for line in (root() / "requirements.txt").read_text().splitlines():
             if not line or line.startswith("#"):

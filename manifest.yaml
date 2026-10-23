@@ -5,11 +5,11 @@ status: preview-candidate
 verified_fresh_install: false
 platform:
   full_stack: Windows 11 x64 (target; fresh installation not verified)
-  python: '>=3.12'
+  python: '3.12.x x64'
   gpu_runtime: GPT-SoVITS v2Pro; match PyTorch to the user's CUDA hardware
 services:
   astrbot: {version: 4.29.1, dashboard_port: 6185, license: AGPL-3.0}
-  llbot: {observed_version: 8.3.2, onebot_reverse_ws_port: 6199, webui_port: 3080, install: manual}
+  llbot: {observed_version: 8.3.2, onebot_reverse_ws_port: 6199, webui_port: 3080, install: install/16_qq_client.ps1}
   qq: {observed_version: 9.9.35.52892, login: user-scan}
   tts: {port: 9880, version: v2Pro, gpt: upstream-s1v3, sovits: default-finetuned}
   avatar: {udp_port: 9999, virtual_camera: CameraEmulator, install: manual}
@@ -17,6 +17,8 @@ required_secrets: [DEEPSEEK_API_KEY, DASHSCOPE_API_KEY, ASTRBOT_DASHBOARD_PASSWO
 required_config: [master.qq, paths.tts_python, paths.llbot_exe, audio.playback_hint, audio.capture_hint]
 optional_features: [bilibili, avatar, mic_guard, cloud-cloned-voice]
 download_catalog: config/downloads.json
+source_catalog: config/runtimes.json
+client_catalog: config/client-downloads.json
 default_voice_weights_in_git: false
 checks:
   source: python scripts/release_check.py

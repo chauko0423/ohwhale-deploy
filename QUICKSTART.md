@@ -3,9 +3,19 @@
 本版是预览候选，以下流程尚未在全新机器完成。需要登录、驱动安装和真实电话的步骤必须由使用者参与。
 全部命令在仓库根目录的 PowerShell 执行。不要对一个正在运行的旧安装覆盖文件。
 
+## 独立设备安装检查
+
+候选测试包放到一个新目录后，双击根目录的 `Run-device-test.cmd`。它使用锁定并校验 SHA256 的 Python 3.12.15 独立发行包，依次安装主环境、TTS 环境、QQ 客户端文件和模型，再生成一段完整语音及三段流式语音。Python 放在本项目 `runtime/Python312` 下，不设置系统 PATH。首次下载有数 GB，需保持联网。
+
+测试包须包含 `models/sovits/dafeiyu_e14_s280.pth`；源码包用户先解压随附模型包。日志在 `data/device-setup.log`，进度和结果在 `data/device-setup.json`，语音测量在 `data/tts-smoke.json`。同目录的 WAV 文件供人工试听。失败后重新运行会复用已完成的下载和依赖，不需要删除安装目录。
+
+这一步不登录 QQ、不配置密钥、不安装音频或摄像头驱动。`ok=true` 只表示依赖和 TTS 检查完成；真实通话、音频回程、形象及完整功能验收仍按下文进行。
+
 ## 1. 准备环境
 
-安装 Python 3.12+、Git 和 [VB-CABLE](https://vb-audio.com/Cable/)。按官方安装步骤安装驱动，重启后应出现对应播放和录音端点。
+安装 Python 3.12 x64、Git 和 [VB-CABLE](https://vb-audio.com/Cable/)。按官方安装步骤安装驱动，重启后应出现对应播放和录音端点。建议为环境、下载缓存和模型保留至少 25 GiB 空间。
+
+无 Python 时也可先运行 `install/00_machine.ps1` 生成硬件报告。安装脚本跳过 WindowsApps 商店占位程序；找不到 Python 时，可将 `OHWHALE_PYTHON` 设置为自己的 Python 3.12 可执行文件路径。
 
 ```powershell
 powershell -NoProfile -File install/00_check.ps1 -Json
@@ -13,13 +23,13 @@ powershell -NoProfile -File install/10_deps.ps1 -Video
 ```
 
 `-Video` 创建独立视频环境。检查失败就读 JSON 中的失败项，先修复再继续。
-该依赖脚本只安装 AstrBot 和本项目脚本依赖；GPT-SoVITS 的 PyTorch/CUDA 环境要按下一步单独安装。
+该依赖脚本只安装 AstrBot 和本项目脚本依赖；GPT-SoVITS 使用下一步的独立环境。
 
 ## 2. 安装第三方运行环境与模型
 
-- 从 [GPT-SoVITS 官方项目](https://github.com/RVC-Boss/GPT-SoVITS) 获取支持 v2Pro 的推理环境，源码放 `runtime/GPT-SoVITS`。
-- 将对应 Python 环境位置填入 `paths.tts_python`。默认模板的 `.venv-tts` 不会自动生成；必须先按上游说明准备。
-- 从 [LuckyLillia 官方站](https://luckylillia.com/) 获取带 QQ 图形界面的客户端，放入 `runtime/LL`。源环境使用 LLBot 8.3.2 / QQ 9.9.35.52892，其他组合未验证。不要复制别人登录过的客户端目录。
+- 运行 `powershell -NoProfile -File install/15_tts.ps1`：下载锁定的 GPT-SoVITS 源码，校验并应用六个现用推理修补，建立 `.venv-tts`，安装 PyTorch 2.9.1 CUDA 12.8 及中文推理依赖。需要兼容的 NVIDIA 驱动；脚本最后检查 CUDA 是否可用。该步骤仍在换机验收中。
+- 源码和修补清单在 `config/runtimes.json`；修补说明在 `third-party/gpt-sovits-overrides/README.md`。不会覆盖未知的已有源码修改。
+- 运行 `install/16_qq_client.ps1`，从上游 v8.3.2 Release 下载、校验并解压 LuckyLillia Desktop 到 `runtime/LL`。还需安装官方 QQ，并在 LuckyLillia 选择有头模式；该模式提供实际电话窗口。源环境使用 QQ 9.9.35.52892，其他组合未验证。不要复制别人登录过的客户端目录。
 - 视频抽帧需要 FFmpeg 与 FFprobe，位置由 `paths.ffmpeg`、`paths.ffprobe` 指定。
 - 动态形象还需要 CameraEmulator。当前自动安装尚未实现，见发布状态文档。
 
@@ -31,7 +41,7 @@ powershell -NoProfile -File install/20_download.ps1
 powershell -NoProfile -File install/verify.ps1 -Stage 2 -Json
 ```
 
-下载器只安装清单中的模型，不会自动安装 QQ、VB-CABLE、CameraEmulator 或 GPT-SoVITS 的 Python 运行环境。
+`20_download.ps1` 只安装清单中的模型。QQ、VB-CABLE、CameraEmulator 和 FFmpeg 尚需另外准备。
 已存在且哈希正确的文件直接跳过；失败文件只保留 `.part`，不会冒充完成。
 清单使用当前生效组合：上游 `s1v3.ckpt` + 微调 SoVITS，避免误用旧 GPT 训练快照改变音色。
 
@@ -58,7 +68,15 @@ powershell -NoProfile -File install/verify.ps1 -Stage 3 -Json
 
 ## 4. 配置 AstrBot、QQ 和人设
 
-首次运行 AstrBot 后，在其本地面板完成以下设置：
+先填写 `.env` 和 `config.json`，再对新的 AstrBot 工作目录执行：
+
+```powershell
+powershell -NoProfile -File install/31_astrbot.ps1
+```
+
+脚本建立 DeepSeek、本地 GPT-SoVITS、OneBot 平台和主人账号配置，并导入默认人设。面板与 OneBot 监听本机回环地址，默认仅放行主人的私聊；群聊放行需在面板明确配置。密码以 AstrBot 支持的哈希格式保存。重复运行会核验已有结果；检测到手工修改时停止，不覆盖配置。该步骤不创建任何定时外发任务。
+
+首次启动后，在本地面板核对：
 
 1. 建立 DeepSeek 模型提供商，模型为 `deepseek-flash`，使用自己的密钥。
 2. 建立 OneBot v11 反向 WebSocket 平台；在 LLBot 指向 `ws://127.0.0.1:6199/ws`，两端认证参数保持一致。
