@@ -4,11 +4,21 @@ from __future__ import annotations
 import hashlib
 import os
 import re
+import ssl
 import time
 import urllib.error
 import urllib.request
 from pathlib import Path
 from urllib.parse import urlsplit
+
+
+def tls_context() -> ssl.SSLContext:
+    """Use system roots plus Mozilla roots for standalone Python installations."""
+    import certifi
+
+    context = ssl.create_default_context()
+    context.load_verify_locations(cafile=certifi.where())
+    return context
 
 
 def matches(filename: Path, size: int, digest: str) -> bool:
@@ -42,6 +52,7 @@ def fetch(entry: dict, root: Path, *, attempts=3, allow_http=False, backoff=1) -
         scheme = urlsplit(url).scheme
         if scheme != "https" and not (allow_http and scheme == "http"):
             raise ValueError("Download sources must use HTTPS")
+        context = tls_context() if scheme == "https" else None
         for attempt in range(attempts):
             try:
                 if matches(partial, size, digest):
@@ -54,7 +65,7 @@ def fetch(entry: dict, root: Path, *, attempts=3, allow_http=False, backoff=1) -
                 request = urllib.request.Request(url, headers={"User-Agent": "OhWhale/0.1"})
                 if offset:
                     request.add_header("Range", f"bytes={offset}-")
-                with urllib.request.urlopen(request, timeout=20) as response:
+                with urllib.request.urlopen(request, timeout=20, context=context) as response:
                     if not allow_http and urlsplit(response.url).scheme != "https":
                         raise ValueError("Refusing an insecure download redirect")
                     resume = offset and response.status == 206

@@ -2,12 +2,12 @@
   "release": "0.1.0a1",
   "status": "local-preview-candidate",
   "publicly_published": false,
-  "source_syntax_files": 44,
+  "source_syntax_files": 45,
   "source_scan": {
     "ok": true,
     "scope": "offline-source-only",
-    "files": 509,
-    "source_bytes": 697819,
+    "files": 510,
+    "source_bytes": 702975,
     "stickers": 362,
     "moods": 12,
     "problems": []
@@ -17,14 +17,15 @@
     "bilibili_plugin": 6,
     "configuration_download_lifecycle": 19,
     "device_installer": 1,
-    "total": 99,
+    "tls_download": 3,
+    "total": 102,
     "failed": 0
   },
   "known_secret_value_matches": 0,
   "source_files_hash_checked": 420,
   "source_files_changed": 0,
   "upstream_model_files_remote_hash_verified": 8,
-  "fresh_machine_install": "python_ready_main_dependencies_mirror_retry_in_progress",
+  "fresh_machine_install": "main_dependencies_passed_tts_source_certificate_fix_retry_pending",
   "real_call_and_QQ_Bilibili_delivery": "not_run",
   "performance_and_experience_parity": "not_verified",
   "powershell_syntax_errors": 0

@@ -7,6 +7,7 @@ name = "ohwhale-deploy"
 version = "0.1.0a1"
 description = "QQ companion deployment scripts and AstrBot plugins"
 requires-python = ">=3.12,<3.13"
+dependencies = ["certifi>=2026.1.4"]
 license = {text = "MIT"}
 
 [tool.setuptools]
