@@ -95,6 +95,8 @@ LuckyLillia/PMHQ 首次启动还可能要求 **Auth Token**（上游授权），
 
 LuckyLillia 打开窗口不代表 Bot 已启动。需要在控制面板点击“启动”，或由使用者确认后启用“启动软件后自动启动 Bot”。OneBot 反向连接也需单独启用；配置地址只是填写目标，不代表已经连接成功。
 
+在 LuckyLillia v8.3.2 中，如果运行中修改并保存了反向连接，日志仍没有连接记录，请在控制面板“停止”后重新“启动”，再登录机器人 QQ。CHUAKO 实测此步骤后配置才生效。先确认日志出现 `Connected to the websocket server: ws://127.0.0.1:6199/ws`，再由主人 QQ 发送新的私聊消息；重启前未上报的消息不能作为回复测试。保持 AstrBot 与 TTS 运行，无需重新填写密钥或重新领取 Auth Token。
+
 如果要保留源环境的云端克隆音色兜底，必须在自己的 DashScope 账号配置该音色，并把对应 AstrBot 提供商 ID 写入 `voice.cloud_provider_id`。
 原作者账号的云端音色 ID 不会随包迁移。只配本地 TTS 时，失败的语音可能退回文字。
 
