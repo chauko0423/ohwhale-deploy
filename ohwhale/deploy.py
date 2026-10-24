@@ -190,7 +190,9 @@ def start():
     if get("features.phone"):extras.append("call_agent")
     if get("features.avatar"):extras.append("avatar_live")
     if get("features.mic_guard"):extras.append("mic_guard")
-    commands.extend((n,[path("python"),"-u",str(root()/"scripts"/(n+".py"))],str(root())) for n in extras)
+    # call_agent defaults to diagnostic watch mode; phone startup needs answer.
+    commands.extend((n,[path("python"),"-u",str(root()/"scripts"/(n+".py"))]
+                     + (["answer"] if n == "call_agent" else []),str(root())) for n in extras)
     for name,argv,cwd in commands:
         if not Path(argv[0]).is_file() or not Path(cwd).is_dir():
             raise ValueError(f"Missing executable or work directory for {name}")

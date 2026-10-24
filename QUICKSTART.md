@@ -91,6 +91,10 @@ powershell -NoProfile -File install/31_astrbot.ps1
 5. 建立本地 GPT-SoVITS TTS 提供商，ID 与 `voice.local_provider_id` 一致；地址、参考音频及参考文字与配置一致。
 6. 关闭 AstrBot 内置随机 TTS（`provider_tts_settings.enable=false`），由 voice_picker 控制语音，避免重复回答。
 
+LuckyLillia/PMHQ 首次启动还可能要求 **Auth Token**（上游授权），它不是 `.env` 中的 `ONEBOT_ACCESS_TOKEN`，也不是 DeepSeek/百炼密钥。按客户端提示由使用者在上游完成授权；项目不领取、重置或迁移该凭据。若重新领取可能影响现用设备，停在此步，保留现有授权，不把 QQ 登录或通话标为通过。上游相关说明见 [启动授权讨论](https://github.com/LLOneBot/LuckyLilliaBot/issues/793)。
+
+LuckyLillia 打开窗口不代表 Bot 已启动。需要在控制面板点击“启动”，或由使用者确认后启用“启动软件后自动启动 Bot”。OneBot 反向连接也需单独启用；配置地址只是填写目标，不代表已经连接成功。
+
 如果要保留源环境的云端克隆音色兜底，必须在自己的 DashScope 账号配置该音色，并把对应 AstrBot 提供商 ID 写入 `voice.cloud_provider_id`。
 原作者账号的云端音色 ID 不会随包迁移。只配本地 TTS 时，失败的语音可能退回文字。
 
