@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-24",
+  "maintainer_distribution_authorized": true,
+  "upstream_license_independently_verified": false,
+  "voice": {
+    "packaged": "assets/voice/default.wav",
+    "local_source": "GPTSoVITS/ref/pack9.wav",
+    "sha256": "982e4ca2d121183abb75a371dd8875cea317e77d0ffa7d161578c65b9e90aa1a",
+    "match": "byte-identical"
+  },
+  "avatar": {
+    "local_source": "petra-fork/public/models/deepseek.psd",
+    "source_sha256": "e8b39588ad529fc6e7663402fdd8660ece3e24ea2e4951e4a9bde997110d8236",
+    "pixel_comparison": "Place each PSD layer at its canvas coordinates; set RGB to zero where alpha is zero; compare RGBA bytes against PNG layers.",
+    "matched_layers": 14,
+    "canvas": [
+      1024,
+      1024
+    ],
+    "layers": [
+      {
+        "name": "back hair",
+        "hash": "a760f5b4837155872d01a6dcab28c2a67522b01dcaa99e787f06ef5db3e48f5f"
+      },
+      {
+        "name": "neck",
+        "hash": "7d10b047713e6551037d4aa01cedab17459e16b6926d501d73784ee7ab4c22c8"
+      },
+      {
+        "name": "footwear",
+        "hash": "c2bb0ee2db88c67ad2a82bace2c00c626f960b13983f796befc806bee573d79d"
+      },
+      {
+        "name": "handwear",
+        "hash": "07472400b4b07c7baa94e1d960c948b268e8a8b5a25d48b8f48b3728ae2f5f03"
+      },
+      {
+        "name": "topwear",
+        "hash": "11fdc09ad54a038a0a556e22d0bcd962ab06d0289d32a9971bc7def8b7f6a364"
+      },
+      {
+        "name": "earwear",
+        "hash": "58c96e83ad5662ab0077630c0aeb57ad34931352a29d26c40ae24c1881568ea6"
+      },
+      {
+        "name": "headwear",
+        "hash": "12b7fa641e64a6f1eddade9d47bcbb07873babdf9dd9e777d56434c42d283bc1"
+      },
+      {
+        "name": "face",
+        "hash": "5095a57ae68162c910294595ce437a93a5f5a22365945aced884670349906c76"
+      },
+      {
+        "name": "mouth",
+        "hash": "acb67471f422c15ca556e42df2a7b06fd48a91cf85a71c66d12e997941ee1ab0"
+      },
+      {
+        "name": "eyewhite",
+        "hash": "5e2b3439b57661609f4a67bb0b06c7035ec3249ceabf33d8bab356628655fc26"
+      },
+      {
+        "name": "irides",
+        "hash": "eb116876101c10689cf8e7bad6d8498f4dea54f62a4259afad5d6bf3387901ac"
+      },
+      {
+        "name": "eyebrow",
+        "hash": "c201146c34f7a66d7751dd579da9b21b14d01e786c9049082169235d06655ae6"
+      },
+      {
+        "name": "eyelash",
+        "hash": "e7a6a1fc15e5b28dd7b5f9798dd51b22f1a82e8ab15f08d98988d4fe39d2eb0d"
+      },
+      {
+        "name": "front hair",
+        "hash": "10224b0e130342a995c6d434b00ab1b8b18fc1dc5dc075d7fe6d7433cdca386c"
+      }
+    ]
+  },
+  "stickers": {
+    "local_collections": [
+      "鲸鱼娘（1-500张）",
+      "DeepSeek打包好的表情包【每500张一组】"
+    ],
+    "pipeline_evidence": "Original tools/sticker_index.py input directories",
+    "upstream_attribution_attachment_found": false
+  }
+}
