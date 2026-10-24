@@ -156,6 +156,10 @@ def resample(x: np.ndarray, sr: int, target: int) -> np.ndarray:
                      np.arange(len(x)), x).astype("float32")
 
 
+class SpeechPlaybackError(RuntimeError):
+    """只包含本地生成的诊断文字，不包含服务端响应或凭据。"""
+
+
 class Speaker:
     def __init__(self):
         self.dev = None
@@ -165,7 +169,7 @@ class Speaker:
         if self.dev is None:
             raise RuntimeError("找不到 VB-Cable 播放端点")
 
-    def _play_into(self, st, data: np.ndarray, sr: int) -> bool:
+    def _play_into(self, st, data: np.ndarray, sr: int, on_first_write=None) -> bool:
         """往已打开的流里写一段；返回 True 表示被打断。"""
         data = resample(data, sr, RATE_OUT)
         stereo = np.column_stack([data, data]).astype("float32")
@@ -175,6 +179,9 @@ class Speaker:
                 return True
             block = stereo[i:i + chunk]
             st.write(block)
+            if on_first_write:
+                on_first_write()
+                on_first_write = None
             # 口型同步：这一段有多响，嘴就张多大（0.06 是经验缩放）
             try:
                 rms = float(np.sqrt(np.mean(block ** 2)))
@@ -192,10 +199,14 @@ class Speaker:
         global PLAY_START
         parts = split_sentences(text)
         q_app: queue.Queue = queue.Queue()
+        cancelled = threading.Event()
+
+        def stopping():
+            return cancelled.is_set() or INTERRUPT.is_set()
 
         def worker():
             for p in parts:
-                if INTERRUPT.is_set():
+                if stopping():
                     break
                 try:
                     params = dict(TTS_PARAMS, text=p)
@@ -204,10 +215,10 @@ class Speaker:
                                        "batch_size": 1})
                         with TTS_CLIENT.stream("GET", TTS_API, params=params) as r:
                             if r.status_code != 200:
-                                raise RuntimeError(f"HTTP {r.status_code}")
+                                raise SpeechPlaybackError(f"TTS HTTP {r.status_code}")
                             buf = b""
                             for piece in r.iter_raw():
-                                if INTERRUPT.is_set():
+                                if stopping():
                                     break
                                 buf += piece
                                 cut = len(buf) - (len(buf) % 2)
@@ -218,44 +229,83 @@ class Speaker:
                                 q_app.put(("raw", pcm.astype(np.float32) / 32768.0))
                     else:
                         r = TTS_CLIENT.get(TTS_API, params=params)
-                        if r.status_code == 200 and len(r.content) > 800:
+                        r.raise_for_status()
+                        if r.content:
                             q_app.put(("wav", r.content))
                 except Exception as e:  # noqa: BLE001
-                    print(f"  TTS 失败: {e}")
+                    q_app.put(("error", str(e) if isinstance(e, SpeechPlaybackError) else type(e).__name__))
+                    break
             q_app.put(None)
 
-        PLAYING.set()
         INTERRUPT.clear()
-        PLAY_START = time.time()
-        threading.Thread(target=worker, daemon=True).start()
-
+        # 合成等待不算已经开口；否则用户尾音会在首块 PCM 到来前触发打断。
+        PLAY_START = 0.0
+        PLAYING.set()
         first = True
         interrupted = False
-        with sd.OutputStream(samplerate=RATE_OUT, channels=2,
-                             device=self.dev, dtype="float32") as st:
-            while True:
-                item = q_app.get()
-                if item is None:
-                    break
-                kind, payload = item
-                if kind == "raw":
-                    data, sr = payload, TTS_RAW_RATE
-                else:
-                    import io
-                    data, sr = sf.read(io.BytesIO(payload), dtype="float32")
-                if data.ndim > 1:
-                    data = data.mean(axis=1)
-                if not len(data):
-                    continue
-                if first:
-                    first = False
-                    if on_first_audio:
-                        on_first_audio()
-                if self._play_into(st, data, sr):
-                    interrupted = True
-                    break
-        PLAYING.clear()
-        return interrupted
+
+        def first_write():
+            nonlocal first
+            global PLAY_START
+            first = False
+            PLAY_START = time.time()
+            if on_first_audio:
+                on_first_audio()
+
+        try:
+            with sd.OutputStream(samplerate=RATE_OUT, channels=2,
+                                 device=self.dev, dtype="float32") as st:
+                threading.Thread(target=worker, daemon=True).start()
+                while True:
+                    item = q_app.get()
+                    if item is None:
+                        break
+                    if INTERRUPT.is_set():
+                        interrupted = True
+                        break
+                    kind, payload = item
+                    if kind == "error":
+                        raise SpeechPlaybackError(f"TTS 请求失败 ({payload})")
+                    if kind == "raw":
+                        data, sr = payload, TTS_RAW_RATE
+                    else:
+                        data, sr = sf.read(io.BytesIO(payload), dtype="float32")
+                    if data.ndim > 1:
+                        data = data.mean(axis=1)
+                    if not len(data):
+                        continue
+                    if self._play_into(st, data, sr, first_write if first else None):
+                        interrupted = True
+                        break
+            interrupted = interrupted or INTERRUPT.is_set()
+            if first and not interrupted:
+                raise SpeechPlaybackError("TTS 未返回可播放音频")
+            return interrupted
+        finally:
+            # 旧请求即使尚未返回，也不能在下一轮清除 INTERRUPT 后继续生成。
+            cancelled.set()
+            PLAYING.clear()
+            PLAY_START = 0.0
+
+
+def speak_reply(speaker, reply, *, started_at, asr_seconds, llm_seconds):
+    """播放失败只结束当前回复，不让诊断输出把整个监听循环带走。"""
+    t_play = time.time()
+    first_at = []
+    try:
+        interrupted = speaker.say_streaming(
+            reply, on_first_audio=lambda: first_at.append(time.time() - started_at))
+    except Exception as exc:  # noqa: BLE001
+        detail = str(exc) if isinstance(exc, SpeechPlaybackError) else type(exc).__name__
+        print(f"  [语音播放失败] {detail}；继续监听，未完成本轮回复")
+        return
+    if not first_at:
+        print("  [未播放] 首段音频前被打断" if interrupted else
+              "  [未播放] 没有音频写入输出设备；继续监听")
+        return
+    print(f"  （首段写入 {first_at[0]:.1f}s ＝ 识别 {asr_seconds:.1f} + 思考 {llm_seconds:.1f} + 合成"
+          f"｜播放阶段 {time.time()-t_play:.1f}s"
+          f"｜{'被打断' if interrupted else '说完'}）")
 
 
 class StreamASR:
@@ -444,6 +494,7 @@ class Ear:
             # 打断：要「明显比噪声大 + 持续 0.3 秒 + 她已经开口 0.6 秒以上」，
             # 否则环境里一声咳嗽、键盘敲一下都会把她打断。
             if (PLAYING.is_set()
+                    and PLAY_START > 0
                     and time.time() - PLAY_START > 0.6
                     and rms > max(thr * INTERRUPT_RATIO, 0.020)):
                 hot += 1
@@ -751,16 +802,8 @@ def main():
             t_llm = time.time() - t1
             print(f"[{time.strftime('%H:%M:%S')}] 她：{reply}")
 
-            t_play = time.time()
-            first_at = []
-
-            def mark():
-                first_at.append(time.time() - t0)
-
-            interrupted = speaker.say_streaming(reply, on_first_audio=mark)
-            print(f"  （首字 {first_at[0]:.1f}s ＝ 识别 {t_asr:.1f} + 思考 {t_llm:.1f} + 合成"
-                  f"｜播完 {time.time()-t_play:.1f}s"
-                  f"｜{'被打断' if interrupted else '说完'}）")
+            speak_reply(speaker, reply, started_at=t0,
+                        asr_seconds=t_asr, llm_seconds=t_llm)
             if args.once:
                 break
     except KeyboardInterrupt:
