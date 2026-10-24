@@ -248,25 +248,45 @@ def draw_mouth(img: Image.Image, cx: int, cy: int, lv: float):
                   fill=(196, 128, 132, 235))
 
 
-def main():
-    h, created = 0, False
-    h = k32.OpenFileMappingW(FILE_MAP_WRITE, False, SECTION_NAME)
-    if not h:
-        # 帧服务器还没建，自己建（带同样的 SDDL）
-        sddl = "D:(A;;GA;;;SY)(A;;GA;;;LS)(A;;GA;;;BA)(A;;GRGW;;;IU)S:(ML;;NW;;;LW)"
-        advapi = ctypes.WinDLL("advapi32", use_last_error=True)
-        advapi.ConvertStringSecurityDescriptorToSecurityDescriptorW.restype = wintypes.BOOL
-        sd = ctypes.c_void_p()
-        size = wintypes.ULONG()
-        advapi.ConvertStringSecurityDescriptorToSecurityDescriptorW(
-            sddl, 1, ctypes.byref(sd), ctypes.byref(size))
-        class SA(ctypes.Structure):
-            _fields_ = [("nLength", wintypes.DWORD), ("lpSecurityDescriptor", ctypes.c_void_p),
-                        ("bInheritHandle", wintypes.BOOL)]
+def open_section():
+    """复用现有映射；普通权限不能创建 Global 时使用同会话 Local 映射。"""
+    # 先查两种名称，避免重试时另建一块、与摄像头正在读取的映射分离。
+    for name in (SECTION_NAME, SECTION_NAME_LOCAL):
+        h = k32.OpenFileMappingW(FILE_MAP_WRITE, False, name)
+        if h:
+            return h, False
+
+    sddl = "D:(A;;GA;;;SY)(A;;GA;;;LS)(A;;GA;;;BA)(A;;GRGW;;;IU)S:(ML;;NW;;;LW)"
+    advapi = ctypes.WinDLL("advapi32", use_last_error=True)
+    convert = advapi.ConvertStringSecurityDescriptorToSecurityDescriptorW
+    convert.restype = wintypes.BOOL
+    convert.argtypes = [wintypes.LPCWSTR, wintypes.DWORD,
+                       ctypes.POINTER(ctypes.c_void_p), ctypes.POINTER(wintypes.ULONG)]
+    sd = ctypes.c_void_p()
+    size = wintypes.ULONG()
+    if not convert(sddl, 1, ctypes.byref(sd), ctypes.byref(size)):
+        raise ctypes.WinError(ctypes.get_last_error())
+
+    class SA(ctypes.Structure):
+        _fields_ = [("nLength", wintypes.DWORD), ("lpSecurityDescriptor", ctypes.c_void_p),
+                    ("bInheritHandle", wintypes.BOOL)]
+
+    k32.LocalFree.argtypes = [ctypes.c_void_p]
+    k32.LocalFree.restype = ctypes.c_void_p
+    try:
         sa = SA(ctypes.sizeof(SA), sd, False)
-        h = k32.CreateFileMappingW(wintypes.HANDLE(-1), ctypes.byref(sa), PAGE_READWRITE,
-                                   SECTION_SIZE >> 32, SECTION_SIZE & 0xFFFFFFFF, SECTION_NAME)
-        created = True
+        for name in (SECTION_NAME, SECTION_NAME_LOCAL):
+            h = k32.CreateFileMappingW(wintypes.HANDLE(-1), ctypes.byref(sa), PAGE_READWRITE,
+                                       SECTION_SIZE >> 32, SECTION_SIZE & 0xFFFFFFFF, name)
+            if h:
+                return h, True
+        raise ctypes.WinError(ctypes.get_last_error())
+    finally:
+        k32.LocalFree(sd)
+
+
+def main():
+    h, created = open_section()
     view = k32.MapViewOfFile(h, FILE_MAP_WRITE, 0, 0, SECTION_SIZE)
     if not view:
         print("映射失败:", ctypes.get_last_error())
