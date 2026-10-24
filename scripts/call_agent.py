@@ -175,7 +175,7 @@ def answer(once: bool = False):
                 if is_video:
                     time.sleep(2.0)
                     if self_enable_video():
-                        log("  视频来电 -> 已开启视频（推虚拟摄像头画面）")
+                        log("  视频来电 -> 已开启视频（使用 QQ 当前选择的摄像头；尚未核验是否为虚拟摄像头）")
                     else:
                         log("  视频来电 -> 没找到「开启视频」（可能已是开启状态）")
                 else:
