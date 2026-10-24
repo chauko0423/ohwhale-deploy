@@ -112,6 +112,8 @@ install\40_start_all.bat
 启动器返回 `processes-launched-not-verified` 表示已请求启动进程，不能解读为所有功能通过。
 端口被占会报错并停止，不会结束旧服务。若先单独运行了 AstrBot 配置面板，应先关闭该实例再启动全套。
 
+分步验收时，如果 QQ 已单独登录，可运行 `.venv\Scripts\python.exe -m ohwhale.deploy start --core-only`，仅启动 AstrBot 与 TTS，保留现有 QQ，不启动电话、形象或麦克风看守。完成文字与语音消息检查后，用 `install\50_stop_all.bat` 停止这两个由启动器记录的服务，再准备音频设备并进行全套启动。不要在它们仍运行时再次执行全套启动。
+
 QQ 麦克风选择配置中的虚拟录音端点。通话过程中运行：
 
 ```powershell

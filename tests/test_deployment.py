@@ -82,8 +82,8 @@ class ConfigTests(unittest.TestCase):
     def test_phone_start_selects_answer_mode_without_running_clients(self):
         from unittest.mock import Mock
         from ohwhale.deploy import start
-        for enabled in (True, False):
-            with self.subTest(phone=enabled):
+        for enabled, core_only in ((True, False), (False, False), (True, True)):
+            with self.subTest(phone=enabled, core_only=core_only):
                 (self.root/"config.json").write_text(json.dumps({"features":{"phone":enabled}}),encoding="utf-8")
                 config.reset()
                 record=self.root/"data/processes.json"
@@ -97,11 +97,16 @@ class ConfigTests(unittest.TestCase):
                      patch("ohwhale.deploy.Path.is_dir",return_value=True), \
                      patch("ohwhale.deploy.subprocess.Popen",return_value=Mock(pid=12345)) as launch, \
                      patch("psutil.Process",return_value=process):
-                    self.assertTrue(start()["ok"])
+                    self.assertTrue(start(core_only=core_only)["ok"])
                 calls=[call.args[0] for call in launch.call_args_list
                        if any(str(arg).endswith("call_agent.py") for arg in call.args[0])]
-                self.assertEqual(len(calls),int(enabled))
-                if enabled:self.assertEqual(calls[0][-1],"answer")
+                self.assertEqual(len(calls),int(enabled and not core_only))
+                if enabled and not core_only:self.assertEqual(calls[0][-1],"answer")
+                if core_only:
+                    launched=[call.args[0] for call in launch.call_args_list]
+                    self.assertEqual(len(launched),2)
+                    self.assertEqual(launched[0][1],"api_v2.py")
+                    self.assertEqual(launched[1][-1],"run")
 
 
 class Handler(http.server.BaseHTTPRequestHandler):

@@ -168,7 +168,7 @@ def stop():
     return {"ok":not pending,"stopped":stopped,"remaining":len(pending)}
 
 
-def start():
+def start(core_only=False):
     import psutil
     required=verify(3)
     if not required["ok"]:return required
@@ -186,10 +186,13 @@ def start():
     commands=[("tts",[path("tts_python"),"api_v2.py","-a","127.0.0.1","-p",str(urlsplit(get("services.tts_url")).port),"-c",path("tts_config")],path("gpt_sovits")),
               ("astrbot",[str(Path(path("python")).with_name("astrbot.exe")),"run"],path("astrbot")),
               ("qq",[path("llbot_exe")],str(Path(path("llbot_exe")).parent))]
-    extras=["watchdog"]
-    if get("features.phone"):extras.append("call_agent")
-    if get("features.avatar"):extras.append("avatar_live")
-    if get("features.mic_guard"):extras.append("mic_guard")
+    if core_only:
+        # Preserve an already logged-in QQ client during staged validation.
+        commands = commands[:2]
+    extras=[] if core_only else ["watchdog"]
+    if not core_only and get("features.phone"):extras.append("call_agent")
+    if not core_only and get("features.avatar"):extras.append("avatar_live")
+    if not core_only and get("features.mic_guard"):extras.append("mic_guard")
     # call_agent defaults to diagnostic watch mode; phone startup needs answer.
     commands.extend((n,[path("python"),"-u",str(root()/"scripts"/(n+".py"))]
                      + (["answer"] if n == "call_agent" else []),str(root())) for n in extras)
@@ -217,6 +220,7 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument("action",choices=["verify","configure","download","start","stop"])
     parser.add_argument("--stage",type=int,choices=range(7),default=3)
+    parser.add_argument("--core-only",action="store_true",help="Start only TTS and AstrBot; keep the existing QQ client and audio devices unchanged")
     args=parser.parse_args()
     try:
         if args.action=="verify":report=verify(args.stage)
@@ -227,7 +231,7 @@ def main():
             for entry in entries:
                 outcomes.append({"file":entry["id"],"status":fetch(entry,root())})
             report={"ok":True,"downloads":outcomes}
-        elif args.action=="start":report=start()
+        elif args.action=="start":report=start(core_only=args.core_only)
         else:report=stop()
     except Exception as exc:
         report={"ok":False,"status":"BLOCKED","action":args.action,"detail":str(exc)}
