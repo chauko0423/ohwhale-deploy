@@ -94,8 +94,10 @@
       "destination": "models/sovits/dafeiyu_e14_s280.pth",
       "size": 134946291,
       "sha256": "08a5f8b2d0b85876d7a16937cd801f49844bd90c1316f3044c2a408d7c85a905",
-      "urls": [],
-      "note": "Local release candidate; publish a verified Release URL before automatic download."
+      "urls": [
+        "https://github.com/chauko0423/ohwhale-deploy/releases/download/v0.1.0a1/dafeiyu_e14_s280.pth"
+      ],
+      "note": "Maintainer-provided default SoVITS model; verify size and SHA256 before use."
     }
   ],
   "upstream_revision": "8f8857563c040d542de108a2c18b0425abd6c9c5"
