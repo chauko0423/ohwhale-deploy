@@ -61,6 +61,10 @@ k32.MapViewOfFile.restype = ctypes.c_void_p
 k32.MapViewOfFile.argtypes = [wintypes.HANDLE, wintypes.DWORD, wintypes.DWORD,
                               wintypes.DWORD, ctypes.c_size_t]
 k32.GetTickCount64.restype = ctypes.c_ulonglong
+k32.CloseHandle.argtypes = [wintypes.HANDLE]
+k32.CloseHandle.restype = wintypes.BOOL
+k32.UnmapViewOfFile.argtypes = [ctypes.c_void_p]
+k32.UnmapViewOfFile.restype = wintypes.BOOL
 FILE_MAP_WRITE = 0x0002
 PAGE_READWRITE = 0x04
 
@@ -285,13 +289,49 @@ def open_section():
         k32.LocalFree(sd)
 
 
+class FrameMapping:
+    """摄像头服务可晚于角色启动；Global 出现后接续向服务推帧。"""
+
+    def __init__(self):
+        self.handle, created = open_section()
+        self.view = k32.MapViewOfFile(self.handle, FILE_MAP_WRITE, 0, 0, SECTION_SIZE)
+        if not self.view:
+            error = ctypes.get_last_error()
+            k32.CloseHandle(self.handle)
+            self.handle = None
+            raise ctypes.WinError(error)
+        self.global_connected = False
+        self.next_probe = 0.0
+        print("共享内存", "已创建" if created else "已打开")
+
+    def ensure_global(self, now):
+        # Frame Server 在用户打开摄像头时才创建 Global；不要求管理员启动角色。
+        # 先成功映射新区域，再释放旧区域，失败时继续现有输出并稍后重试。
+        if self.global_connected or now < self.next_probe:
+            return
+        self.next_probe = now + 0.5
+        handle = k32.OpenFileMappingW(FILE_MAP_WRITE, False, SECTION_NAME)
+        if not handle:
+            return
+        view = k32.MapViewOfFile(handle, FILE_MAP_WRITE, 0, 0, SECTION_SIZE)
+        if not view:
+            k32.CloseHandle(handle)
+            return
+        self.close()
+        self.handle, self.view = handle, view
+        self.global_connected = True
+        print("摄像头 Global 共享内存已连接", flush=True)
+
+    def close(self):
+        if self.view:
+            k32.UnmapViewOfFile(self.view)
+            self.view = None
+        if self.handle:
+            k32.CloseHandle(self.handle)
+            self.handle = None
+
+
 def main():
-    h, created = open_section()
-    view = k32.MapViewOfFile(h, FILE_MAP_WRITE, 0, 0, SECTION_SIZE)
-    if not view:
-        print("映射失败:", ctypes.get_last_error())
-        return 1
-    print("共享内存", "已创建" if created else "已打开")
 
     scene, back, body, head_a, head_b, blink_b, desk_overlay, anchor = build_sprites()
     angles = [round(a * 0.5, 1) for a in range(-3, 4)]      # -1.5 ~ +1.5 度（幅度要小，只是微微动）
@@ -318,7 +358,7 @@ def main():
 
     threading.Thread(target=udp_listener, daemon=True).start()
 
-    buf = (ctypes.c_char * SECTION_SIZE).from_address(view)
+    mapping = FrameMapping()
     header = struct.Struct("<I i I I Q")
     seq = 2
 
@@ -334,6 +374,7 @@ def main():
         while True:
             t0 = time.time()
             now = t0 - t_start
+            mapping.ensure_global(time.monotonic())
 
             # 摆动：±6px，4 秒周期；歪头：±4.5°，5 秒周期
             # 常态是轻轻律动；每隔七八秒来一次幅度大的摆动
@@ -377,11 +418,11 @@ def main():
             bgrx[:, :, 3] = 255
 
             seq += 1
-            ctypes.memmove(ctypes.addressof(buf),
+            ctypes.memmove(mapping.view,
                            header.pack(MAGIC, seq, W, H, k32.GetTickCount64()), header.size)
-            ctypes.memmove(ctypes.addressof(buf) + HEADER_SIZE, bgrx.tobytes(), W * H * 4)
+            ctypes.memmove(mapping.view + HEADER_SIZE, bgrx.tobytes(), W * H * 4)
             seq += 1
-            ctypes.memmove(ctypes.addressof(buf) + 4, struct.pack("<i", seq), 4)
+            ctypes.memmove(mapping.view + 4, struct.pack("<i", seq), 4)
 
             frames += 1
             if frames % 90 == 0:
@@ -392,6 +433,8 @@ def main():
                 time.sleep(1.0 / FPS - dt)
     except KeyboardInterrupt:
         print("\n停止")
+    finally:
+        mapping.close()
     return 0
 
 
