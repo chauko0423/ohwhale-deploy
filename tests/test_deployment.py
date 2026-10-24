@@ -79,6 +79,24 @@ class ConfigTests(unittest.TestCase):
             self.assertTrue(stop()["ok"])
         other.terminate.assert_not_called()
 
+    def test_workspace_initialization_preserves_existing_profile(self):
+        from astrbot.cli.utils.basic import check_astrbot_root
+        from ohwhale.deploy import initialize_astrbot_workspace
+        workspace=Path(config.path("astrbot"))
+        (workspace/"data").mkdir(parents=True)
+        profile=workspace/"data/cmd_config.json"
+        original=b'{"fixture":"preserve-existing-account"}'
+        profile.write_bytes(original)
+        self.assertFalse(check_astrbot_root(workspace))
+        initialize_astrbot_workspace()
+        self.assertTrue(check_astrbot_root(workspace))
+        marker=workspace/".astrbot"
+        marker.write_text("existing-marker",encoding="utf-8")
+        initialize_astrbot_workspace()
+        self.assertEqual(profile.read_bytes(),original)
+        self.assertEqual(marker.read_text("utf-8"),"existing-marker")
+        self.assertTrue((workspace/"data/temp").is_dir())
+
     def test_phone_start_selects_answer_mode_without_running_clients(self):
         from unittest.mock import Mock
         from ohwhale.deploy import start

@@ -108,6 +108,20 @@ def read_evidence():
     return json.loads(p.read_text("utf-8")) if p.exists() else {}
 
 
+def initialize_astrbot_workspace():
+    """Create the CLI workspace layout without replacing account configuration.
+
+    AstrBot 4.29.1 requires .astrbot before `astrbot run`; data/plugins alone
+    is not a valid workspace. These are the directories made by `astrbot init`.
+    """
+    workspace = Path(path("astrbot"))
+    for relative in ("data", "data/config", "data/plugins", "data/temp"):
+        (workspace / relative).mkdir(parents=True, exist_ok=True)
+    marker = workspace / ".astrbot"
+    if not marker.exists():
+        marker.touch(exist_ok=False)
+
+
 def configure():
     created=[]
     for source, target in (("config/config.example.json","config.json"),("config/.env.example",".env")):
@@ -117,6 +131,7 @@ def configure():
             created.append(target)
     for name in ("data","logs","astrbot"):
         Path(path(name)).mkdir(parents=True,exist_ok=True)
+    initialize_astrbot_workspace()
     target=Path(path("tts_config"))
     if not target.exists():
         target.parent.mkdir(parents=True,exist_ok=True)
@@ -199,6 +214,7 @@ def start(core_only=False):
     for name,argv,cwd in commands:
         if not Path(argv[0]).is_file() or not Path(cwd).is_dir():
             raise ValueError(f"Missing executable or work directory for {name}")
+    initialize_astrbot_workspace()
     owned=[]
     record.parent.mkdir(parents=True,exist_ok=True)
     Path(path("logs")).mkdir(parents=True,exist_ok=True)
