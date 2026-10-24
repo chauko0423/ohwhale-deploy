@@ -4,7 +4,7 @@
   1. 进程    call_loop 在不在跑，心跳有多新
   2. 耳朵    电话的声音落在哪个播放端点，她现在听的是不是那一个
   3. 嘴      她的 TTS 能不能进 VB-Cable
-  4. 回程    系统默认麦克风是不是 CABLE Output（QQ 用系统默认时靠这个）
+  4. 回程    QQ 实际打开的麦克风是不是 CABLE Output
   5. 设备    列出所有端点，标出物理/虚拟
 
 用法：
@@ -186,17 +186,18 @@ def check_mouth(full: bool) -> None:
 
 def check_return(qq: dict) -> None:
     print("\n④ 回程（对方听不听得到她）")
-    name, did = default_capture()
-    ok = setting("audio.capture_hint") in name
-    mark("系统默认麦克风", ok, f"{name}")
-    if not ok:
-        print(f"       修复：python set_default_mic.py restore \"{did}\" 之前，"
-              f"先把默认麦克风指到 CABLE Output")
+    # QQ 可以单独选择设备。系统默认仍是物理麦克风，并不意味着 QQ 回程失败。
+    try:
+        name, _ = default_capture()
+        print(f"       系统默认麦克风（仅供参考）：{name}")
+    except Exception:  # noqa: BLE001
+        print("       系统默认麦克风信息不可用；以 QQ 实际会话为准")
     if qq["capture"]:
-        mark("QQ 打开的麦克风", any(setting("audio.capture_hint") in n for n in qq["capture"]), f"{sorted(qq['capture'])}")
+        hint = setting("audio.capture_hint")
+        mark("QQ 打开的麦克风", bool(hint) and any(hint in n for n in qq["capture"]), f"{sorted(qq['capture'])}")
         print("       ↑ 通话中这一行最关键：必须是 CABLE Output，否则对方只会听到房间")
     else:
-        print("       （当前不在通话，看不出 QQ 用哪根麦；打一次电话再跑一遍最准）")
+        mark("QQ 打开的麦克风", False, "未观察到 QQ 录音会话；接通电话后重测，不能仅凭系统默认设备判成功")
 
 
 def check_devices() -> None:

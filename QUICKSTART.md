@@ -116,7 +116,7 @@ install\40_start_all.bat
 
 分步验收时，如果 QQ 已单独登录，可运行 `.venv\Scripts\python.exe -m ohwhale.deploy start --core-only`，仅启动 AstrBot 与 TTS，保留现有 QQ，不启动电话、形象或麦克风看守。完成文字与语音消息检查后，用 `install\50_stop_all.bat` 停止这两个由启动器记录的服务，再准备音频设备并进行全套启动。不要在它们仍运行时再次执行全套启动。
 
-QQ 麦克风选择配置中的虚拟录音端点。通话过程中运行：
+接通后，点击 QQ 通话窗口麦克风旁的小箭头，将麦克风选为 **CABLE Output (VB-Audio Virtual Cable)**；扬声器选电脑实际播放声音的设备，例如 Realtek。Windows 和 QQ 的扬声器音量不能静音。重启后需再次核对勾选项，QQ 可能恢复为系统默认麦克风。详细操作与链路说明见 [音频链路](docs/03_音频链路.md)。通话过程中运行：
 
 ```powershell
 .venv\Scripts\python.exe scripts/audio_doctor.py --json
