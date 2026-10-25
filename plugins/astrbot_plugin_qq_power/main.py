@@ -523,7 +523,8 @@ class QQPower(Star):
     @filter.llm_tool(name="qq_qzone")
     async def tool_qzone(self, event: AstrMessageEvent, action: str,
                          text: str = "", tid: str = "", num: int = 5,
-                         private: bool = False, uin: str = "") -> str:
+                         private: bool = False, uin: str = "",
+                         comment_id: str = "") -> str:
         """操作 QQ 空间（说说）。发说说、看最近的说说、给说说点赞或评论。
 
         Args:
@@ -531,6 +532,7 @@ class QQPower(Star):
             text (string): 发说说时的正文，或评论内容
             tid (string): 说说 id。点赞/评论/删除时用，先 list 拿到
             uin (string): 对方的 QQ 号。想看/评论「他发的说说」时必填（先用 friends 或 known QQ）
+            comment_id (string): 要回复的那条评论的 id（comments 动作会返回 id），配合 comment 用
             num (number): 列表条数，默认 5
             private (boolean): 发说说时是否仅自己可见。他说「仅自己可见/只给自己看」就传 true，默认 false（公开）
         """
@@ -590,7 +592,8 @@ class QQPower(Star):
             if a == "comments":
                 if not tid.strip():
                     return "先 list 看一眼，把 tid 给我。"
-                r = await cli.comments(tid.strip(), int(num) if num else 20)
+                r = await cli.comments(tid.strip(), int(num) if num else 20,
+                                       owner=uin.strip())
                 if not r.get("ok"):
                     return f"评论没读出来：{r.get('err')}"
                 if not r.get("count"):
@@ -611,8 +614,10 @@ class QQPower(Star):
                 elif a == "comment":
                     if not text.strip():
                         return "评论内容不能为空。"
-                    # 评论别人的说说必须带 hostuin，否则会被空间当成评论自己的
-                    r = await cli.comment(tid.strip(), text.strip(), hostuin=uin.strip())
+                    # comment_id 传了就是回复那条评论；uin 是说说主人的 QQ 号
+                    r = await cli.comment(tid.strip(), text.strip(),
+                                          hostuin=uin.strip(),
+                                          comment_id=comment_id.strip())
                 else:
                     r = await cli.delete(tid.strip())
                 self._log_call("qq_qzone", {"action": a, "tid": tid, "uin": uin},
@@ -628,6 +633,22 @@ class QQPower(Star):
         except Exception as e:  # noqa: BLE001
             logger.warning(f"[qq-power] 空间操作异常：{e}")
             return f"空间操作出错了：{e}"
+
+    @filter.command("qzdebug")
+    async def cmd_qzdebug(self, event: AstrMessageEvent):
+        """主人专用：把空间 cookie/g_tk 落到 data/qz_cookies.json，用于接口排查。"""
+        if str(event.get_sender_id()) not in self.owners:
+            yield event.plain_result("只有主人能用。")
+            return
+        try:
+            cli = await self._qzone(event)
+            path = os.path.join(self.data_dir, "qz_cookies.json")
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump({"uin": cli.uin, "gtk": cli.gtk, "cookies": cli.cookies},
+                          f, ensure_ascii=False, indent=1)
+            yield event.plain_result(f"空间登录态已写到 {path}")
+        except Exception as e:  # noqa: BLE001
+            yield event.plain_result(f"没取到空间登录态：{e}")
 
     # ================= 图片 / 表情 =================
     @filter.llm_tool(name="qq_media")
