@@ -727,10 +727,13 @@ class Brain:
             reply = d["choices"][0]["message"].get("content", "").strip()
         else:
             msgs = [{"role": "system", "content": self.persona}] + self.hist[-8:]
+            chat_model = setting("llm.chat.model")
+            body = {"model": chat_model, "messages": msgs, "temperature": 0.85}
+            # 电话模式要的是"立刻接话"：实测开/关思考 1.4s vs 0.76s。
+            if "deepseek" in (chat_model or "").lower():
+                body["thinking"] = {"type": "disabled"}
             with httpx.Client(timeout=60, trust_env=False) as cli:
-                r = cli.post(f"{self.base}/chat/completions",
-                             json={"model": setting("llm.chat.model"), "messages": msgs,
-                                   "temperature": 0.85},
+                r = cli.post(f"{self.base}/chat/completions", json=body,
                              headers={"Authorization": f"Bearer {self.key}"})
                 d = r.json()
             reply = d["choices"][0]["message"].get("content", "").strip()
