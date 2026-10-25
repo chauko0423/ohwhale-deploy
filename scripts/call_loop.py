@@ -715,8 +715,12 @@ class Brain:
             msgs = [{"role": "system", "content": self.persona}] + self.hist[:-1][-6:] + \
                    [{"role": "user", "content": content}]
             with httpx.Client(timeout=90, trust_env=False) as cli:
-                r = cli.post(VISION_API,
-                             json={"model": VISION_MODEL, "messages": msgs},
+                body = {"model": VISION_MODEL, "messages": msgs}
+                # DeepSeek 的推理模型默认先"思考"再答；看图这条链路在意延迟，
+                # 关掉思考实测 5.1s → 1.7s（qwen3-vl-plus 反而要 40s+）。
+                if "deepseek" in (VISION_MODEL or "").lower():
+                    body["thinking"] = {"type": "disabled"}
+                r = cli.post(VISION_API, json=body,
                              headers={"Authorization": f"Bearer {self.vision_key}"})
                 d = r.json()
             reply = d["choices"][0]["message"].get("content", "").strip()
