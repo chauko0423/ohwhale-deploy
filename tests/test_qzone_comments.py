@@ -80,5 +80,23 @@ class QzoneCommentTests(unittest.TestCase):
         self.assertFalse(r["ok"])
 
 
+    def test_list_user_parses_msglist(self):
+        fake = FakeClient(self.m, {})
+        async def fake_req(method, url, **kw):
+            return True, {"status": 200, "text": json.dumps({"msglist": [
+                {"tid": "TID9", "content": "今天的饭", "created_time": 1792900000, "cmtnum": 2},
+            ]}, ensure_ascii=False)}, ""
+        fake._client._req = fake_req  # type: ignore[assignment]
+        r = asyncio.run(fake._client.list_user("3405733308", 5))
+        self.assertTrue(r["ok"])
+        self.assertEqual(r["count"], 1)
+        self.assertEqual(r["items"][0]["tid"], "TID9")
+        self.assertEqual(r["items"][0]["uin"], "3405733308")
+
+    def test_list_user_requires_uin(self):
+        fake = FakeClient(self.m, {})
+        r = asyncio.run(fake._client.list_user("", 5))
+        self.assertFalse(r["ok"])
+
 if __name__ == "__main__":
     unittest.main()

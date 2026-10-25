@@ -523,13 +523,14 @@ class QQPower(Star):
     @filter.llm_tool(name="qq_qzone")
     async def tool_qzone(self, event: AstrMessageEvent, action: str,
                          text: str = "", tid: str = "", num: int = 5,
-                         private: bool = False) -> str:
+                         private: bool = False, uin: str = "") -> str:
         """操作 QQ 空间（说说）。发说说、看最近的说说、给说说点赞或评论。
 
         Args:
-            action (string): post=发说说 / list=看自己最近的说说 / comments=看某条说说的评论 / friends=看好友动态 / like=点赞 / comment=评论 / delete=删说说
+            action (string): post=发说说 / list=看自己最近的说说 / comments=看某条说说的评论 / friends=看好友动态 / user=看某个好友的说说(配 uin) / like=点赞 / comment=评论 / delete=删说说
             text (string): 发说说时的正文，或评论内容
             tid (string): 说说 id。点赞/评论/删除时用，先 list 拿到
+            uin (string): 对方的 QQ 号。想看/评论「他发的说说」时必填（先用 friends 或 known QQ）
             num (number): 列表条数，默认 5
             private (boolean): 发说说时是否仅自己可见。他说「仅自己可见/只给自己看」就传 true，默认 false（公开）
         """
@@ -575,6 +576,17 @@ class QQPower(Star):
                     return "好友动态是空的（这个接口本来就不太稳）。"
                 return _fmt_items("好友动态", r["items"])
 
+            if a == "user":
+                if not uin.strip():
+                    return "要看谁的空间？把对方的 QQ 号给我（uin）。"
+                r = await cli.list_user(uin.strip(), int(num))
+                if not r.get("ok"):
+                    return f"他的说说没拉到：{r.get('err')}"
+                if not r.get("count"):
+                    return "他最近没发说说，或者不让你看。"
+                self._log_call("qq_qzone", {"action": "user", "uin": uin}, f"ok n={r.get('count')}")
+                return _fmt_items("他的说说", r["items"])
+
             if a == "comments":
                 if not tid.strip():
                     return "先 list 看一眼，把 tid 给我。"
@@ -599,13 +611,14 @@ class QQPower(Star):
                 elif a == "comment":
                     if not text.strip():
                         return "评论内容不能为空。"
-                    r = await cli.comment(tid.strip(), text.strip())
+                    # 评论别人的说说必须带 hostuin，否则会被空间当成评论自己的
+                    r = await cli.comment(tid.strip(), text.strip(), hostuin=uin.strip())
                 else:
                     r = await cli.delete(tid.strip())
                 return (f"{a} 成功了" if r.get("ok")
                         else f"{a} 没成：{r.get('err')}")
 
-            return f"不认识这个操作：{action}。可用 post/list/comments/friends/like/comment/delete"
+            return f"不认识这个操作：{action}。可用 post/list/comments/friends/user/like/comment/delete"
         except Exception as e:  # noqa: BLE001
             logger.warning(f"[qq-power] 空间操作异常：{e}")
             return f"空间操作出错了：{e}"

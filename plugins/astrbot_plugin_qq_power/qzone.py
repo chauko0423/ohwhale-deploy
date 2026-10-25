@@ -376,9 +376,13 @@ class QzoneClient:
             tid = it.get("tid") or it.get("id") or ""
             if not tid:
                 continue
+            user = it.get("userinfo") or it.get("user") or {}
+            author_uin = (str(it.get("uin") or it.get("hostuin") or it.get("hostUin")
+                              or user.get("uin") or "")).strip()
             items.append({
                 "tid": str(tid),
-                "作者": it.get("nickname") or it.get("name") or "",
+                "作者": it.get("nickname") or it.get("name") or user.get("nickname") or "",
+                "uin": author_uin,
                 "内容": _snippet(it.get("content") or it.get("summary") or "", 80),
                 "时间": _fmt_ts(it.get("abstime") or it.get("create_time")),
                 "unikey": it.get("key") or it.get("unikey") or "",
@@ -387,6 +391,40 @@ class QzoneClient:
             if len(items) >= num:
                 break
         return {"ok": True, "count": len(items), "items": items}
+
+    async def list_user(self, uin: str, num: int = 10) -> dict:
+        """看某个好友的说说（用他的 uin 拉 feed，权限不够会失败）。"""
+        uin = str(uin or "").strip()
+        if not uin:
+            return {"ok": False, "err": "缺 uin（好友的 QQ 号）"}
+        params = {
+            "uin": self.uin, "hostuin": uin, "ftype": "0", "sort": "0",
+            "pos": "0", "num": str(max(1, min(40, num))), "replynum": "0",
+            "callback": "_preloadCallback", "code_version": "1",
+            "format": "json", "need_private_comment": "1",
+        }
+        ok, payload, err = await self._req("GET", MSGLIST_URL, params=params)
+        if not ok:
+            return {"ok": False, "err": err}
+        data = _loads(payload["text"])
+        if not isinstance(data, dict):
+            return {"ok": False, "err": "返回不是 JSON（可能没有权限看这个人的说说）",
+                    "raw": _snippet(payload["text"])}
+        code = data.get("code", data.get("ret", -1))
+        if str(code) not in ("0", "None") and data.get("msglist") is None:
+            return {"ok": False, "err": _code_text(code, data), "raw": data}
+        items = []
+        for m in (data.get("msglist") or [])[:num]:
+            items.append({
+                "tid": m.get("tid", ""),
+                "uin": uin,
+                "内容": _snippet(m.get("content", ""), 80),
+                "时间": _fmt_ts(m.get("created_time")),
+                "评论数": m.get("cmtnum", 0),
+                "赞": (m.get("like") or {}).get("cnt", 0) if isinstance(m.get("like"), dict) else 0,
+            })
+        return {"ok": True, "count": len(items), "items": items}
+
 
     # ---------------- 点赞 ----------------
     async def like(self, tid: str, unikey: str = "", curlikekey: str = "",

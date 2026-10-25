@@ -9,7 +9,9 @@
   只报告上次检查之后新出现的评论，首次运行仅建基线不打扰；
   用 `tid|uin|内容前60字` 去重（最多保留 200 条签名），新评论用她的人设生成 1~2 句私聊通知。
 - 新增配置：`features.qzone_comment_poll`（开关）、`qzone.comment_poll_minutes`（间隔，夹在 10~1440 分钟）。
-- 新增 `docs/12_说说评论.md`、`tests/test_qzone_comments.py`（5 项离线测试）。
+- 新增 `qq_qzone(action="user", uin=...)`：看**好友**的说说；`comment` 支持传 `uin` 作为 `hostuin`，
+  才能评论别人的说说（原来只能评论自己的）。`friends` 返回值补 `uin` 字段。
+- 新增 `docs/12_说说评论.md`、`tests/test_qzone_comments.py`（7 项离线测试）。
 
 
 ## 0.1.0a1 · Alpha 预览版（2026-10-24）
