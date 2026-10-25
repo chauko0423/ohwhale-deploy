@@ -57,6 +57,14 @@
       "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
       "model": "qwen3-vl-plus",
       "key_env": "DASHSCOPE_API_KEY"
+    },
+    "capture": {
+      "use": "vision",
+      "source": "call_window",
+      "max_width": 1280,
+      "quality": 70,
+      "motion_frames": 2,
+      "timeout": 8
     }
   },
   "audio": {
@@ -76,6 +84,7 @@
   },
   "features": {
     "phone": true,
+    "vision_call": true,
     "avatar": false,
     "bilibili": false,
     "mic_guard": false

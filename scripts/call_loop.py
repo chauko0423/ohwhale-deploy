@@ -26,6 +26,7 @@ import queue
 import re
 import sqlite3
 import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))  # 让 scripts/ 下的模块可导入
 import threading
 import time
 
@@ -100,9 +101,22 @@ TTS_RAW_RATE = int(setting("audio.tts_raw_rate", 32000))
 PLAY_START = 0.0        # 这一轮开口的时间点，用于"刚开口别被打断"的宽限
 TTS_CLIENT = httpx.Client(timeout=120, trust_env=False,
                           limits=httpx.Limits(max_keepalive_connections=4))
-VISION_MODEL = setting("llm.screen.model")
-VISION_API = setting("llm.screen.base_url").rstrip("/") + "/chat/completions"
-SEEWORDS = ("看", "屏幕", "画面", "这个", "那个", "图", "样子", "长啥样", "长得")
+# "她看一眼"走哪个模型：vision = llm.vision（DeepSeek，读图已验证、更稳）；
+# screen = llm.screen（DashScope qwen3-vl-plus，原来的看屏幕路径）
+CAPTURE_USE = str(setting("llm.capture.use", "vision"))
+if CAPTURE_USE == "screen":
+    VISION_MODEL = setting("llm.screen.model")
+    VISION_API = setting("llm.screen.base_url").rstrip("/") + "/chat/completions"
+else:
+    VISION_MODEL = setting("llm.vision.model")
+    VISION_API = setting("llm.vision.base_url").rstrip("/") + "/chat/completions"
+SEEWORDS = ("看", "屏幕", "画面", "这个", "那个", "图", "样子", "长啥样", "长得",
+            "表情", "动作", "手势", "姿势", "我在干嘛", "我帅吗", "我笑了吗")
+# 视频通话时"她看你"的来源：call_window = 截 QQ 通话窗口（推荐），screen = 截全屏
+VISION_SOURCE = str(setting("llm.capture.source", "call_window"))
+VISION_MAX_WIDTH = int(setting("llm.capture.max_width", 1280))
+VISION_QUALITY = int(setting("llm.capture.quality", 70))
+VISION_MOTION_FRAMES = int(setting("llm.capture.motion_frames", 2))
 
 PLAYING = threading.Event()     # 她正在说话
 INTERRUPT = threading.Event()   # 有人插话
@@ -576,13 +590,27 @@ class Ear:
 
 
 def grab_screen_b64() -> str:
-    """截当前屏幕，缩到 1280 宽压 jpg。"""
-    from PIL import ImageGrab
-    img = ImageGrab.grab()
-    img = img.resize((1280, int(img.height * 1280 / img.width)))
-    buf = io.BytesIO()
-    img.convert("RGB").save(buf, "JPEG", quality=70)
-    return base64.b64encode(buf.getvalue()).decode()
+    """截当前屏幕，缩到配置宽度压 jpg（首屏兜底，正常走 vision_capture）。"""
+    from vision_capture import grab_fullscreen_b64
+    shot = grab_fullscreen_b64(VISION_MAX_WIDTH, VISION_QUALITY)
+    if not shot:
+        raise RuntimeError("截图失败")
+    return shot
+
+
+def grab_look(text: str) -> list:
+    """按这句话决定"看"什么、看几帧，返回 base64 列表。"""
+    try:
+        from vision_capture import grab_for_reply
+    except Exception as e:  # noqa: BLE001
+        print(f"  [视觉] 采集模块不可用({e})，退回全屏")
+        try:
+            return [grab_screen_b64()]
+        except Exception:  # noqa: BLE001
+            return []
+    return grab_for_reply(text, source=VISION_SOURCE,
+                          max_width=VISION_MAX_WIDTH, quality=VISION_QUALITY,
+                          motion_frames=VISION_MOTION_FRAMES)
 
 
 def wants_vision(text: str) -> bool:
@@ -662,9 +690,11 @@ class Brain:
                 print("AstrBot 已就绪，后续对话自动切过去")
                 return
 
-    def think(self, text: str, image_b64: str | None = None) -> str:
+    def think(self, text: str, image_b64=None) -> str:
+        # 兼容旧调用：单个字符串也当成一帧
+        images = [image_b64] if isinstance(image_b64, str) else list(image_b64 or [])
         # 带图的那一轮必须走视觉模型，AstrBot 这条路不支持图片，直接跳过
-        if self.bridge is not None and image_b64 is None:
+        if self.bridge is not None and not images:
             try:
                 reply = self.bridge.chat(text)
                 if reply:
@@ -672,27 +702,38 @@ class Brain:
             except Exception as e:  # noqa: BLE001
                 print(f"  AstrBot 出错({e})，回退直连")
         self.hist.append({"role": "user", "content": text})
-        if image_b64 and self.vision_key:
-            # 这一轮要看图：走视觉模型，把屏幕截图和话一起给它
+        if images and self.vision_key:
+            # 这一轮要看图：多帧（动作判断）按顺序塞给视觉模型
             content = [
                 {"type": "image_url",
-                 "image_url": {"url": f"data:image/jpeg;base64,{image_b64}"}},
-                {"type": "text", "text": text},
+                 "image_url": {"url": f"data:image/jpeg;base64,{img}"}}
+                for img in images
             ]
+            if len(images) > 1:
+                content.append({"type": "text",
+                                "text": "以下是相隔约 1 秒的连续画面，注意动作变化。"})
+            content.append({"type": "text", "text": text})
             msgs = [{"role": "system", "content": self.persona}] + self.hist[:-1][-6:] + \
                    [{"role": "user", "content": content}]
             with httpx.Client(timeout=90, trust_env=False) as cli:
-                r = cli.post(VISION_API,
-                             json={"model": VISION_MODEL, "messages": msgs},
+                body = {"model": VISION_MODEL, "messages": msgs}
+                # DeepSeek 的推理模型默认先"思考"再答；看图这条链路在意延迟，
+                # 关掉思考实测 5.1s → 1.7s（qwen3-vl-plus 反而要 40s+）。
+                if "deepseek" in (VISION_MODEL or "").lower():
+                    body["thinking"] = {"type": "disabled"}
+                r = cli.post(VISION_API, json=body,
                              headers={"Authorization": f"Bearer {self.vision_key}"})
                 d = r.json()
             reply = d["choices"][0]["message"].get("content", "").strip()
         else:
             msgs = [{"role": "system", "content": self.persona}] + self.hist[-8:]
+            chat_model = setting("llm.chat.model")
+            body = {"model": chat_model, "messages": msgs, "temperature": 0.85}
+            # 电话模式要的是"立刻接话"：实测开/关思考 1.4s vs 0.76s。
+            if "deepseek" in (chat_model or "").lower():
+                body["thinking"] = {"type": "disabled"}
             with httpx.Client(timeout=60, trust_env=False) as cli:
-                r = cli.post(f"{self.base}/chat/completions",
-                             json={"model": setting("llm.chat.model"), "messages": msgs,
-                                   "temperature": 0.85},
+                r = cli.post(f"{self.base}/chat/completions", json=body,
                              headers={"Authorization": f"Bearer {self.key}"})
                 d = r.json()
             reply = d["choices"][0]["message"].get("content", "").strip()
@@ -714,7 +755,8 @@ def main():
     dashscope.api_key = ali_key
 
     speaker = Speaker()
-    brain = Brain(ds_key, ds_base, persona, vision_key=ali_key)
+    brain = Brain(ds_key, ds_base, persona,
+                  vision_key=(ali_key if CAPTURE_USE == "screen" else ds_key))
     q: queue.Queue = queue.Queue()
     ear = Ear(lambda a, t: q.put((a, t)))
     threading.Thread(target=ear.run, daemon=True).start()
@@ -795,10 +837,11 @@ def main():
             print(f"\n[{time.strftime('%H:%M:%S')}] 你：{text}"
                   f"  （音频 {dur:.1f}s 峰值 {peak:.3f}）")
             t1 = time.time()
-            img = grab_screen_b64() if wants_vision(text) else None
-            if img:
-                print("  [看了一眼屏幕]")
-            reply = brain.think(text, img)
+            imgs = grab_look(text) if wants_vision(text) else []
+            if imgs:
+                where = "通话窗口" if VISION_SOURCE != "screen" else "屏幕"
+                print(f"  [看了一眼{where}，{len(imgs)} 帧]")
+            reply = brain.think(text, imgs or None)
             t_llm = time.time() - t1
             print(f"[{time.strftime('%H:%M:%S')}] 她：{reply}")
 
