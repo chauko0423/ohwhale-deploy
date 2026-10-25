@@ -615,8 +615,14 @@ class QQPower(Star):
                     r = await cli.comment(tid.strip(), text.strip(), hostuin=uin.strip())
                 else:
                     r = await cli.delete(tid.strip())
-                return (f"{a} 成功了" if r.get("ok")
-                        else f"{a} 没成：{r.get('err')}")
+                self._log_call("qq_qzone", {"action": a, "tid": tid, "uin": uin},
+                               ("ok" if r.get("ok") else f"FAIL {r.get('err')}"))
+                if r.get("ok"):
+                    if a == "comment":
+                        target = f"（评在 {uin} 的说说下）" if uin.strip() else ""
+                        return f"评论发出去了{target}，空间已确认能读到。"
+                    return f"{a} 成功了"
+                return f"{a} 没成：{r.get('err')}"
 
             return f"不认识这个操作：{action}。可用 post/list/comments/friends/user/like/comment/delete"
         except Exception as e:  # noqa: BLE001
