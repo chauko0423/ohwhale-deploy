@@ -392,13 +392,27 @@ class QzoneClient:
                 break
         return {"ok": True, "count": len(items), "items": items}
 
+    @staticmethod
+    def _comment_item(c: dict) -> dict:
+        """把空间返回的一条评论规整成统一结构。"""
+        user = c.get("user") or {}
+        return {
+            "id": str(c.get("commentid") or c.get("commentId") or c.get("id")
+                      or c.get("tid") or ""),
+            "who": c.get("name") or c.get("nickname") or user.get("nickname") or "",
+            "uin": str(c.get("uin") or user.get("uin") or ""),
+            "text": _snippet(str(c.get("content") or ""), 120),
+            "time": _fmt_ts(c.get("create_time") or c.get("abstime")),
+        }
+
     async def list_user(self, uin: str, num: int = 10) -> dict:
         """看某个好友的说说（用他的 uin 拉 feed，权限不够会失败）。"""
         uin = str(uin or "").strip()
         if not uin:
             return {"ok": False, "err": "缺 uin（好友的 QQ 号）"}
+        # 实测：看别人的说说要把 uin 也换成他（只改 hostuin 会返回自己的）
         params = {
-            "uin": self.uin, "hostuin": uin, "ftype": "0", "sort": "0",
+            "uin": uin, "hostuin": uin, "ftype": "0", "sort": "0",
             "pos": "0", "num": str(max(1, min(40, num))), "replynum": "0",
             "callback": "_preloadCallback", "code_version": "1",
             "format": "json", "need_private_comment": "1",
@@ -459,48 +473,77 @@ class QzoneClient:
         return {"ok": False, "err": "点赞返回无法解析", "raw": _snippet(payload["text"])}
 
     # ---------------- 评论 ----------------
-    async def comment(self, tid: str, text: str, hostuin: str = "") -> dict:
+    async def comment(self, tid: str, text: str, hostuin: str = "",
+                      comment_id: str = "", target_name: str = "") -> dict:
+        """在说说下评论；comment_id 非空时按「回复某条评论」的格式发（楼中楼）。
+
+        实测（2026-10-25）：评论接口要的是
+          topicId = "{说说主人uin}_{tid}__1"（回复时 __{被回复评论的tid}）
+        加 uin/hostUin/format=fs/plat=qzone/source=ic/platformid=52/ref=feeds。
+        接口经常返回非 JSON 的 fs 串，所以**成功与否以回读评论列表为准**。
+        """
         tid = str(tid or "").strip()
         text = (text or "").strip()
         if not tid or not text:
             return {"ok": False, "err": "缺 tid 或评论内容"}
-        form = self._base_form()
-        form.update({
-            "topicId": tid,
+        owner = str(hostuin or self.uin)
+        if comment_id:
+            topic_id = f"{owner}_{tid}__{comment_id}"
+        else:
+            topic_id = f"{owner}_{tid}__1"
+        form = {
+            "topicId": topic_id,
+            "uin": self.uin,
+            "hostUin": owner,
             "content": text,
-            "hostUin": hostuin or self.uin,
+            "format": "fs",
             "plat": "qzone",
-            "code_version": "1",
-        })
+            "source": "ic",
+            "platformid": "52",
+            "ref": "feeds",
+        }
+        if comment_id and target_name:
+            form["richtype"] = ""
+            form["richval"] = ""
+            form["paramstr"] = f"@{target_name} {text}"
+
         ok, payload, err = await self._req("POST", REFEEDS_URL, data=form)
         if not ok:
             return {"ok": False, "err": err}
-        data = _loads(payload["text"])
-        if isinstance(data, dict):
-            code = data.get("code", data.get("ret", 0))
-            if str(code) in ("0", "None") or data.get("data"):
-                # 评论别人的说说：接口回 ok 不一定真发出去（权限/风控）。
-                # 回读一次评论列表确认，没看到就如实说没成功，别让她编"我回了"。
-                if hostuin and str(hostuin) != str(self.uin):
-                    check = await self.comments(tid, 20)
-                    if check.get("ok"):
-                        hit = any((it.get("text") or "").strip() == text
-                                  for it in (check.get("items") or []))
-                        if not hit:
-                            return {"ok": False,
-                                    "err": "空间没接收这条评论（大概率没有权限或触发验证）",
-                                    "raw": _snippet(payload["text"])}
-                return {"ok": True, "data": data}
-            return {"ok": False, "err": _code_text(code, data),
-                    "raw": _snippet(payload["text"])}
-        return {"ok": False, "err": "评论返回无法解析", "raw": _snippet(payload["text"])}
+
+        # 回读确认（接口不可信）
+        check = await self.comments(tid, 30, owner=owner)
+        if check.get("ok"):
+            hit = any(text in (it.get("text") or "") for it in (check.get("items") or []))
+            if hit:
+                return {"ok": True, "topicId": topic_id}
+            return {"ok": False,
+                    "err": "空间没接收这条评论（接口回了但评论列表里没有，可能触发验证）",
+                    "raw": _snippet(payload.get("text", ""))}
+        return {"ok": True, "topicId": topic_id, "note": "接口已提交，但回读失败无法确认"}
 
     # ---------------- 读评论 ----------------
-    async def comments(self, tid: str, num: int = 20) -> dict:
+    async def comments(self, tid: str, num: int = 20, owner: str = "") -> dict:
         """读某条说说下面的评论（别人在她说说下的留言）。"""
         tid = str(tid or "").strip()
         if not tid:
             return {"ok": False, "err": "缺 tid（先用 list 拿）"}
+        if owner and str(owner) != str(self.uin):
+            # 别人的说说：用 msglist + need_comment 拿 commentlist
+            ok, payload, _err = await self._req("GET", MSGLIST_URL, params={
+                "uin": owner, "hostuin": owner, "ftype": "0", "sort": "0",
+                "pos": "0", "num": "5", "replynum": "100",
+                "callback": "_preloadCallback", "code_version": "1",
+                "format": "json", "need_comment": "1"})
+            if ok:
+                data = _loads(payload["text"])
+                if isinstance(data, dict):
+                    for m in data.get("msglist") or []:
+                        if str(m.get("tid")) == tid:
+                            cl = m.get("commentlist") or []
+                            return {"ok": True, "count": len(cl[:num]),
+                                    "items": [self._comment_item(c) for c in cl[:num]]}
+            return {"ok": False, "err": "读不到这条说说的评论"}
         params = {
             "uin": self.uin, "tid": tid, "format": "json",
             "code_version": "1", "need_private_comment": "1",
@@ -532,6 +575,7 @@ class QzoneClient:
                         continue
                     user = c.get("user") or {}
                     items.append({
+                        "id": str(c.get("commentid") or c.get("commentId") or c.get("id") or ""),
                         "who": c.get("name") or c.get("nickname") or user.get("nickname") or "",
                         "uin": str(c.get("uin") or user.get("uin") or ""),
                         "text": _snippet(str(c.get("content") or ""), 120),
