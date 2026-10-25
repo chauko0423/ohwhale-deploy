@@ -26,6 +26,7 @@ import queue
 import re
 import sqlite3
 import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))  # 让 scripts/ 下的模块可导入
 import threading
 import time
 
