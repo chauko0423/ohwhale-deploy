@@ -663,6 +663,14 @@ class Brain:
                 return
 
     def think(self, text: str, image_b64: str | None = None) -> str:
+        # 每轮先更新"小状态"（好感/心情/他刚说过的话），再把它作为一行注入人设
+        persona = self.persona
+        try:
+            import mood_state
+            mood_state.update_from_user(text)
+            persona = persona + "\n\n" + mood_state.summary()
+        except Exception as exc:  # noqa: BLE001
+            print(f"  [状态] 更新失败({exc})，按原人设回答")
         # 带图的那一轮必须走视觉模型，AstrBot 这条路不支持图片，直接跳过
         if self.bridge is not None and image_b64 is None:
             try:
@@ -679,7 +687,7 @@ class Brain:
                  "image_url": {"url": f"data:image/jpeg;base64,{image_b64}"}},
                 {"type": "text", "text": text},
             ]
-            msgs = [{"role": "system", "content": self.persona}] + self.hist[:-1][-6:] + \
+            msgs = [{"role": "system", "content": persona}] + self.hist[:-1][-6:] + \
                    [{"role": "user", "content": content}]
             with httpx.Client(timeout=90, trust_env=False) as cli:
                 r = cli.post(VISION_API,
@@ -688,7 +696,7 @@ class Brain:
                 d = r.json()
             reply = d["choices"][0]["message"].get("content", "").strip()
         else:
-            msgs = [{"role": "system", "content": self.persona}] + self.hist[-8:]
+            msgs = [{"role": "system", "content": persona}] + self.hist[-8:]
             with httpx.Client(timeout=60, trust_env=False) as cli:
                 r = cli.post(f"{self.base}/chat/completions",
                              json={"model": setting("llm.chat.model"), "messages": msgs,
