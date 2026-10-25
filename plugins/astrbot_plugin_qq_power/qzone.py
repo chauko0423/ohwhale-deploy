@@ -479,6 +479,17 @@ class QzoneClient:
         if isinstance(data, dict):
             code = data.get("code", data.get("ret", 0))
             if str(code) in ("0", "None") or data.get("data"):
+                # 评论别人的说说：接口回 ok 不一定真发出去（权限/风控）。
+                # 回读一次评论列表确认，没看到就如实说没成功，别让她编"我回了"。
+                if hostuin and str(hostuin) != str(self.uin):
+                    check = await self.comments(tid, 20)
+                    if check.get("ok"):
+                        hit = any((it.get("text") or "").strip() == text
+                                  for it in (check.get("items") or []))
+                        if not hit:
+                            return {"ok": False,
+                                    "err": "空间没接收这条评论（大概率没有权限或触发验证）",
+                                    "raw": _snippet(payload["text"])}
                 return {"ok": True, "data": data}
             return {"ok": False, "err": _code_text(code, data),
                     "raw": _snippet(payload["text"])}
