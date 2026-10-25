@@ -206,7 +206,7 @@ def start(core_only=False):
         commands = commands[:2]
     extras=[] if core_only else ["watchdog"]
     if not core_only and get("features.phone"):extras.append("call_agent")
-    if not core_only and get("features.avatar"):extras.append("avatar_live")
+    if not core_only and get("features.avatar"):extras.extend(("avatar_live", "avatar_bridge"))
     if not core_only and get("features.mic_guard"):extras.append("mic_guard")
     # call_agent defaults to diagnostic watch mode; phone startup needs answer.
     commands.extend((n,[path("python"),"-u",str(root()/"scripts"/(n+".py"))]

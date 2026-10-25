@@ -258,7 +258,7 @@ def open_section():
     for name in (SECTION_NAME, SECTION_NAME_LOCAL):
         h = k32.OpenFileMappingW(FILE_MAP_WRITE, False, name)
         if h:
-            return h, False
+            return h, False, name
 
     sddl = "D:(A;;GA;;;SY)(A;;GA;;;LS)(A;;GA;;;BA)(A;;GRGW;;;IU)S:(ML;;NW;;;LW)"
     advapi = ctypes.WinDLL("advapi32", use_last_error=True)
@@ -283,7 +283,7 @@ def open_section():
             h = k32.CreateFileMappingW(wintypes.HANDLE(-1), ctypes.byref(sa), PAGE_READWRITE,
                                        SECTION_SIZE >> 32, SECTION_SIZE & 0xFFFFFFFF, name)
             if h:
-                return h, True
+                return h, True, name
         raise ctypes.WinError(ctypes.get_last_error())
     finally:
         k32.LocalFree(sd)
@@ -293,7 +293,7 @@ class FrameMapping:
     """摄像头服务可晚于角色启动；Global 出现后接续向服务推帧。"""
 
     def __init__(self):
-        self.handle, created = open_section()
+        self.handle, created, self.section_name = open_section()
         self.view = k32.MapViewOfFile(self.handle, FILE_MAP_WRITE, 0, 0, SECTION_SIZE)
         if not self.view:
             error = ctypes.get_last_error()
@@ -302,7 +302,11 @@ class FrameMapping:
             raise ctypes.WinError(error)
         self.global_connected = False
         self.next_probe = 0.0
-        print("共享内存", "已创建" if created else "已打开")
+        print("共享内存", "已创建" if created else "已打开", self.section_name)
+        if "Local" in self.section_name:
+            print("  注意：当前是 Local 映射，跨会话的摄像头服务读不到。"
+                  "部署启动器会同时运行 scripts/avatar_to_camera.py 桥接；"
+                  "若要摄像头直接读共享内存，请以管理员身份运行本脚本。", flush=True)
 
     def ensure_global(self, now):
         # Frame Server 在用户打开摄像头时才创建 Global；不要求管理员启动角色。
