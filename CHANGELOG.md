@@ -1,5 +1,17 @@
 # 变更记录
 
+## 未发布 · 通话链路稳定性
+
+- 新增 `docs/08_通话链路排障.md`：裸 PCM 采样率与音色变调、流式 ASR 卡 40s、
+  静音导致「她聋了」、视频接听不开摄像头、保活/自启的排查与修法。
+- 新增可选脚本 `scripts/asr_local_server.py`：本地 faster-whisper 常驻 HTTP ASR
+  （短句约 0.6s，不依赖网络），作为云端识别卡顿时的兜底。
+- 新增可选脚本 `scripts/tts_cosyvoice_shim.py`：GPT-SoVITS 兼容的 `/tts` 接口，
+  后端换成百炼 CosyVoice；严格区分 `media_type=wav` 与 `media_type=raw`
+  （raw 输出必须按 `audio.tts_raw_rate`，否则会被播成低沉的慢速人声）。
+- `docs/05_故障排查.md` 增加指向新文档的入口。
+
+
 ## 未发布 · 形象链路修复
 
 - 新增 `scripts/avatar_to_camera.py`：把 `avatar_live.py` 的共享内存帧按 10 fps 写成
