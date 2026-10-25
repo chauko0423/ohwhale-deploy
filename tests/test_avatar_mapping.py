@@ -28,18 +28,18 @@ class AvatarMappingTests(unittest.TestCase):
 
     def test_existing_global_is_reused_without_creation(self):
         self.kernel.OpenFileMappingW.return_value = 17
-        self.assertEqual(self.m.open_section(), (17, False))
+        self.assertEqual(self.m.open_section(), (17, False, self.m.SECTION_NAME))
         self.kernel.CreateFileMappingW.assert_not_called()
         self.advapi.ConvertStringSecurityDescriptorToSecurityDescriptorW.assert_not_called()
 
     def test_existing_local_is_reused_before_trying_global_creation(self):
         self.kernel.OpenFileMappingW.side_effect = [0, 18]
-        self.assertEqual(self.m.open_section(), (18, False))
+        self.assertEqual(self.m.open_section(), (18, False, self.m.SECTION_NAME_LOCAL))
         self.kernel.CreateFileMappingW.assert_not_called()
 
     def test_global_permission_failure_falls_back_to_local(self):
         self.kernel.CreateFileMappingW.side_effect = [0, 19]
-        self.assertEqual(self.m.open_section(), (19, True))
+        self.assertEqual(self.m.open_section(), (19, True, self.m.SECTION_NAME_LOCAL))
         names = [c.args[-1] for c in self.kernel.CreateFileMappingW.call_args_list]
         self.assertEqual(names, [self.m.SECTION_NAME, self.m.SECTION_NAME_LOCAL])
         self.kernel.LocalFree.assert_called_once()

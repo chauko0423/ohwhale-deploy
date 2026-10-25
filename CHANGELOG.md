@@ -1,5 +1,21 @@
 # 变更记录
 
+## 未发布 · 形象链路修复
+
+- 新增 `scripts/avatar_to_camera.py`：把 `avatar_live.py` 的共享内存帧按 10 fps 写成
+  `%ProgramData%\CameraEmulator\image.png`。摄像头源每帧重读该文件，因此
+  **普通权限运行 avatar_live（Local 段）也能显示动态形象**，不要求管理员。
+- `ohwhale/deploy.py`：`features.avatar` 开启时同时启动上述桥接（`avatar_bridge`）。
+- `scripts/avatar_live.py`：启动时打印实际使用的共享内存名字；使用 Local 段时明确提示
+  “跨会话摄像头服务读不到”，并指向桥接方案。
+- `install/camera/Install-camera.ps1`：安装时放开 `%ProgramData%\CameraEmulator` 的
+  Users 修改权限。此前该目录默认只读，`CameraEmulator.exe` 会报
+  `Saving the layout failed: 0x80070005` 并静默退出，表现为摄像头一直显示占位图。
+- `docs/05_故障排查.md`：补充“占位图 / Global 与 Local / QQ 仍用实体镜头”的排查与回退步骤。
+
+> 仍未解决：部分设备 QQ 选择 CameraEmulator 后依旧使用实体摄像头。
+> 文档给出的是人为禁用实体摄像头的绕过方式，不算 QQ 视频链路验收通过。
+
 ## 0.1.0a1 · Alpha 预览版（2026-10-24）
 
 - 抽离 23 个原有脚本、5 个插件、当前默认人设、362 张表情包及参考音频和形象素材。
