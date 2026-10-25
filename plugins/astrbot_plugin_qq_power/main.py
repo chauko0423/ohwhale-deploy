@@ -98,6 +98,146 @@ class QQPower(Star):
             logger.warning("[qq-power] 请先填写 config.json 的 master.qq；主人权限默认关闭")
         self.owner = str(OWNER_QQ)          # 兼容旧引用，等于默认主人
         self._call_log = os.path.join(self.data_dir, "tool_calls.jsonl")
+        # 说说评论巡检：她主动看别人在自己说说下面的评论
+        self._bot = None
+        self._owner_umo = ""
+        self._comment_task = None
+        self._comment_state_path = os.path.join(self.data_dir, "comment_state.json")
+        self._comment_state = self._load_comment_state()
+
+    # ================= 说说评论巡检 =================
+    def _load_comment_state(self) -> dict:
+        try:
+            with open(self._comment_state_path, encoding="utf-8") as f:
+                d = json.load(f)
+            if isinstance(d, dict):
+                return {
+                    "seen": [str(x) for x in (d.get("seen") or [])][-200:],
+                    "last_check": float(d.get("last_check") or 0),
+                }
+        except Exception:  # noqa: BLE001
+            pass
+        return {"seen": [], "last_check": 0.0}
+
+    def _save_comment_state(self):
+        try:
+            tmp = self._comment_state_path + ".tmp"
+            with open(tmp, "w", encoding="utf-8") as f:
+                json.dump(self._comment_state, f, ensure_ascii=False, indent=1)
+            os.replace(tmp, self._comment_state_path)
+        except Exception as e:  # noqa: BLE001
+            logger.warning(f"[qq-power] 评论巡检状态落盘失败：{e}")
+
+    async def initialize(self):
+        """启动评论巡检后台任务。间隔由 config.json 的 qzone.comment_poll_minutes 控制。"""
+        try:
+            self._comment_task = asyncio.create_task(self._comment_loop())
+            logger.info("[qq-power] 说说评论巡检已启动")
+        except Exception as e:  # noqa: BLE001
+            logger.warning(f"[qq-power] 评论巡检启动失败：{e}")
+
+    async def terminate(self):
+        if self._comment_task:
+            self._comment_task.cancel()
+            self._comment_task = None
+
+    async def _comment_loop(self):
+        """后台轮询：每隔 N 分钟看她最新说说的评论，有新评论就主动找主人说一句。"""
+        # 启动后先等 90 秒，避免和启动阶段抢资源
+        await asyncio.sleep(90)
+        while True:
+            try:
+                if not self.owner:
+                    await asyncio.sleep(600)
+                    continue
+                minutes = 60
+                try:
+                    minutes = int(setting("qzone.comment_poll_minutes", 60))
+                except Exception:  # noqa: BLE001
+                    minutes = 60
+                minutes = max(10, min(1440, minutes))
+                enabled = True
+                try:
+                    enabled = bool(setting("features.qzone_comment_poll", True))
+                except Exception:  # noqa: BLE001
+                    enabled = True
+                if enabled:
+                    await self._check_comments()
+                await asyncio.sleep(minutes * 60)
+            except asyncio.CancelledError:
+                return
+            except Exception as e:  # noqa: BLE001
+                logger.warning(f"[qq-power] 评论巡检出错：{e}")
+                await asyncio.sleep(300)
+
+    async def _check_comments(self):
+        """看最新说说下面的评论；只报告上次检查之后新出现的。"""
+        if not self._bot or not self._owner_umo:
+            return
+        try:
+            cli = await QzoneClient.from_bot(self._bot, self.owner)
+        except QzoneError:
+            return
+        except Exception as e:  # noqa: BLE001
+            logger.warning(f"[qq-power] 评论巡检取空间登录态失败：{e}")
+            return
+
+        r = await cli.list_self(3)
+        if not r.get("ok"):
+            return
+        baseline = not self._comment_state.get("seen")
+        fresh = []
+        for item in r.get("items") or []:
+            tid = str(item.get("tid") or "")
+            if not tid:
+                continue
+            cr = await cli.comments(tid, 20)
+            if not cr.get("ok"):
+                continue
+            for it in cr.get("items") or []:
+                text = (it.get("text") or "").strip()
+                if not text:
+                    continue
+                sig = f"{tid}|{it.get('uin') or it.get('who')}|{text[:60]}"
+                if sig in self._comment_state["seen"]:
+                    continue
+                self._comment_state["seen"].append(sig)
+                fresh.append({"who": it.get("who") or "某人", "text": text, "t": item.get("内容", "")})
+
+        self._comment_state["seen"] = self._comment_state["seen"][-200:]
+        self._comment_state["last_check"] = time.time()
+        self._save_comment_state()
+
+        # 第一次运行只做基线，不打扰；之后才报告新评论
+        if baseline or not fresh:
+            return
+
+        lines = "\n".join(f"- {x['who']}：{x['text']}" for x in fresh[:5])
+        try:
+            persona = ""
+            try:
+                p = await self.context.persona_manager.get_default_persona_v3(self._owner_umo)
+                persona = getattr(p, "system_prompt", "") or ""
+            except Exception:  # noqa: BLE001
+                pass
+            prov = self.context.get_using_provider()
+            prompt = (
+                f"有人在你 QQ 空间的说说下面评论了：\n{lines}\n\n"
+                "你要在 QQ 上主动跟他说一句（不是回复评论，是私聊他）。"
+                "1~2 句，短，口语，可以损他、可以嘴硬，别客服腔、别解释。"
+            )
+            reply = await prov.text_chat(prompt=prompt, contexts=[], system_prompt=persona)
+            text = (getattr(reply, "completion_text", "") or "").strip() or f"有人在我说说下面说话：\n{lines}"
+        except Exception as e:  # noqa: BLE001
+            logger.warning(f"[qq-power] 评论巡检生成回复失败：{e}")
+            text = f"有人在我说说下面说话：\n{lines}"
+        try:
+            chain = MessageChain()
+            chain.message(text)
+            await self.context.send_message(self._owner_umo, chain)
+            self._log_call("qzone_comment_poll", {"n": len(fresh)}, "sent")
+        except Exception as e:  # noqa: BLE001
+            logger.warning(f"[qq-power] 评论巡检通知发送失败：{e}")
 
     # ================= 主人名单 =================
     def _load_owners(self) -> set[str]:
@@ -387,7 +527,7 @@ class QQPower(Star):
         """操作 QQ 空间（说说）。发说说、看最近的说说、给说说点赞或评论。
 
         Args:
-            action (string): post=发说说 / list=看自己最近的说说 / friends=看好友动态 / like=点赞 / comment=评论 / delete=删说说
+            action (string): post=发说说 / list=看自己最近的说说 / comments=看某条说说的评论 / friends=看好友动态 / like=点赞 / comment=评论 / delete=删说说
             text (string): 发说说时的正文，或评论内容
             tid (string): 说说 id。点赞/评论/删除时用，先 list 拿到
             num (number): 列表条数，默认 5
@@ -435,6 +575,22 @@ class QQPower(Star):
                     return "好友动态是空的（这个接口本来就不太稳）。"
                 return _fmt_items("好友动态", r["items"])
 
+            if a == "comments":
+                if not tid.strip():
+                    return "先 list 看一眼，把 tid 给我。"
+                r = await cli.comments(tid.strip(), int(num) if num else 20)
+                if not r.get("ok"):
+                    return f"评论没读出来：{r.get('err')}"
+                if not r.get("count"):
+                    return "这条下面还没有评论。"
+                self._log_call("qq_qzone", {"action": "comments", "tid": tid},
+                               f"ok n={r.get('count')}")
+                lines = ["这条说说下面的评论："]
+                for it in r["items"]:
+                    who = it.get("who") or it.get("uin") or "某人"
+                    lines.append(f"- {who}：{it.get('text')}（{it.get('time')}）")
+                return "\n".join(lines)
+
             if a in ("like", "comment", "delete"):
                 if not tid.strip():
                     return "缺 tid，先用 list 看一眼再操作。"
@@ -449,7 +605,7 @@ class QQPower(Star):
                 return (f"{a} 成功了" if r.get("ok")
                         else f"{a} 没成：{r.get('err')}")
 
-            return f"不认识这个操作：{action}。可用 post/list/friends/like/comment/delete"
+            return f"不认识这个操作：{action}。可用 post/list/comments/friends/like/comment/delete"
         except Exception as e:  # noqa: BLE001
             logger.warning(f"[qq-power] 空间操作异常：{e}")
             return f"空间操作出错了：{e}"
@@ -548,6 +704,13 @@ class QQPower(Star):
         text = (getattr(event, "message_str", "") or "").strip()
         if not text or text[0] in "/／":
             return
+        # 记住主人的会话（私聊），评论巡检要用它主动发消息
+        try:
+            if str(event.get_sender_id()) in self.owners:
+                self._bot = event.bot
+                self._owner_umo = event.unified_msg_origin
+        except Exception:  # noqa: BLE001
+            pass
         # 口径：私聊每条都算；群里只算 @ 到她的。
         # 群里一天几百条，全算的话她会以为"聊了很多"，其实那些话跟她没关系。
         try:

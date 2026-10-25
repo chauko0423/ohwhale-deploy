@@ -29,6 +29,7 @@ MSGLIST_URL = f"{BASE}/taotao.qq.com/cgi-bin/emotion_cgi_msglist_v6"
 REFEEDS_URL = f"{BASE}/taotao.qzone.qq.com/cgi-bin/emotion_cgi_re_feeds"
 DEL_URL = f"{BASE}/taotao.qzone.qq.com/cgi-bin/emotion_cgi_delete_v6"
 LIKE_URL = f"{BASE}/w.qzone.qq.com/cgi-bin/likes/internal_dolike_app"
+DETAIL_URL = f"{BASE}/taotao.qq.com/cgi-bin/emotion_cgi_msgdetail_v6"
 FEEDS_URL = f"{BASE}/ic2.qzone.qq.com/cgi-bin/feeds/feeds3_html_more"
 INFOCENTER_URL = "https://user.qzone.qq.com/{uin}"
 
@@ -444,6 +445,52 @@ class QzoneClient:
             return {"ok": False, "err": _code_text(code, data),
                     "raw": _snippet(payload["text"])}
         return {"ok": False, "err": "评论返回无法解析", "raw": _snippet(payload["text"])}
+
+    # ---------------- 读评论 ----------------
+    async def comments(self, tid: str, num: int = 20) -> dict:
+        """读某条说说下面的评论（别人在她说说下的留言）。"""
+        tid = str(tid or "").strip()
+        if not tid:
+            return {"ok": False, "err": "缺 tid（先用 list 拿）"}
+        params = {
+            "uin": self.uin, "tid": tid, "format": "json",
+            "code_version": "1", "need_private_comment": "1",
+            "pos": "0", "num": str(max(1, min(50, num))),
+        }
+        last = ""
+        for url in (DETAIL_URL, MSGLIST_URL):
+            ok, payload, err = await self._req("GET", url, params=params)
+            if not ok:
+                last = err
+                continue
+            data = _loads(payload["text"])
+            if not isinstance(data, dict):
+                last = "返回不是 JSON"
+                continue
+            cl = data.get("commentlist")
+            if cl is None:
+                inner = data.get("data") or {}
+                cl = inner.get("commentlist") or inner.get("comments")
+            if cl is None and data.get("msglist"):
+                for m in data["msglist"]:
+                    if str(m.get("tid")) == tid:
+                        cl = m.get("commentlist") or []
+                        break
+            if cl is not None:
+                items = []
+                for c in cl[:num]:
+                    if not isinstance(c, dict):
+                        continue
+                    user = c.get("user") or {}
+                    items.append({
+                        "who": c.get("name") or c.get("nickname") or user.get("nickname") or "",
+                        "uin": str(c.get("uin") or user.get("uin") or ""),
+                        "text": _snippet(str(c.get("content") or ""), 120),
+                        "time": _fmt_ts(c.get("create_time") or c.get("abstime")),
+                    })
+                return {"ok": True, "count": len(items), "items": items}
+        return {"ok": False, "err": f"读评论失败：{last or '接口没给 commentlist'}"}
+
 
     # ---------------- 删除 ----------------
     async def delete(self, tid: str) -> dict:

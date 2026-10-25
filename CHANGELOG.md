@@ -1,5 +1,17 @@
 # 变更记录
 
+## 未发布 · 说说评论：她能看见你写了什么
+
+- `qzone.py` 新增 `QzoneClient.comments()`：依次尝试 `emotion_cgi_msgdetail_v6` 与
+  `msglist`（含 commentlist），返回昵称/内容/时间；两个接口都不给数据时返回人话错误。
+- `qq_qzone` 工具新增 `comments` 动作：先说 `list` 拿 tid，再读该条下面的评论。
+- 新增**定时巡检**（`initialize()` 起后台任务，默认 60 分钟）：
+  只报告上次检查之后新出现的评论，首次运行仅建基线不打扰；
+  用 `tid|uin|内容前60字` 去重（最多保留 200 条签名），新评论用她的人设生成 1~2 句私聊通知。
+- 新增配置：`features.qzone_comment_poll`（开关）、`qzone.comment_poll_minutes`（间隔，夹在 10~1440 分钟）。
+- 新增 `docs/12_说说评论.md`、`tests/test_qzone_comments.py`（5 项离线测试）。
+
+
 ## 0.1.0a1 · Alpha 预览版（2026-10-24）
 
 - 抽离 23 个原有脚本、5 个插件、当前默认人设、362 张表情包及参考音频和形象素材。

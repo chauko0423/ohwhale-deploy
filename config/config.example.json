@@ -78,7 +78,11 @@
     "phone": true,
     "avatar": false,
     "bilibili": false,
-    "mic_guard": false
+    "mic_guard": false,
+    "qzone_comment_poll": true
+  },
+  "qzone": {
+    "comment_poll_minutes": 60
   },
   "bilibili": {
     "max_like_per_day": 10,
