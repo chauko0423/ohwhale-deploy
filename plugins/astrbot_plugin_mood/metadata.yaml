@@ -1,0 +1,4 @@
+name: astrbot_plugin_mood
+desc: 给鲸鲸一点"心情"：好感/心情/他刚说过的话，压成一行 [状态] 注入 system prompt；与通话侧共用 data/mood.json。
+author: 鲸鲸
+version: 0.1.0
